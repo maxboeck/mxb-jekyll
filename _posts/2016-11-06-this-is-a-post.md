@@ -1,7 +1,7 @@
 ---
 layout: post
 title: "This is my first Post"
-permalink: "/this-is-my-post/"
+permalink: "/blog/this-is-my-post/"
 ---
 
 # This is my first Post

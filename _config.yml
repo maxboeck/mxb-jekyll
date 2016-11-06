@@ -38,6 +38,9 @@ sass:
   sass_dir: _assets/sass
   style: :compressed
 
+include:
+  - _pages
+
 # Build settings
 exclude:
   - package.json

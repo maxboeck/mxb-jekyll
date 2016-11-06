@@ -2,7 +2,7 @@
 
 import gulp from 'gulp';
 
-gulp.task('serve', ['browser-sync'], () => {
+gulp.task('serve', ['browsersync'], () => {
   //asset pipeline
   gulp.watch(['_assets/sass/**/*.scss'], ['sass']);
   gulp.watch(['_assets/js/**/*.js'], ['scripts']);

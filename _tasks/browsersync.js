@@ -3,7 +3,7 @@
 import gulp from 'gulp';
 import browserSync from 'browser-sync';
 
-gulp.task('browser-sync', ['build'], () => {
+gulp.task('browsersync', ['build'], () => {
   browserSync({
     notify: {
       styles: [
