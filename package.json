@@ -1,0 +1,34 @@
+{
+  "name": "MXB-Static",
+  "version": "4.0.0",
+  "description": "personal website",
+  "repository": {
+    "type": "git",
+    "url": "http://github.com/maxboeck/jekyll-gulp"
+  },
+  "author": "@mxbck",
+  "license": "MIT",
+  "dependencies": {
+    "fontfaceobserver": "^1.6.3"
+  },
+  "devDependencies": {
+    "babel-loader": "^6.2.2",
+    "babel-preset-es2015": "^6.5.0",
+    "babel-register": "^6.9.0",
+    "browser-sync": "^2.2.0",
+    "del": "^2.2.2",
+    "gulp": "^3.8.8",
+    "gulp-autoprefixer": "^2.3.1",
+    "gulp-clean-css": "^2.0.11",
+    "gulp-htmlmin": "^2.0.0",
+    "gulp-imagemin": "^2.4.0",
+    "gulp-load-plugins": "^1.2.4",
+    "gulp-rename": "^1.2.2",
+    "gulp-sass": "^2.1.0",
+    "gulp-sourcemaps": "^1.6.0",
+    "gulp-uglify": "^1.5.1",
+    "gulpicon": "^0.1.2",
+    "run-sequence": "^1.2.2",
+    "webpack-stream": "^3.1.0"
+  }
+}

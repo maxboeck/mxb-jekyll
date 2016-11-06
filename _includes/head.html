@@ -1,0 +1,34 @@
+<head>
+  <meta charset="utf-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+
+  <title>{% if page.title %}{{ page.title | escape }}{% else %}{{ site.title | escape }}{% endif %}</title>
+  <meta name="description" content="{% if page.excerpt %}{{ page.excerpt | strip_html | strip_newlines | truncate: 160 }}{% else %}{{ site.description }}{% endif %}">
+
+  <!-- Meta Stuff -->
+  <link rel="manifest" href="{{ "manifest.json" | prepend: site.baseurl }}">
+
+  <!-- Site Styles -->
+  {% if jekyll.environment == "production" %}
+  <link rel="stylesheet" href="{{ "/assets/css/main.min.css" | prepend: site.baseurl }}">
+  {% else %}
+  <link rel="stylesheet" href="{{ "/assets/css/main.css" | prepend: site.baseurl }}">
+  {% endif %}
+  
+  <link rel="canonical" href="{{ page.url | replace:'index.html','' | prepend: site.baseurl | prepend: site.url }}">
+  {% feed_meta %}
+
+  <!-- Modernizr Feature Tests -->
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/modernizr/2.8.3/modernizr.min.js"></script>
+
+  <!-- Grunticon SVG Icons -->
+  <script src="{{ "/assets/icons/grunticon.loader.js" | relative_url }}"></script>
+  <script type="text/javascript">
+    grunticon([
+      '{{ "/assets/icons/icons.data.svg.css" | relative_url }}',
+      '{{ "/assets/icons/icons.data.png.css" | relative_url }}',
+      '{{ "/assets/icons/icons.fallback.css" | relative_url }}'
+    ], grunticon.svgLoadedCallback );
+  </script>
+</head>

@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html class="no-js" lang="{{ site.lang | default: page.lang | default: 'en' }}">
+
+  {% include head.html %}
+
+  <body>
+  <!--[if lt IE 8]>
+  <div class="legacy-browser-warning">
+    <div class="container">You are using an <strong>outdated</strong> browser. Please <a href="http://browsehappy.com/">upgrade your browser</a> to improve your experience.</div>
+  </div>
+  <![endif]-->
+  <a href="#main" class="sr-skip-link" accesskey="1">skip to main content</a>
+
+    <div class="hfeed site" role="document">
+      {% include header.html %}
+
+      <main class="main" role="main" id="main">
+        {{ content }}
+      </main>
+
+      {% include footer.html %}
+    </div>
+    
+    {% include scripts.html %}
+    <!-- last build: {{ site.time | date_to_rfc822 }} -->
+  </body>
+
+</html>

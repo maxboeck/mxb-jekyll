@@ -1,0 +1,19 @@
+{
+  "name": "MXB",
+  "short_name": "MXB",
+  "icons": [{
+        "src": "assets/images/favicon/icon-128x128.png",
+        "sizes": "128x128"
+      }, {
+        "src": "assets/images/favicon/apple-touch-icon.png",
+        "sizes": "152x152"
+      }, {
+        "src": "assets/images/favicon/ms-touch-icon-144x144-precomposed.png",
+        "sizes": "144x144"
+      }, {
+        "src": "assets/images/favicon/chrome-touch-icon-192x192.png",
+        "sizes": "192x192"
+      }],
+  "start_url": "/index.html",
+  "display": "standalone"
+}

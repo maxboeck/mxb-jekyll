@@ -1,0 +1,36 @@
+//--------------------
+// MIXINS & VARIABLES
+//--------------------
+
+@import "utils/var";
+@import "utils/mixins";
+
+//--------------------
+// CORE MODULES
+// partials for site-wide styling
+//--------------------
+
+@import "core/normalize";
+@import "core/reboot";
+
+@import "core/icons";
+
+//--------------------
+// COMPONENTS
+// partials directly tied to an element
+//--------------------
+
+//@import "components/header"
+
+//--------------------
+// PAGES
+// styles for specific page configurations
+//--------------------
+
+//@import "pages/home"
+
+//--------------------
+// VENDOR STYLES
+//--------------------
+
+//@import "vendor/..."

@@ -1,0 +1,19 @@
+---
+layout: default
+---
+<article id="post-{{ page.slug }}" class="post h-entry">
+
+  <header class="post__header">
+    <h1 class="post__title p-name">{{ page.title }}</h1>
+    <p class="post__meta">
+      <time class="dt-published" datetime="{{ page.date | date_to_xmlschema }}">
+      {{ page.date | date: "%B %-d, %Y" }}
+      </time>
+    </p>
+  </header>
+
+  <div class="post__content e-content">
+    {{ content }}
+  </div>
+
+</article>
