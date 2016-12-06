@@ -4,14 +4,16 @@
   {% include head.html %}
 
   <body>
-  <!--[if lt IE 8]>
+  <!--[if lt IE 9]>
   <div class="legacy-browser-warning">
     <div class="container">You are using an <strong>outdated</strong> browser. Please <a href="http://browsehappy.com/">upgrade your browser</a> to improve your experience.</div>
   </div>
   <![endif]-->
   <a href="#main" class="sr-skip-link" accesskey="1">skip to main content</a>
+  <a href="#nav" class="sr-skip-link" accesskey="2">skip to navigation</a>
 
     <div class="hfeed site" role="document">
+      {% include toppanel.html %}
       {% include header.html %}
 
       <main class="main" role="main" id="main" aria-label="Main Content">

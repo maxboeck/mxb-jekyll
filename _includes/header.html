@@ -1,3 +1,18 @@
 <header class="header" role="banner">
-  
+  <div class="header__inner container">
+
+    <a class="brand" href="{{ site.baseurl }}">
+      <span class="sr-only">MXB</span>
+    </a>
+
+    <button type="button" class="header__btn" id="menu-toggle">
+      <span class="sr-only">Toggle Menu</span>
+      <span class="menu-icon">
+        <span class="menu-icon__bars"></span>
+      </span>
+    </button>
+    
+    {% include nav.html %}
+    
+  </div>
 </header>

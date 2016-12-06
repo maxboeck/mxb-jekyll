@@ -13,6 +13,8 @@
 @import "core/normalize";
 @import "core/reboot";
 
+@import "core/layout";
+@import "core/typography";
 @import "core/icons";
 
 //--------------------
@@ -20,7 +22,7 @@
 // partials directly tied to an element
 //--------------------
 
-//@import "components/header"
+@import "components/header"
 
 //--------------------
 // PAGES
