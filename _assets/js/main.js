@@ -1,3 +1,9 @@
 import FontFaceObserver from 'fontfaceobserver';
 
-console.log('JS is up and running!');
+// Font Observer
+const sourceSerifObserver = new FontFaceObserver('Source Serif Pro', {});
+sourceSerifObserver.load().then(() => {
+  document.documentElement.classList.add('source-serif-pro');
+}, () => {
+  document.documentElement.classList.remove('source-serif-pro');
+});
