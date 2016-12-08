@@ -48,7 +48,6 @@ $gray-lighter:              #eceeef;
 $gray-lightest:             #f7f7f9;
 
 $brand-red:                 #fc6767;
-$brand-green:               #99c432;
 
 // Links
 //
@@ -63,7 +62,7 @@ $link-hover-decoration:      underline;
 //
 // Settings for the `<body>` element.
 
-$body-bg:                    $gray-lightest;
+$body-bg:                    #FFF;
 $body-color:                 $gray-dark;
 
 // Typography
@@ -72,7 +71,7 @@ $body-color:                 $gray-dark;
 
 $font-family-sans-serif:     -apple-system, BlinkMacSystemFont, "Segoe UI", "Roboto", "Oxygen", "Ubuntu", "Cantarell", "Fira Sans", "Droid Sans", "Helvetica Neue", sans-serif;
 $font-family-serif:          Georgia, "Times New Roman", Times, serif;
-$font-family-monospace:      Menlo, Monaco, Consolas, "Courier New", monospace;
+$font-family-monospace:      Menlo, Monaco, Consolas, "Andale Mono", "Courier New", monospace;
 
 $font-family-base:           $font-family-sans-serif;
 

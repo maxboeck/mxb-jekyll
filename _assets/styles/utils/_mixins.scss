@@ -2,6 +2,30 @@
 // SCSS MIXINS
 //--------------------
 
+@import "../vendor/bootstrap/mixins";
+
+
+// shorthand for media-breakpoint-up
+@mixin mq($name) {
+  @include media-breakpoint-up($name) {
+    @content;
+  }
+}
+
+// shorthand for media-breakpoint-down
+@mixin mq-down($name) {
+  @include media-breakpoint-down($name) {
+    @content;
+  }
+}
+
+// shorthand for hover & focus
+@mixin hover-focus {
+  &:focus,
+  &:hover {
+    @content;
+  }
+}
 
 // dynamic z-index function
 @function z($layer) {

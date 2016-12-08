@@ -1,0 +1,29 @@
+code {
+  background-color: #f4f4f6;
+  border: 1px solid #eee;
+  border-radius: 3px;
+  padding: 3px 4px;
+  font-size: .9375rem;
+}
+
+pre code {
+  background:transparent;
+  border:0;
+  padding:0;
+}
+
+.highlight {
+  width: 100%;
+  position: relative;
+  line-height: 1.8;
+
+  pre {
+    margin:0;
+    padding: 2rem;
+    overflow-x: scroll;
+
+    @include mq(md){
+      padding-left:4rem;
+    }
+  }
+}

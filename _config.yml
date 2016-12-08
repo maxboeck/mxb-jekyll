@@ -45,16 +45,9 @@ permalink: /blog/:slug/
 
 # Markdown settings
 markdown: kramdown
-kramdown:
-  input: GFM
-  syntax_highlighter: rouge
+highlighter: rouge
 
-# Sass settings
-sass:
-  add_charset: true
-  sass_dir: _assets/sass
-  style: :compressed
-
+# Includes
 include:
   - _pages
 

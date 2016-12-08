@@ -15,6 +15,7 @@
 
 @import "core/layout";
 @import "core/typography";
+@import "core/syntax";
 @import "core/icons";
 
 //--------------------
@@ -22,7 +23,9 @@
 // partials directly tied to an element
 //--------------------
 
-@import "components/header"
+@import "components/header";
+
+@import "components/highlight";
 
 //--------------------
 // PAGES
