@@ -3,11 +3,11 @@
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
   <meta name="viewport" content="width=device-width, initial-scale=1">
 
-  <title>{% if page.title %}{{ page.title | escape }}{% else %}{{ site.title | escape }}{% endif %}</title>
-  <meta name="description" content="{% if page.excerpt %}{{ page.excerpt | strip_html | strip_newlines | truncate: 160 }}{% else %}{{ site.description }}{% endif %}">
+  {% seo %}
 
   <!-- Meta Stuff -->
   <link rel="manifest" href="{{ "/manifest.json" | prepend: site.baseurl }}">
+  {% feed_meta %}
 
   <!-- Site Styles -->
   {% if jekyll.environment == "production" %}
@@ -15,9 +15,6 @@
   {% else %}
   <link rel="stylesheet" href="{{ "/assets/css/main.css" | prepend: site.baseurl }}">
   {% endif %}
-  
-  <link rel="canonical" href="{{ page.url | replace:'index.html','' | prepend: site.baseurl | prepend: site.url }}">
-  {% feed_meta %}
 
   <!-- External Fonts -->
   <link href="https://fonts.googleapis.com/css?family=Source+Serif+Pro" rel="stylesheet">

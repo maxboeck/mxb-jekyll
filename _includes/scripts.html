@@ -1,9 +1,10 @@
 {% if jekyll.environment == "production" %}
 
   <script src="{{ "/assets/js/bundle.min.js" | prepend: site.baseurl }}"></script>
+  
   <script>
     window.ga=function(){ga.q.push(arguments)};ga.q=[];ga.l=+new Date;
-    ga('create','{{ site.analytics_id }}','auto');ga('send','pageview')
+    ga('create','{{ site.analytics.id }}','auto');ga('send','pageview')
   </script>
   <script src="https://www.google-analytics.com/analytics.js" async defer></script>
   

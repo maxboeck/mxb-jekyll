@@ -12,8 +12,25 @@ description: >
 baseurl: ""
 url: https://mxb.at
 email: hello@mxb.at
-twitter_username: "@mxbck"
-analytics_id: UA-8695781-1
+
+# SEO/Meta settings
+logo: /assets/images/logo.png
+author: mxbck
+twitter:
+  username: mxbck
+facebook:
+  admins: 100000249390604
+social:
+  name: Max Böck
+  links:
+    - https://twitter.com/mxbck
+    - https://github.com/maxboeck
+    - https://keybase.io/mxb
+seo:
+  name: Max Böck
+  type: Person
+analytics:
+  id: UA-8695781-1
 
 #Custom collections
 collections:
@@ -63,3 +80,4 @@ gems:
   - jekyll-feed
   - jekyll-sitemap
   - jekyll-paginate
+  - jekyll-seo-tag
