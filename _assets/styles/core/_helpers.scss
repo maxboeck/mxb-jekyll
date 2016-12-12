@@ -1,0 +1,37 @@
+//
+// Floats
+//
+
+.clearfix {
+  @include clearfix;
+}
+
+//
+// Screenreaders
+//
+
+.sr-only {
+  @include sr-only();
+}
+
+.sr-only-focusable {
+  @include sr-only-focusable();
+}
+
+.sr-skip-link {
+  @include sr-only();
+  @include sr-only-focusable();
+}
+
+//
+// Selections
+//
+
+::selection {
+  background: $brand-cyan;
+  color:#FFF;
+}
+::-moz-selection {
+  background: $brand-cyan;
+  color:#FFF;
+}

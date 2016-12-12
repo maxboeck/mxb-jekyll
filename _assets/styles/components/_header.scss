@@ -1,1 +1,47 @@
 /* Header Component */
+
+.header {
+  &__inner {
+    padding:2rem 0;
+    
+    @include mq(md){
+      padding:3.125rem 0;
+    }
+  }
+}
+
+.brand {
+  display:inline-block;
+  width:80px;
+
+  img {
+    width:100%;
+    height:auto;
+  }
+}
+
+.menutoggle {
+  display:block;
+  width: 45px;
+  height: 45px;
+  position:fixed;
+  z-index:z("menu") + 10;
+  right:5%;
+  top:27px;
+
+  border:0;
+  padding:12px 10px;
+  background:transparent;
+
+  transform:translate3d(0,0,0);
+
+  @include mq(md){
+    top:45px;
+  }
+
+  @include mq(lg){
+    display:none;
+  }
+}
+
+

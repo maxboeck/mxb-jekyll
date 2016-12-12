@@ -75,6 +75,9 @@ body {
   color: $body-color;
   // By default, `<body>` has no `background-color` so we set one as a best practice.
   background-color: $body-bg;
+
+  -ms-text-size-adjust: 100%;
+  -webkit-text-size-adjust: 100%;
 }
 
 // Suppress the focus outline on elements that cannot be accessed via keyboard.
@@ -260,9 +263,9 @@ label {
 // results in a loss of the default `button` focus styles.
 //
 // Credit: https://github.com/suitcss/base/
+a:focus,
 button:focus {
-  outline: 1px dotted;
-  outline: 5px auto -webkit-focus-ring-color;
+  outline:0;
 }
 
 input,

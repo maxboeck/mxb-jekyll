@@ -1,6 +1,8 @@
 'use strict';
 
 import gulp from 'gulp';
+import gutil from 'gulp-util';
+import plumber from 'gulp-plumber';
 import browserSync from 'browser-sync';
 import gulpLoadPlugins from 'gulp-load-plugins';
 
@@ -16,6 +18,12 @@ const AUTOPREFIXER_BROWSERS = [
 
 gulp.task('sass', () => {
   return gulp.src('_assets/styles/main.scss')
+    .pipe(plumber({
+      handleError: function (err) {
+        gutil.log(gutil.colors.red(err));
+        this.emit('end');
+      }
+    }))
     .pipe($.sourcemaps.init())
     .pipe($.sass({
       precision: 10,

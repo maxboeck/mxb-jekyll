@@ -1,6 +1,8 @@
 'use strict';
 
 import gulp from 'gulp';
+import gutil from 'gulp-util';
+import plumber from 'gulp-plumber';
 import browserSync from 'browser-sync';
 import gulpLoadPlugins from 'gulp-load-plugins';
 import webpack from 'webpack-stream';
@@ -10,6 +12,12 @@ const reload = browserSync.reload;
 
 gulp.task('scripts', () => {
   return gulp.src('_assets/js/main.js')
+    .pipe(plumber({
+      handleError: function (err) {
+        gutil.log(gutil.colors.red(err));
+        this.emit('end');
+      }
+    }))
     .pipe(webpack({
       module: {
         loaders: [{

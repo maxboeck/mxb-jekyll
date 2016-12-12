@@ -1,6 +1,6 @@
 {% if jekyll.environment == "production" %}
 
-  <script src="{{ "/assets/js/bundle.min.js" | prepend: site.baseurl }}"></script>
+  <script src="{{ "/assets/js/bundle.min.js" | relative_url }}"></script>
   
   <script>
     window.ga=function(){ga.q.push(arguments)};ga.q=[];ga.l=+new Date;
@@ -10,6 +10,6 @@
   
 {% else %}
 
-  <script src="{{ "/assets/js/bundle.js" | prepend: site.baseurl }}"></script>
+  <script src="{{ "/assets/js/bundle.js" | relative_url }}"></script>
 
 {% endif %}

@@ -1,29 +1,32 @@
-<nav id="nav" class="nav" role="navigation">
-  <ul class="nav__list">
+<div class="nav-container">
 
-    <li class="nav__item">
-      <a href="{{ site.baseurl }}" class="nav__link">
-        <span class="nav__item__num">01</span>work
-      </a>
-    </li>
+  <nav id="nav" class="nav" role="navigation">
+    <ul class="nav__list">
 
-    <li class="nav__item">
-      <a href="/blog" class="nav__link">
-        <span class="nav__item__num">02</span>blog
-      </a>
-    </li>
+      <li class="nav__item {% if page.url == '/' %}nav__item--active{% endif %}">
+        <a href="/" class="nav__link">
+          <span class="nav__item__num">01</span>work
+        </a>
+      </li>
 
-    <li class="nav__item">
-      <a href="/about" class="nav__link">
-        <span class="nav__item__num">03</span>about
-      </a>
-    </li>
+      <li class="nav__item {% if page.url == '/blog/' %}nav__item--active{% endif %}">
+        <a href="/blog" class="nav__link">
+          <span class="nav__item__num">02</span>blog
+        </a>
+      </li>
 
-    <li class="nav__item">
-      <a href="/contact" class="nav__link">
-        <span class="nav__item__num">04</span>contact
-      </a>
-    </li>
-    
-  </ul>
-</nav>
+      <li class="nav__item {% if page.url == '/about/' %}nav__item--active{% endif %}">
+        <a href="/about" class="nav__link">
+          <span class="nav__item__num">03</span>about
+        </a>
+      </li>
+
+      <li class="nav__item {% if page.url == '/contact/' %}nav__item--active{% endif %}">
+        <a href="/contact" class="nav__link">
+          <span class="nav__item__num">04</span>contact
+        </a>
+      </li>
+      
+    </ul>
+  </nav>
+</div>

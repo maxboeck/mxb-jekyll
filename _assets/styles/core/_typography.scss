@@ -1,5 +1,21 @@
 // Main Typography Styles
 
+%serif {
+  font-family: $font-family-serif;
+
+  .wf-playfair & {
+    font-family: 'Playfair Display', serif;
+  }
+}
+
+.label {
+  font-size:.875rem;
+  text-transform: uppercase;
+  font-weight:700;
+  letter-spacing: 1px;
+}
+
+
 pre, code {
   font-family: $font-family-monospace;
 }

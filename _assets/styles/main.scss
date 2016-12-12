@@ -13,6 +13,7 @@
 @import "core/normalize";
 @import "core/reboot";
 
+@import "core/helpers";
 @import "core/layout";
 @import "core/typography";
 @import "core/syntax";
@@ -24,6 +25,8 @@
 //--------------------
 
 @import "components/header";
+@import "components/nav";
+@import "components/toppanel";
 
 @import "components/highlight";
 
@@ -32,7 +35,7 @@
 // styles for specific page configurations
 //--------------------
 
-//@import "pages/home"
+@import "pages/home"
 
 //--------------------
 // VENDOR STYLES

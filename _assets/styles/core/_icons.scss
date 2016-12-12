@@ -16,3 +16,59 @@
     fill:currentColor;
   }
 }
+
+// Animated Hamburger CSS-Icon
+
+.menuicon {
+  display:block;
+  width: 24px;
+  height: 16px;
+  position: relative;
+  transform: rotate(0deg);
+  transition: .3s cubic-bezier(0.165, 0.840, 0.440, 1.000); 
+  cursor: pointer;
+
+  &__bar {
+    display: block;
+    position: absolute;
+    height: 3px;
+    width: 100%;
+    background-color: $gray-dark;
+    left: 0;
+    transform: rotate(0deg);
+    transition: all .25s ease-in-out;
+
+    &--1 {
+      top: 0px;
+    }
+    &--2,
+    &--3 {
+      top: 50%;
+    }
+    &--4 {
+      top: 100%;
+    }
+  }
+}
+
+.menu-open {
+  .menuicon{
+    transform: rotate(180deg);
+  }
+  .menuicon__bar {
+    background-color:#FFF;
+
+    &--1,
+    &--4 {
+      width:0;
+      top: 50%;
+      left: 50%;
+    }
+    &--2 {
+      transform: rotate(45deg);
+    }
+    &--3 {
+      transform: rotate(-45deg);
+    }
+  }
+}

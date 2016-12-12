@@ -16,7 +16,7 @@ gulp.task('browsersync', ['build'], () => {
         'line-height: 0.8em;',
         'z-index: 9999;',
         'left: 5px;',
-        'top: 5px;',
+        'bottom: 5px;',
         'color: #fff;',
         'border-radius: 2px',
         'background-color: #333;',
