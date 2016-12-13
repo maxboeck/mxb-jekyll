@@ -263,9 +263,9 @@ label {
 // results in a loss of the default `button` focus styles.
 //
 // Credit: https://github.com/suitcss/base/
-a:focus,
 button:focus {
-  outline:0;
+  outline: 1px dotted;
+  outline: 5px auto -webkit-focus-ring-color;
 }
 
 input,

@@ -1,18 +1,18 @@
 ---
 layout: default
 ---
-<article id="post-{{ page.slug }}" class="post h-entry">
+<article id="post-{{ page.slug }}" class="post h-entry" itemscope="" itemtype="http://schema.org/BlogPosting" aria-labelledby="post-title">
 
   <header class="post__header">
-    <h1 class="post__title p-name">{{ page.title }}</h1>
+    <h1 id="post-title" class="post__title p-name" itemprop="headline">{{ page.title }}</h1>
     <p class="post__meta">
-      <time class="dt-published" datetime="{{ page.date | date_to_xmlschema }}">
+      <time class="dt-published" itemprop="datePublished" datetime="{{ page.date | date_to_xmlschema }}">
       {{ page.date | date: "%B %-d, %Y" }}
       </time>
     </p>
   </header>
 
-  <div class="post__content e-content">
+  <div class="post__content e-content" itemprop="articleBody">
     {{ content }}
   </div>
 
