@@ -1,0 +1,15 @@
+<article id="post-{{ post.slug }}" class="post post--preview" aria-labelledby="post-{{ post.slug }}-title">
+
+  <a href="{{ post.url | relative_url }}">
+    <h2 id="post-{{ post.slug }}-title" class="post__title p-name">{{ post.title }}</h2>
+    <p class="post__meta">
+      <time class="dt-published" itemprop="datePublished" datetime="{{ post.date | date_to_xmlschema }}">
+      {{ post.date | date: "%B %-d, %Y" }}
+      </time>
+    </p>
+    <div class="post__excerpt">
+      {{ post.excerpt }}
+    </div>
+  </a>
+
+</article>

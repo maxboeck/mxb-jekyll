@@ -1,14 +1,16 @@
 ---
 layout: default
 ---
-<article id="post-{{ page.slug }}" class="post h-entry" itemscope="" itemtype="http://schema.org/BlogPosting" aria-labelledby="post-title">
+<article id="post-{{ page.slug }}" class="post h-entry" role="article" itemtype="http://schema.org/BlogPosting" aria-labelledby="{{ page.slug }}-title">
 
-  <header class="post__header">
-    <h1 id="post-title" class="post__title p-name" itemprop="headline">{{ page.title }}</h1>
+  <header class="post__header container">
+    <h1 id="{{ page.slug }}-title" class="post__title p-name title" itemprop="headline">{{ page.title }}</h1>
     <p class="post__meta">
-      <time class="dt-published" itemprop="datePublished" datetime="{{ page.date | date_to_xmlschema }}">
+      <time class="post__date dt-published" itemprop="datePublished" datetime="{{ page.date | date_to_xmlschema }}">
       {{ page.date | date: "%B %-d, %Y" }}
-      </time>
+      </time> 
+      &ndash; 
+      <span class="post__category"><span class="thoughts-on">Thoughts on </span>Code</span>
     </p>
   </header>
 

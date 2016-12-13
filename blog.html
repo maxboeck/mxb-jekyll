@@ -1,0 +1,14 @@
+---
+layout: page
+permalink: "/blog/"
+title: "Blog"
+excerpt: "Random thoughts and ideas, lorem ipsum dolor sit"
+---
+
+<ol class="postlist">
+{% for post in site.posts %}
+  <li class="postlist__item">
+  {% include post-preview.html %}
+  </li>
+{% endfor %}
+</ol>

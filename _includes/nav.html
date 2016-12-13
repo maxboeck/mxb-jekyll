@@ -1,14 +1,15 @@
 <div class="nav-container">
+
   <nav id="nav" class="nav" role="navigation" aria-label="Main Navigation">
     <ul class="nav__list">
 
-      <li class="nav__item {% if page.url == '/' %}nav__item--active{% endif %}">
+      <li class="nav__item {% if page.url == '/' or page.url contains 'project/' %}nav__item--active{% endif %}">
         <a href="/" class="nav__link" rel="home">
           <span class="nav__item__num">01</span>work
         </a>
       </li>
 
-      <li class="nav__item {% if page.url == '/blog/' %}nav__item--active{% endif %}">
+      <li class="nav__item {% if page.url contains 'blog/' %}nav__item--active{% endif %}">
         <a href="/blog" class="nav__link">
           <span class="nav__item__num">02</span>blog
         </a>

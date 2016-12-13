@@ -2,16 +2,15 @@
 
 .toppanel {
   background-color:$gray-dark;
-  color:#FFF;
-  padding-bottom:5px;
+  height:5px;
   position: relative;
 
   &__progressbar {
-    height:5px;
     position:absolute;
     bottom:0;
     left:0;
     width:0;
-    background-color:$link-color;
+    height:100%;
+    background-color:$brand-cyan;
   }
 }

@@ -18,6 +18,8 @@ logo: /assets/images/logo.png
 author: mxbck
 twitter:
   username: mxbck
+github:
+  username: maxboeck
 facebook:
   admins: 100000249390604
 social:
@@ -74,3 +76,4 @@ gems:
   - jekyll-sitemap
   - jekyll-paginate
   - jekyll-seo-tag
+  - jekyll-email-protect

@@ -17,6 +17,7 @@ GEM
       pathutil (~> 0.9)
       rouge (~> 1.7)
       safe_yaml (~> 1.0)
+    jekyll-email-protect (1.0.3)
     jekyll-feed (0.8.0)
       jekyll (~> 3.3)
     jekyll-paginate (1.1.0)
@@ -49,6 +50,7 @@ PLATFORMS
 
 DEPENDENCIES
   jekyll
+  jekyll-email-protect
   jekyll-feed
   jekyll-paginate
   jekyll-seo-tag

@@ -1,0 +1,37 @@
+.footer {
+  font-size: .875rem;
+  color:$gray-light;
+  border-top:1px solid $gray-lighter;
+
+  strong {
+    color:$gray;
+  }
+
+  a {
+    color:lighten($gray-light, 5%);
+    @include hover-focus {
+      color:$gray;
+      text-decoration:underline;
+    }
+  }
+
+  &__inner {
+    @include clearfix;
+    padding:2rem 0;
+  }
+
+  &__item {
+    display:inline-block;
+    margin:0 4rem 1rem 0;
+  }
+
+  @include mq(md){
+    font-size: .75rem;
+
+    &__col {
+      float:left;
+      width: 50%;
+    }
+  }
+
+}

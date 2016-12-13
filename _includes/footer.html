@@ -1,3 +1,21 @@
 <footer class="footer" role="contentinfo">
-  
+  <div class="footer__inner container">
+    <div class="footer__col">
+      <p class="footer__item">
+        <strong>&copy; {{ 'now' | date: '%Y' }}</strong><br />
+        Max B&ouml;ck
+      </p>
+      <p class="footer__item">
+        <strong>Email</strong><br />
+        <a href="mailto:{{ site.email | encode_email }}" title="Mail me">h&#101;l&#108;&#111;&#64;m&#120;&#98;&#46;a&#116;</a>
+      </p>
+    </div>
+    <div class="footer__col">
+      <p class="footer__item mb0">
+        <strong>Connect</strong><br />
+        <a href="https://twitter.com/{{site.twitter.username}}" title="Twitter">Twitter</a> / 
+        <a href="https://github.com/{{site.github.username}}" title="Github">Github</a>
+      </p>
+    </div>
+  </div>
 </footer>

@@ -9,11 +9,7 @@
   min-height: 70vh;
 
   &__title {
-    @extend %serif;
-    font-family: $font-family-serif;
     font-size:calc(1rem + 5vmin);
-    line-height:1.4;
-    font-weight:400;
   }
 
   &__pretitle {
@@ -21,7 +17,6 @@
   }
 
   &__subtitle {
-    font-weight:300;
     font-size: 1.5rem;
   }
 
