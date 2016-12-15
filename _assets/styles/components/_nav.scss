@@ -1,12 +1,9 @@
 .nav {
   display:flex;
   flex-direction: column;
-  height: 100%;
   justify-content: center;
   color:#FFF;
-  opacity:0;
   transform: translateY(-16px);
-  transition: opacity .3s linear;
 
   &__title {
     text-transform: uppercase;
@@ -47,8 +44,6 @@
 
   @include mq(lg){
     display:block;
-    opacity:1;
-    transform:none;
     color:darken($gray-lighter, 20%);
 
     &__title {
@@ -70,7 +65,7 @@
   }
 }
 
-.nav-container {
+.nav {
   position:fixed;
   z-index:z('menu');
   top:0;
@@ -92,6 +87,7 @@
     padding:0;
     position:static;
     opacity:1;
+    transform:none;
     pointer-events: initial;
     float:right;
   }
@@ -132,25 +128,19 @@
 }
 
 // OPEN STATE
+.menu-open .nav,
+#nav:target {
+  opacity:1;
+  pointer-events: initial;
+  transform: translateY(0);
+  transition: opacity .3s linear .5s;
+}
 
-.menu-open {
-  /*
-  position:fixed;
-  overflow-y: hidden;
-  width:100%;
-  */
+#nav:target + .menu-animation,
+.menu-open .menu-animation {
+  visibility: visible;
+}
 
-  .menu-animation {
-    visibility: visible;
-  }
-
-  .nav-container {
-    opacity:1;
-    pointer-events: initial;
-  }
-  .nav {
-    opacity:1;
-    transform: translateY(0);
-    transition-delay: .5s;
-  }
+#nav:target + .menu-animation .menu-animation__circle {
+  transform:scale(1);
 }

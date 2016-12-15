@@ -30,13 +30,9 @@
   top:27px;
   border:0;
   border-radius:50%;
-  padding:9px 10px 12px 10px;
+  padding:13px 11px;
   background-color:rgba(#FFF, .85);
   transform:translate3d(0,0,0);
-
-  &:focus {
-    outline:0;
-  }
 
   .menu-open & {
     background-color:transparent;

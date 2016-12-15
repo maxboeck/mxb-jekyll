@@ -28,7 +28,7 @@ import FontFaceObserver from 'fontfaceobserver';
 
     bindEvents: function(){
       this.setLayers();
-      el.menuToggleBtn.addEventListener('click', this.toggleMenu.bind(this));
+      el.menuToggleBtn.addEventListener('click', this.toggleMenu);
       window.addEventListener('throttledResize', this.setLayers.bind(this));
     },
 

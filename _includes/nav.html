@@ -1,32 +1,29 @@
-<div class="nav-container">
+<nav id="nav" class="nav" role="navigation" aria-label="Main Navigation">
+  <ul class="nav__list">
 
-  <nav id="nav" class="nav" role="navigation" aria-label="Main Navigation">
-    <ul class="nav__list">
+    <li class="nav__item {% if page.url == '/' or page.url contains 'project/' %}nav__item--active{% endif %}">
+      <a href="/" class="nav__link" rel="home">
+        <span class="nav__item__num">01</span>work
+      </a>
+    </li>
 
-      <li class="nav__item {% if page.url == '/' or page.url contains 'project/' %}nav__item--active{% endif %}">
-        <a href="/" class="nav__link" rel="home">
-          <span class="nav__item__num">01</span>work
-        </a>
-      </li>
+    <li class="nav__item {% if page.url contains 'blog/' %}nav__item--active{% endif %}">
+      <a href="/blog" class="nav__link">
+        <span class="nav__item__num">02</span>blog
+      </a>
+    </li>
 
-      <li class="nav__item {% if page.url contains 'blog/' %}nav__item--active{% endif %}">
-        <a href="/blog" class="nav__link">
-          <span class="nav__item__num">02</span>blog
-        </a>
-      </li>
+    <li class="nav__item {% if page.url == '/about/' %}nav__item--active{% endif %}">
+      <a href="/about" class="nav__link">
+        <span class="nav__item__num">03</span>about
+      </a>
+    </li>
 
-      <li class="nav__item {% if page.url == '/about/' %}nav__item--active{% endif %}">
-        <a href="/about" class="nav__link">
-          <span class="nav__item__num">03</span>about
-        </a>
-      </li>
-
-      <li class="nav__item {% if page.url == '/contact/' %}nav__item--active{% endif %}">
-        <a href="/contact" class="nav__link">
-          <span class="nav__item__num">04</span>contact
-        </a>
-      </li>
-      
-    </ul>
-  </nav>
-</div>
+    <li class="nav__item {% if page.url == '/contact/' %}nav__item--active{% endif %}">
+      <a href="/contact" class="nav__link">
+        <span class="nav__item__num">04</span>contact
+      </a>
+    </li>
+    
+  </ul>
+</nav>
