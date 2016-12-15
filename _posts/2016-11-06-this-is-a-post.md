@@ -3,6 +3,7 @@ layout: post
 title: "The Lost Art of the Gigposter"
 permalink: "/blog/this-is-my-post/"
 excerpt: "This is the Excerpt"
+css: example
 ---
 
 <p class="lead">An Essay on Typography by Eric Gill takes the reader back to the year 1930. The year of a conflict between two worlds.</p>

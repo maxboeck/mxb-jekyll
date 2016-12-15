@@ -16,12 +16,8 @@
     margin-bottom:0;
   }
 
-  &__subtitle {
-    font-size: 1.5rem;
-  }
-
   @include mq(lg){
-    padding:4rem 0;
+    padding:2rem 0 6rem;
 
     &__title > .line2 {
       display:block;

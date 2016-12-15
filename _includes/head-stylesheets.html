@@ -1,0 +1,15 @@
+{% if jekyll.environment == "production" %}
+  {% assign ext = '.min.css' %}
+{% else %}
+  {% assign ext = '.css' %}
+{% endif %}
+
+<!-- Site Styles -->
+<link rel="stylesheet" href="{{ "/assets/css/main" | append: ext | relative_url }}">
+
+<!-- Custom Styles -->
+{% if page.css %}
+  {% for stylesheet in page.css %}
+  <link rel="stylesheet" href="{{ "/assets/css/" | append: stylesheet | append: ext | relative_url }}">
+  {% endfor %}
+{% endif %}

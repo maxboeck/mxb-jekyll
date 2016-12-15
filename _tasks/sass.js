@@ -16,8 +16,13 @@ const AUTOPREFIXER_BROWSERS = [
   'Explorer 8'
 ];
 
+const sourcefiles = [
+  '_assets/styles/main.scss',
+  '_assets/styles/custom/*.scss'
+];
+
 gulp.task('sass', () => {
-  return gulp.src('_assets/styles/main.scss')
+  return gulp.src(sourcefiles)
     .pipe(plumber({
       handleError: function (err) {
         gutil.log(gutil.colors.red(err));

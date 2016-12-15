@@ -9,14 +9,9 @@
 
   <!-- Meta Stuff -->
   {% include head-meta.html %}
-  {% feed_meta %}
 
-  <!-- Site Styles -->
-  {% if jekyll.environment == "production" %}
-  <link rel="stylesheet" href="{{ "/assets/css/main.min.css" | relative_url }}">
-  {% else %}
-  <link rel="stylesheet" href="{{ "/assets/css/main.css" | relative_url }}">
-  {% endif %}
+  <!-- Stylesheets -->
+  {% include head-stylesheets.html %}
 
   <!-- External Fonts -->
   <link href="https://fonts.googleapis.com/css?family=Playfair+Display" rel="stylesheet">

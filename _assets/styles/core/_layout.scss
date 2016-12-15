@@ -2,11 +2,24 @@
 
 .site {
   display:flex;
-  min-height: 100vh;
   flex-direction: column;
+  min-height: 100vh;
+  height:100%;
 
   .main {
-    flex: 1;
+    flex: 1 0 auto;
+
+    &::after {
+      content: '\00a0'; /* &nbsp; */
+      display: block;
+      height: 0px;
+      visibility: hidden;
+    }
+  }
+
+  .header, 
+  .footer {
+    flex: none;
   }
 }
 
