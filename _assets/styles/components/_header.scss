@@ -12,7 +12,7 @@
 
 .brand {
   display:inline-block;
-  width:80px;
+  width:5rem;
 
   img {
     width:100%;
@@ -31,7 +31,7 @@
   border:0;
   border-radius:50%;
   padding:13px 11px;
-  background-color:rgba(#FFF, .85);
+  background-color:rgba($body-bg, .85);
   transform:translate3d(0,0,0);
 
   .menu-open & {

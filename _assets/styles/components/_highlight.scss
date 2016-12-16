@@ -1,9 +1,13 @@
+pre, code {
+  font-family: $font-family-monospace;
+}
+
 code {
-  background-color: #f4f4f6;
+  background-color: #f5f2f0;
   border: 1px solid #eee;
   border-radius: 3px;
   padding: 3px 4px;
-  font-size: .9375rem;
+  font-size: 75%;
 }
 
 pre code {
@@ -15,6 +19,7 @@ pre code {
 
 .highlight {
   width: 100%;
+  max-width:none;
   position: relative;
   line-height: 1.6;
   overflow-x: scroll;
@@ -23,6 +28,7 @@ pre code {
     margin:0 auto;
     padding: 2rem;
     overflow:visible;
+    max-width:$main-column-max-width;
 
     @include mq(md){
       padding:2rem 0;

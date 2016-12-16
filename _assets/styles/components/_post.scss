@@ -1,7 +1,9 @@
 .post {
+  position:relative;
+  font-size:1.125rem;
 
   &__header {
-    padding:2rem 0;
+    @extend .page__header;
 
     &::after {
       content: "";
@@ -18,9 +20,10 @@
   }
 
   &__meta {
-    font-family: $font-family-serif;
+    @extend %serif;
     color:$gray-light;
-    font-size:1.125rem;
+    font-size:1em;
+    margin-bottom:1rem;
   }
 
   &__date {
@@ -37,50 +40,26 @@
     }
   }
 
-  &__content {
-    padding: 1rem 0;
-    font-size:1.125rem;
-
-    > * {
-      @extend .container;
-      max-width:$main-column-max-width;
-      margin-bottom:2rem;
-    }
-
-    .highlight {
-      max-width:none;
-
-      pre {
-        max-width:$main-column-max-width;
-      }
-    }
-  }
-
   @include mq(md){
-    &__header {
-      text-align:center;
-      padding:4rem 0;
+    font-size:1.375rem;
+    
+    &__header::after {
+      margin: 2rem auto 0;
+    }
 
-      &::after {
-        margin: 2rem auto 0;
-      }
-    }
-    &__meta {
-      font-size:1.5rem;
-    }
-    &__category {
-      .thoughts-on {
-        display:inline;
-      }
-    }
-    &__content {
-      font-size:1.375rem;
+    &__category .thoughts-on {
+      display:inline;
     }
   }
+}
 
-  @include mq(lg){
-    &__header {
-      padding:6rem 0;
-    }
+//Previews
+.post--preview {
+  .post__title {
+    margin:0;
+  }
+  .post__readmore {
+    white-space: nowrap;
+    font-style: italic;
   }
 }

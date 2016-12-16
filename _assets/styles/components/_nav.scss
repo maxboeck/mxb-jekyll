@@ -3,7 +3,7 @@
   flex-direction: column;
   justify-content: center;
   color:#FFF;
-  transform: translateY(-16px);
+  transform: translateY(25px);
 
   &__title {
     text-transform: uppercase;
@@ -44,7 +44,7 @@
 
   @include mq(lg){
     display:block;
-    color:darken($gray-lighter, 20%);
+    color:$gray-light;
 
     &__title {
       display:none;
@@ -106,8 +106,12 @@
 
   &__circle {
     display: inline-block;
-    width:200vmax;
-    height:200vmax;
+
+    width:300vmax;
+    height:300vmax;
+    top:-150vmax;
+    left:-150vmax;
+
     position: absolute;
     border-radius: 50%;
     backface-visibility: hidden;
@@ -133,7 +137,7 @@
   opacity:1;
   pointer-events: initial;
   transform: translateY(0);
-  transition: opacity .3s linear .5s;
+  transition: opacity .3s linear .5s, transform 1s ease-out;
 }
 
 #nav:target + .menu-animation,

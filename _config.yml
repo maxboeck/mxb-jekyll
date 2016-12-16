@@ -52,6 +52,7 @@ highlighter: rouge
 # Includes
 include:
   - _pages
+  - .htaccess
 
 # Build settings
 exclude:

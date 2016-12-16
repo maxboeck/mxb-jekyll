@@ -23,6 +23,21 @@
   }
 }
 
+.page {
+
+  &__header {
+    padding:2rem 0;
+
+    @include mq(md){
+      text-align:center;
+      padding:4rem 0;
+    }
+    @include mq(lg){
+      padding:6rem 0;
+    }
+  }
+}
+
 .container {
   width:90%;
   margin-left:auto;

@@ -11,6 +11,8 @@ import FontFaceObserver from 'fontfaceobserver';
       this.setElements();
       this.bindEvents();
       this.fontFaceObserver();
+
+      document.documentElement.classList.remove('no-js');
     },
 
     setElements: function(){
@@ -35,9 +37,10 @@ import FontFaceObserver from 'fontfaceobserver';
     fontFaceObserver: function(){
       const playfairObserver = new FontFaceObserver('Playfair Display', {});
       playfairObserver.load().then(() => {
-        document.documentElement.classList.add('wf-playfair');
+        document.documentElement.classList.add('fonts-loaded');
+        this.setCookie('fonts-loaded', '1', 1);
       }, () => {
-        document.documentElement.classList.remove('wf-playfair');
+        document.documentElement.classList.remove('fonts-loaded');
       });
     },
 
@@ -63,6 +66,17 @@ import FontFaceObserver from 'fontfaceobserver';
       el.menuAnimationBg.style.height = diameter + 'px';
       el.menuAnimationBg.style.top = -(diameter/2) + 'px';
       el.menuAnimationBg.style.left = -(diameter/2) + 'px';
+    },
+
+    setCookie: function( name, value, expires ) {
+      var today = new Date();
+      today.setTime( today.getTime() );
+      if ( expires ) {
+        expires = expires * 1000 * 60 * 60 * 24;
+      }
+      var expires_date = new Date( today.getTime() + (expires) );
+      document.cookie = name+'='+escape( value ) +
+        ( ( expires ) ? ';expires='+expires_date.toGMTString() : '' );
     },
 
     toggleMenu: function(e){

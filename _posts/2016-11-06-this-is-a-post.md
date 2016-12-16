@@ -2,11 +2,9 @@
 layout: post
 title: "The Lost Art of the Gigposter"
 permalink: "/blog/this-is-my-post/"
-excerpt: "This is the Excerpt"
-css: example
 ---
 
-<p class="lead">An Essay on Typography by Eric Gill takes the reader back to the year 1930. The year of a conflict between two worlds.</p>
+<p class="lead">An Essay on Typography by Eric Gill takes the reader back to the year 1930. The year of a conflict between two worlds. Lorem ipsum dolor sit amet, consectetur adipisicing elit. Ut fugiat iste porro modi dolorem eius commodi sed.</p>
 
 The typography of this industrial age was no longer handcrafted. Mass production and profit became more important. Quantity mattered more than the quality. The books and printed works in general lost a part of its humanity. The typefaces were not produced by craftsmen anymore. It was the machines printing and tying the books together now. The craftsmen had to let go of their craft and became a cog in the process. An extension of the industrial machine.
 

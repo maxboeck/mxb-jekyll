@@ -2,10 +2,14 @@
 layout: page
 permalink: "/blog/"
 title: "Blog"
-excerpt: "Random thoughts and ideas, lorem ipsum dolor sit"
+excerpt: "A seldomly updated collection of thoughts."
 ---
 
-<ol class="postlist">
+<div class="page__header">
+  <h1 class="page__title title">Writing.</h1>
+</div>
+
+<ol class="postlist" aria-label="latest articles">
 {% for post in site.posts %}
   <li class="postlist__item">
   {% include post-preview.html %}

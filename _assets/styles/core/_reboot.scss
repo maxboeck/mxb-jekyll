@@ -109,7 +109,7 @@ h1, h2, h3, h4, h5, h6 {
 // bottom margin to use `rem` units instead of `em`.
 p {
   margin-top: 0;
-  margin-bottom: 1rem;
+  margin-bottom: 0;
 }
 
 // Abbreviations and acronyms
@@ -178,17 +178,6 @@ pre {
   margin-top: 0;
   // Reset browser default of `1em` to use `rem`s
   margin-bottom: 1rem;
-}
-
-
-//
-// Figures
-//
-
-figure {
-  // Normalize adds `margin` to `figure`s as browsers apply it inconsistently.
-  // We reset that to create a better flow in-page.
-  margin: 0 0 1rem;
 }
 
 
@@ -317,14 +306,6 @@ input[type="search"] {
   // be added to `.form-control` as it's not specific enough. For details, see
   // https://github.com/twbs/bootstrap/issues/11586.
   -webkit-appearance: none;
-}
-
-// todo: needed?
-output {
-  display: inline-block;
-//  font-size: $font-size-base;
-//  line-height: $line-height;
-//  color: $input-color;
 }
 
 // Always hide an element with the `hidden` HTML attribute (from PureCSS).
