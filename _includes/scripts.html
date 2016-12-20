@@ -1,7 +1,6 @@
 {% if jekyll.environment == "production" %}
 
   <script src="{{ "/assets/js/bundle.min.js" | relative_url }}"></script>
-  
   <script>
     window.ga=function(){ga.q.push(arguments)};ga.q=[];ga.l=+new Date;
     ga('create','{{ site.analytics.id }}','auto');ga('send','pageview')
@@ -12,4 +11,10 @@
 
   <script src="{{ "/assets/js/bundle.js" | relative_url }}"></script>
 
+{% endif %}
+
+{% if page.js %}
+  {% for script in page.js %}
+  <script src="{{ "/assets/js/" | append: script | append: '.js' | relative_url }}"></script>
+  {% endfor %}
 {% endif %}

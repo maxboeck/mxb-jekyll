@@ -9,6 +9,7 @@
   "author": "@mxbck",
   "license": "MIT",
   "dependencies": {
+    "blazy": "^1.8.2",
     "fontfaceobserver": "^1.6.3"
   },
   "devDependencies": {

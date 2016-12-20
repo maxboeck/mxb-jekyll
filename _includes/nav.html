@@ -1,29 +1,35 @@
-<nav id="nav" class="nav" role="navigation" aria-label="Main Navigation">
-  <ul class="nav__list">
+<nav id="nav" class="nav" role="navigation" aria-label="site" tabindex="-1">
 
-    <li class="nav__item {% if page.url == '/' or page.url contains 'project/' %}nav__item--active{% endif %}">
-      <a href="/" class="nav__link" rel="home">
-        <span class="nav__item__num">01</span>work
-      </a>
-    </li>
+  <button class="nav__togglebtn" id="menu-toggle" aria-expanded="false">
+    <span class="sr-only">toggle menu</span>
+    <span class="menuicon">
+      <span class="menuicon__bar menuicon__bar--1"></span>
+      <span class="menuicon__bar menuicon__bar--2"></span>
+      <span class="menuicon__bar menuicon__bar--3"></span>
+      <span class="menuicon__bar menuicon__bar--4"></span>
+    </span>
+  </button>
 
-    <li class="nav__item {% if page.url contains 'blog/' %}nav__item--active{% endif %}">
-      <a href="/blog" class="nav__link">
-        <span class="nav__item__num">02</span>blog
-      </a>
-    </li>
+  <div class="nav__content">
+    <ul class="nav__list" id="menu">
+    {% for item in include.nav %}
 
-    <li class="nav__item {% if page.url == '/about/' %}nav__item--active{% endif %}">
-      <a href="/about" class="nav__link">
-        <span class="nav__item__num">03</span>about
-      </a>
-    </li>
+      {% assign is_current = false %}
+      {% assign target = item.url %}
 
-    <li class="nav__item {% if page.url == '/contact/' %}nav__item--active{% endif %}">
-      <a href="/contact" class="nav__link">
-        <span class="nav__item__num">04</span>contact
-      </a>
-    </li>
-    
-  </ul>
+      {% if page.url == item.url or page.url contains item.include_path %}
+        {% assign is_current = true %}
+      {% endif %}
+      {% if page.url == item.url %}
+        {% assign target = '#main' %}
+      {% endif %}
+      <li class="nav__item {% if is_current %}nav__item--active{% endif %}">
+        <a href="{{ target }}" class="nav__link">
+          <span class="nav__item__num" aria-hidden="true">0{{ forloop.index }}</span>{{ item.label }}
+        </a>
+      </li>
+
+    {% endfor %}
+    </ul>
+  </div>
 </nav>

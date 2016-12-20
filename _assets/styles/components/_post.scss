@@ -4,14 +4,6 @@
 
   &__header {
     @extend .page__header;
-
-    &::after {
-      content: "";
-      display:block;
-      width:4rem;
-      height:2px;
-      background-color: $link-color;
-    }
   }
 
   &__title {
@@ -42,10 +34,6 @@
 
   @include mq(md){
     font-size:1.375rem;
-    
-    &__header::after {
-      margin: 2rem auto 0;
-    }
 
     &__category .thoughts-on {
       display:inline;

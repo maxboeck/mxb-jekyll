@@ -1,7 +1,7 @@
 ---
 layout: default
 ---
-<article id="post-{{ page.slug }}" class="post h-entry" role="article" itemtype="http://schema.org/BlogPosting" aria-labelledby="{{ page.slug }}-title">
+<article id="post-{{ page.slug }}" class="post h-entry" role="article" itemscope itemtype="http://schema.org/BlogPosting" aria-labelledby="{{ page.slug }}-title">
 
   <header class="post__header container">
     <h1 id="{{ page.slug }}-title" class="post__title p-name title" itemprop="headline">{{ page.title }}</h1>
@@ -9,13 +9,21 @@ layout: default
       <time class="post__date dt-published" itemprop="datePublished" datetime="{{ page.date | date_to_xmlschema }}">
       {{ page.date | date: "%B %-d, %Y" }}
       </time> 
-      &ndash; 
-      <span class="post__category p-category"><span class="thoughts-on">Thoughts on </span>Code</span>
+      {% if page.category %}
+        &ndash; <span class="post__category p-category"><span class="thoughts-on">Thoughts on </span>{{ page.category | capitalize }}</span>
+      {% endif %}
     </div>
   </header>
 
   <div class="post__content e-content content" itemprop="articleBody">
     {{ content }}
+  </div>
+
+  <div class="post__more container">
+    <p><span class="label">Published in {{ page.category }} / {{ page.date | date: "%d %b %Y" }}</span></p>
+    <a href="https://twitter.com/intent/follow?screen_name=mxbck" target="_blank" title="Follow Max Böck on Twitter" class="btn btn--twitter">
+      {% include icon.html icon="twitter" %} Follow @mxbck
+    </a>
   </div>
 
 </article>

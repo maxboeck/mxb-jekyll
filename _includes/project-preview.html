@@ -1,0 +1,23 @@
+<div id="project-{{ project.slug }}" class="project project--preview" aria-labelledby="project-{{ project.slug }}-info">
+  <a href="{{ project.url | relative_url }}" class="project__link" rel="bookmark" title="read more about this project">
+
+    <div class="project__info" id="project-{{ project.slug }}-info">
+      <span class="sr-only">Featured Project: </span>
+      <h2 class="project__title" lang="{{ project.title_lang | default: 'en' }}">{{ project.title }}</h2>
+      <p class="project__desc">
+        <span class="sr-only">.</span>
+        {{ project.excerpt }}
+      </p>
+    </div>
+
+    <div class="project__image" {% if project.image_color %}style="background-color:{{ project.image_color }}"{% endif %}>
+      <img 
+        class="lazyload" 
+        src="data:image/gif;base64,R0lGODlhAQABAAAAACH5BAEKAAEALAAAAAABAAEAAAICTAEAOw==" 
+        data-src="{{ "/assets/images/content/" | append: project.image | relative_url }}" 
+        alt=""
+      >
+    </div>
+    
+  </a>
+</div>

@@ -1,5 +1,9 @@
 // Main Site Layout
 
+html {
+  overflow-y:scroll;
+}
+
 .site {
   display:flex;
   flex-direction: column;

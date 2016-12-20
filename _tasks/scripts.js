@@ -9,9 +9,20 @@ import webpack from 'webpack-stream';
 
 const $ = gulpLoadPlugins();
 const reload = browserSync.reload;
+const mainEntry = '_assets/js/main.js';
 
 gulp.task('scripts', () => {
-  return gulp.src('_assets/js/main.js')
+  gulp.src([
+    '_assets/js/*.js',
+    '!' + mainEntry
+  ])
+  .pipe(gulp.dest('_site/assets/js'));
+
+  return webpackBuild();
+});
+
+function webpackBuild(){
+  return gulp.src(mainEntry)
     .pipe(plumber({
       handleError: function (err) {
         gutil.log(gutil.colors.red(err));
@@ -34,4 +45,4 @@ gulp.task('scripts', () => {
     .pipe($.uglify({onError: browserSync.notify}))
     .pipe($.rename({extname: '.min.js'}))
     .pipe(gulp.dest('_site/assets/js'));
-});
+}

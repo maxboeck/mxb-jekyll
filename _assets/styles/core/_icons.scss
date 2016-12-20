@@ -20,13 +20,14 @@
 // Animated Hamburger CSS-Icon
 
 .menuicon {
-  display:block;
+  display:inline-block;
   width: 24px;
   height: 16px;
   position: relative;
   transform: rotate(0deg);
   transition: .3s cubic-bezier(0.165, 0.840, 0.440, 1.000); 
   cursor: pointer;
+  margin:0 auto;
 
   &__bar {
     display: block;

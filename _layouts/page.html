@@ -1,6 +1,6 @@
 ---
 layout: default
 ---
-<div class="container page page--{{page.title | slugify}}">
+<div class="container page page--{{ page.slug | default: page.title | slugify }}">
   {{ content }}
 </div>

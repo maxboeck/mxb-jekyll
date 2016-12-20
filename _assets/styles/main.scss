@@ -26,8 +26,12 @@
 
 @import "components/header";
 @import "components/nav";
+@import "components/buttons";
 @import "components/toppanel";
 @import "components/post";
+@import "components/postlist";
+@import "components/project";
+@import "components/projectlist";
 @import "components/highlight";
 @import "components/footer";
 
@@ -37,7 +41,7 @@
 //--------------------
 
 @import "pages/home";
-@import "pages/blog";
+@import "pages/404";
 
 //--------------------
 // VENDOR STYLES

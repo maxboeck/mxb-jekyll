@@ -1,4 +1,5 @@
 import FontFaceObserver from 'fontfaceobserver';
+import Blazy from 'blazy';
 
 (function() {
   'use-strict';
@@ -10,6 +11,8 @@ import FontFaceObserver from 'fontfaceobserver';
       this.setInitialState();
       this.setElements();
       this.bindEvents();
+
+      this.lazyLoading();
       this.fontFaceObserver();
 
       document.documentElement.classList.remove('no-js');
@@ -17,6 +20,7 @@ import FontFaceObserver from 'fontfaceobserver';
 
     setElements: function(){
       el = {
+        menu: document.getElementById('menu'),
         menuToggleBtn: document.getElementById('menu-toggle'),
         menuAnimationBg: document.getElementById('menu-animation-bg')
       };
@@ -30,8 +34,9 @@ import FontFaceObserver from 'fontfaceobserver';
 
     bindEvents: function(){
       this.setLayers();
-      el.menuToggleBtn.addEventListener('click', this.toggleMenu);
       window.addEventListener('throttledResize', this.setLayers.bind(this));
+
+      el.menuToggleBtn.addEventListener('click', this.toggleMenu);
     },
 
     fontFaceObserver: function(){
@@ -41,6 +46,13 @@ import FontFaceObserver from 'fontfaceobserver';
         this.setCookie('fonts-loaded', '1', 1);
       }, () => {
         document.documentElement.classList.remove('fonts-loaded');
+      });
+    },
+
+    lazyLoading: function(){
+      const blazy = new Blazy({
+        selector: '.lazyload',
+        successClass: 'loaded'
       });
     },
 
@@ -81,10 +93,15 @@ import FontFaceObserver from 'fontfaceobserver';
 
     toggleMenu: function(e){
       e.preventDefault();
-
       let scale = (state.isMenuOpen) ? 0 : 1;
+
       document.body.classList.toggle('menu-open');
+      window.setTimeout(function(){
+        el.menu.classList.toggle('nav__list--visible');
+      }, 50);
+
       el.menuAnimationBg.style.transform = `scale(${scale})`;
+      el.menuToggleBtn.setAttribute('aria-expanded', String(!state.isMenuOpen));
 
       state.isMenuOpen = !state.isMenuOpen;
     }

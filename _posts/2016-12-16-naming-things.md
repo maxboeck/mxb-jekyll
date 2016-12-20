@@ -2,6 +2,7 @@
 layout: post
 title: "Naming Things"
 permalink: "/blog/naming-things/"
+category: code
 ---
 
 <p class="lead">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Atque, nobis aut voluptatem impedit animi reprehenderit consequatur hic ullam sed, temporibus et odit consequuntur.</p>

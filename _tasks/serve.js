@@ -10,7 +10,14 @@ gulp.task('serve', ['browsersync'], () => {
   gulp.watch(['_assets/icons/**/*.svg'], ['icons']);
 
   //jekyll
-  gulp.watch(['*.html', '_layouts/**/*', '_includes/**/*', '_posts/**/*', '_projects/**/*'], ['jekyll:reload']);
+  gulp.watch([
+    '*.html', 
+    '_layouts/**/*', 
+    '_includes/**/*', 
+    '_posts/**/*', 
+    '_pages/**/*',
+    '_projects/**/*'
+  ], ['jekyll:reload']);
 });
 
 gulp.task('default', ['serve']);

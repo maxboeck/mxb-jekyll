@@ -19,10 +19,10 @@ h1, h2, h3, h4 {
   font-weight:400;
 
   @include mq(md){
-    font-size:4rem;
+    font-size:5rem;
   }
   @include mq(lg){
-    font-size:5.5rem;
+    font-size:7rem;
   }
 }
 

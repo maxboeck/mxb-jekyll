@@ -1,0 +1,10 @@
+- url: /
+  label: work
+  include_path: /project/
+- url: /blog/
+  label: blog
+  include_path: /blog/
+- url: /about/
+  label: about
+- url: /contact/
+  label: contact

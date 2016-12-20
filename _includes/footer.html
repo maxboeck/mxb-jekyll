@@ -6,13 +6,18 @@
         Max B&ouml;ck
       </p>
       <p class="footer__item">
-        <strong>Email</strong><br />
-        <a href="mailto:{{ site.email | encode_email }}" title="Mail me">h&#101;l&#108;&#111;&#64;m&#120;&#98;&#46;a&#116;</a>
+        <strong id="contact-email-title">Contact</strong><br />
+        <a 
+          href="mailto:{{ site.email | encode_email }}" 
+          title="Contact Email" 
+          accesskey="9" 
+          aria-labelledby="contact-email-title"
+        >h&#101;l&#108;&#111;&#64;m&#120;&#98;&#46;a&#116;</a>
       </p>
     </div>
     <div class="footer__col">
       <p class="footer__item mb0">
-        <strong>Connect</strong><br />
+        <strong>Social</strong><br />
         <a href="https://twitter.com/{{site.twitter.username}}" title="Twitter">Twitter</a> / 
         <a href="https://github.com/{{site.github.username}}" title="Github">Github</a>
       </p>
