@@ -180,14 +180,14 @@
   position:fixed;
   z-index:z("menu") + 10;
   right:5%;
-  top:27px;
+  top:34px;
   border:0;
   border-radius:50%;
   background-color:rgba($body-bg, .85);
   transform:translate3d(0,0,0);
 
   @include mq(md){
-    top:45px;
+    top:52px;
   }
 
   @include mq(lg){

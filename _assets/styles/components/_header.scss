@@ -2,6 +2,7 @@
 
 .header {
   &__inner {
+    @include clearfix;
     position:relative;
     padding:2rem 0;
     
@@ -12,12 +13,13 @@
 }
 
 .brand {
-  display:inline-block;
-  width:5rem;
+  display:block;
+  float:left;
+  padding-top:7px;
 
   svg {
-    width:100%;
-    height:auto;
+    width:80px;
+    height:28px;
   }
 }
 
