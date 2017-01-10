@@ -157,6 +157,7 @@ if (!window.Promise) {
 
       if(Object.keys(errors).length){
         //display errors
+        feedbackArea.classList.remove('form__feedback--success');
         feedbackArea.innerHTML = `${errorIcon} Invalid form. Please check the fields and try again.`;
         if(errors['bot']) {
           return false;
@@ -173,12 +174,14 @@ if (!window.Promise) {
           body: Util.serialize(data)
         }, 
         function (code, responseText, request) {
-          let icon = errorIcon;
-          if(code == 200) {
+          let icon = errorIcon,
+              isSuccess = (code == 200);
+
+          if(isSuccess) {
             el.contactForm.reset();
-            feedbackArea.classList.add('form__feedback--success');
             icon = successIcon;
           }
+          feedbackArea.classList.toggle('form__feedback--success', isSuccess);
           feedbackArea.innerHTML = icon + responseText;
           submitButton.disabled = false;
         });
@@ -229,7 +232,7 @@ if (!window.Promise) {
     },
 
     resetFormErrors: function(){
-      let fields = el.contactForm.getElementsByTagName("input");
+      let fields = el.contactForm.querySelectorAll(".form__input");
       for (var i = 0; i < fields.length; i++) {
         fields[i].setAttribute('aria-invalid', 'false');
         let fieldError = document.getElementById(`${fields[i].id}-error`);
