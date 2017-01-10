@@ -1,10 +1,15 @@
 // Global Imports
 
+import Promise from 'promise-polyfill';
 import FontFaceObserver from 'fontfaceobserver';
 import Blazy from 'blazy';
 import NanoAjax from 'nanoajax';
 import Util from './lib/util';
 
+// Promise Polyfill
+if (!window.Promise) {
+  window.Promise = Promise;
+}
 
 // Throttled Resize Event
 (function() {
