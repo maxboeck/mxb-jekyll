@@ -1,11 +1,12 @@
 .postlist {
   list-style-type: none;
-  max-width:$main-column-max-width;
-  margin:0 auto;
   padding:0;
 
   &__item {
     margin-bottom:3rem;
+    &:last-child {
+      margin-bottom:0;
+    }
 
     @include mq(md){
       margin-bottom: 5.5rem;

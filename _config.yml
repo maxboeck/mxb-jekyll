@@ -11,10 +11,12 @@ description: >
   Max Böck is a professional frontend developer based in Vienna, Austria.
 baseurl: ""
 url: https://mxb.at
+repo: https://github.com/maxboeck/jekyll-gulp
 email: hello@mxb.at
+permalink: /blog/:slug/
 
 # SEO/Meta settings
-logo: /assets/images/logo.png
+logo: /assets/images/logo.jpg
 author: mxbck
 twitter:
   username: mxbck
@@ -41,9 +43,8 @@ collections:
     permalink: /project/:path/
 
 # Pagination
-paginate: 30
+paginate: 20
 paginate_path: "/blog/page/:num/"
-permalink: /blog/:slug/
 
 # Markdown settings
 markdown: kramdown
@@ -52,12 +53,12 @@ highlighter: rouge
 # Includes
 include:
   - _pages
-  - .htaccess
 
 # Build settings
 exclude:
   - package.json
   - gulpfile.babel.js
+  - ftpconfig.js
   - README.md
   - LICENSE
   - _tasks
@@ -78,3 +79,4 @@ gems:
   - jekyll-paginate
   - jekyll-seo-tag
   - jekyll-email-protect
+  - jekyll-postfiles

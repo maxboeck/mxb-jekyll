@@ -59,16 +59,24 @@
     font-weight:200;
     text-transform:lowercase;
 
+    &::after {
+      content: '';
+      display:block;
+      height:5px;
+      background-color:$gray-lighter;
+      position:absolute;
+      left:1rem;
+      right:1rem;
+      bottom:-5px;
+      transform:scaleX(0);
+      transform-origin: 0 50%;
+      transition:transform .3s cubic-bezier(0.860, 0.000, 0.070, 1.000);
+    }
+
     &--active {
       &::after {
-        content: '';
-        display:block;
-        height:5px;
         background-color:$link-color;
-        position:absolute;
-        left:1rem;
-        right:1rem;
-        bottom:-5px;
+        transform:none;
       }
     }
   }
@@ -99,6 +107,12 @@
       font-size:1rem;
       font-weight:400;
       display:inline-block;
+
+      @include hover-focus {
+        &::after {
+          transform:scaleX(1);
+        }
+      }
 
       &--active {
         color:$gray-dark;
@@ -142,10 +156,10 @@
     backface-visibility: hidden;
     background-color:darken($gray-dark, 5%);
 
-    will-change: transform;
     transform: scale(0);
     transform-origin:50% 50%;
     transition: transform .4s cubic-bezier(0.755, 0.050, 0.855, 0.060);
+    will-change:transform;
   }
 
   @include mq(md){

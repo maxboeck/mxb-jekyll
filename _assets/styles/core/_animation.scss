@@ -1,0 +1,37 @@
+.toppanel__progressbar {
+  transform:scaleX(0);
+  transform-origin:0 50%;
+  transition:transform .8s cubic-bezier(0.860, 0.000, 0.070, 1.000);
+}
+.site .main {
+  opacity:1;
+  transition:opacity .4s linear .2s;
+}
+
+.pagetransition {
+  .toppanel__progressbar {
+    transform:scaleX(1);
+  }
+  .site .main {
+    opacity:0;
+  }
+}
+
+.fade-in {
+  transform: translate3d(0, 0, 0);
+  -webkit-backface-visibility: hidden;
+  -webkit-perspective: 1000;
+  animation: fadeInUp .5s ease;
+}
+
+@keyframes fadeInUp {
+  0% {
+    opacity: 0;
+    transform: translateY(20px);
+  }
+
+  100% {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}

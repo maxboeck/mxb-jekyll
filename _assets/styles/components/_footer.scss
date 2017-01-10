@@ -21,8 +21,14 @@
   }
 
   &__item {
-    display:inline-block;
-    margin:0 4rem 1rem 0;
+    margin-bottom:.5rem;
+    &:last-child {
+      margin-bottom:0;
+    }
+  }
+
+  &__icon {
+    padding:.25rem;
   }
 
   @include mq(md){
@@ -34,7 +40,13 @@
     }
 
     &__item {
-      margin-bottom:0;
+      display:inline-block;
+      margin:0 4rem 0 0;
+
+      &--right {
+        margin:0;
+        float:right;
+      }
     }
   }
 

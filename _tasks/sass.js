@@ -18,11 +18,12 @@ const AUTOPREFIXER_BROWSERS = [
 
 const sourcefiles = [
   '_assets/styles/main.scss',
-  '_assets/styles/custom/*.scss'
+  '_projects/**/*.scss'
 ];
 
 gulp.task('sass', () => {
   return gulp.src(sourcefiles)
+    .pipe($.flatten())
     .pipe(plumber({
       handleError: function (err) {
         gutil.log(gutil.colors.red(err));
@@ -38,7 +39,23 @@ gulp.task('sass', () => {
     .pipe($.sourcemaps.write())
     .pipe($.rename({extname: '.css'}))
     .pipe(gulp.dest('_site/assets/css'))
-    .pipe(reload({stream: true}))
+    .pipe(reload({stream: true}));
+});
+
+gulp.task('sass:prod', () => {
+  return gulp.src(sourcefiles)
+    .pipe($.flatten())
+    .pipe(plumber({
+      handleError: function (err) {
+        gutil.log(gutil.colors.red(err));
+        this.emit('end');
+      }
+    }))
+    .pipe($.sass({
+      precision: 10,
+      onError: browserSync.notify
+    }))
+    .pipe($.autoprefixer({browsers: AUTOPREFIXER_BROWSERS}))
     .pipe($.cleanCss({keepBreaks: false, keepSpecialComments:true}))
     .pipe($.rename({extname: '.min.css'}))
     .pipe(gulp.dest('_site/assets/css'));

@@ -10,7 +10,10 @@ layout: default
       {{ page.date | date: "%B %-d, %Y" }}
       </time> 
       {% if page.category %}
-        &ndash; <span class="post__category p-category"><span class="thoughts-on">Thoughts on </span>{{ page.category | capitalize }}</span>
+        &sdot; <span class="post__category p-category">
+          <span class="thoughts-on">Thoughts on </span>
+          {{ page.category | capitalize }}
+        </span>
       {% endif %}
     </div>
   </header>
@@ -19,11 +22,16 @@ layout: default
     {{ content }}
   </div>
 
-  <div class="post__more container">
-    <p><span class="label">Published in {{ page.category }} / {{ page.date | date: "%d %b %Y" }}</span></p>
+  <div class="post__footer container">
+    <p>
+    <small>Published in [{{ page.category }}] &sdot; {{ page.date | date: "%d %b %Y" }}</small>
+    </p>
+    
     <a href="https://twitter.com/intent/follow?screen_name=mxbck" target="_blank" title="Follow Max Böck on Twitter" class="btn btn--twitter">
-      {% include icon.html icon="twitter" %} Follow @mxbck
+      {% include icon.html icon="twitter" aria-hidden=true %} Follow @mxbck
     </a>
   </div>
 
 </article>
+
+{% include related-posts.html %}

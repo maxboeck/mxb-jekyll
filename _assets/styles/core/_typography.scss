@@ -21,22 +21,25 @@ h1, h2, h3, h4 {
   @include mq(md){
     font-size:5rem;
   }
-  @include mq(lg){
-    font-size:7rem;
-  }
 }
 
 .content {
   font-size:1.125rem;
 
   > * {
-    @extend .container;
+    width:90%;
     max-width:$main-column-max-width;
+    margin-left:auto;
+    margin-right:auto;
     margin-bottom:2rem;
   }
 
   .extend {
-    max-width: $main-column-max-width + 10rem;
+    max-width: 60rem;
+  }
+
+  a {
+    border-bottom:1px dotted currentColor;
   }
 
   h2, h3, h4 {
@@ -68,6 +71,27 @@ h1, h2, h3, h4 {
   }
 }
 
+figure {
+  max-width: none;
+  margin-left:auto;
+  margin-right:auto;
+  text-align: center;
+
+  img {
+    width:auto;
+    max-width: 100%;
+  }
+  figcaption {
+    padding-top:.75rem;
+    font-style: italic;
+    font-size:1rem;
+  }
+}
+
+video {
+  max-width: 100%;
+  height:auto;
+}
 
 blockquote {
   font-style:italic;

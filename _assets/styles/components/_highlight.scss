@@ -17,12 +17,14 @@ pre code {
   padding:0;
 }
 
-.highlight {
+div.highlighter-rouge {
   width: 100%;
   max-width:none;
   position: relative;
   line-height: 1.6;
   overflow-x: scroll;
+  background: #1d1f21; 
+  color: #ffffff;
 
   pre {
     margin:0 auto;

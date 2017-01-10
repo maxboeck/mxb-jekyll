@@ -2,27 +2,19 @@
   <meta charset="utf-8">
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
   <meta name="viewport" content="width=device-width, initial-scale=1">
-  <link rel="dns-prefetch" href="https://fonts.googleapis.com" />
+  <link rel="preload" href="{{ "/assets/fonts/playfair-display-regular.woff2" | relative_url }}" as="font" type="font/woff2">
 
   <!-- SEO -->
   {% seo %}
 
-  <!-- Meta Stuff -->
-  {% include head-meta.html %}
-
   <!-- Stylesheets -->
   {% include styles.html %}
 
-  <!-- External Fonts -->
-  <link href="https://fonts.googleapis.com/css?family=Playfair+Display" rel="stylesheet">
+  <!-- Meta Stuff -->
+  {% include meta.html %}
 
-  <!-- Grunticon SVG Icons -->
-  <script src="{{ "/assets/icons/grunticon.loader.js" | relative_url }}"></script>
-  <script type="text/javascript">
-    grunticon([
-      '{{ "/assets/icons/icons.data.svg.css" | relative_url }}',
-      '{{ "/assets/icons/icons.data.png.css" | relative_url }}',
-      '{{ "/assets/icons/icons.fallback.css" | relative_url }}'
-    ], grunticon.svgLoadedCallback );
+  <!-- Check for cached Font -->
+  <script>
+    !!sessionStorage.getItem("fontsLoaded") && document.documentElement.classList.add('fonts-loaded');
   </script>
 </head>

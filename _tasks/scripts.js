@@ -9,40 +9,46 @@ import webpack from 'webpack-stream';
 
 const $ = gulpLoadPlugins();
 const reload = browserSync.reload;
-const mainEntry = '_assets/js/main.js';
+const srcfiles = ['_assets/js/main.js'];
+
+const webpackConfig = {
+  module: {
+    loaders: [{
+      test: /\.js$/,
+      loader: 'babel',
+      exclude: '/node_modules/',
+      query: { 
+        presets: ['es2015'],
+        compact: false 
+      }
+    }]
+  }
+};
 
 gulp.task('scripts', () => {
-  gulp.src([
-    '_assets/js/*.js',
-    '!' + mainEntry
-  ])
-  .pipe(gulp.dest('_site/assets/js'));
-
-  return webpackBuild();
-});
-
-function webpackBuild(){
-  return gulp.src(mainEntry)
+  return gulp.src(srcfiles)
     .pipe(plumber({
       handleError: function (err) {
         gutil.log(gutil.colors.red(err));
         this.emit('end');
       }
     }))
-    .pipe(webpack({
-      module: {
-        loaders: [{
-          test: /\.js$/,
-          loader: 'babel',
-          exclude: '/node_modules/',
-          query: { compact: false }
-        }]
-      }
-    }))
+    .pipe(webpack(webpackConfig))
     .pipe($.rename('bundle.js'))
     .pipe(gulp.dest('_site/assets/js'))
-    .pipe(reload({stream: true}))
+    .pipe(reload({stream: true}));
+});
+
+gulp.task('scripts:prod', () => {
+  return gulp.src(srcfiles)
+    .pipe(plumber({
+      handleError: function (err) {
+        gutil.log(gutil.colors.red(err));
+        this.emit('end');
+      }
+    }))
+    .pipe(webpack(webpackConfig))
     .pipe($.uglify({onError: browserSync.notify}))
-    .pipe($.rename({extname: '.min.js'}))
+    .pipe($.rename('bundle.min.js'))
     .pipe(gulp.dest('_site/assets/js'));
-}
+});

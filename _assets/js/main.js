@@ -1,28 +1,57 @@
+// Global Imports
+
 import FontFaceObserver from 'fontfaceobserver';
 import Blazy from 'blazy';
+import NanoAjax from 'nanoajax';
+import Util from './lib/util';
 
+
+// Throttled Resize Event
+(function() {
+  var throttle = function(type, name, obj) {
+    obj = obj || window;
+    var running = false;
+    var func = function() {
+      if (running) { return; }
+      running = true;
+      requestAnimationFrame(function() {
+        obj.dispatchEvent(new CustomEvent(name));
+        running = false;
+      });
+    };
+    obj.addEventListener(type, func);
+  };
+  throttle("resize", "throttledResize");
+})();
+
+// Main App Object
 (function() {
   'use-strict';
 
-  let state, el, bp;
+  let state, el;
   const App = {
 
     init: function(){
+      document.documentElement.classList.remove('no-js');
+
       this.setInitialState();
       this.setElements();
+      this.setLayers();
       this.bindEvents();
 
       this.lazyLoading();
       this.fontFaceObserver();
-
-      document.documentElement.classList.remove('no-js');
+      this.registerServiceWorker();
     },
 
     setElements: function(){
+      let d = document;
       el = {
-        menu: document.getElementById('menu'),
-        menuToggleBtn: document.getElementById('menu-toggle'),
-        menuAnimationBg: document.getElementById('menu-animation-bg')
+        menu: d.getElementById('menu'),
+        menuToggleBtn: d.getElementById('menu-toggle'),
+        menuAnimationBg: d.getElementById('menu-animation-bg'),
+        projectList: d.getElementById('projectlist'),
+        contactForm: d.getElementById('contactform')
       };
     },
 
@@ -33,17 +62,35 @@ import Blazy from 'blazy';
     },
 
     bindEvents: function(){
-      this.setLayers();
       window.addEventListener('throttledResize', this.setLayers.bind(this));
 
+      //menu toggle
       el.menuToggleBtn.addEventListener('click', this.toggleMenu);
+
+      //project links
+      const projects = document.querySelectorAll('.js-project-link');
+      for (var i = 0; i < projects.length; i++) {
+        projects[i].addEventListener('click', this.showProject);
+      }
+
+      //contact form submit
+      if(!!el.contactForm){
+        el.contactForm.addEventListener('submit', (event) => {
+          event.preventDefault();
+          this.handleContactFormSubmit();
+        });
+      }
     },
 
     fontFaceObserver: function(){
+      if(sessionStorage.getItem("fontsLoaded")){
+        return;
+      }
+      
       const playfairObserver = new FontFaceObserver('Playfair Display', {});
       playfairObserver.load().then(() => {
         document.documentElement.classList.add('fonts-loaded');
-        this.setCookie('fonts-loaded', '1', 1);
+        sessionStorage.setItem('fontsLoaded', true);
       }, () => {
         document.documentElement.classList.remove('fonts-loaded');
       });
@@ -56,39 +103,14 @@ import Blazy from 'blazy';
       });
     },
 
-    getWindowDimensions(){
-      let w = window,
-          d = document,
-          e = d.documentElement,
-          g = d.getElementsByTagName('body')[0],
-          x = w.innerWidth || e.clientWidth || g.clientWidth,
-          y = w.innerHeight|| e.clientHeight|| g.clientHeight;
-
-      return {
-        width: x,
-        height: y
-      }
-    },
-
     setLayers: function(){
-      const screen = this.getWindowDimensions();
+      const screen = Util.getWindowDimensions();
       const diameter = (Math.sqrt( Math.pow(screen.height, 2) + Math.pow(screen.width, 2))*2);
 
       el.menuAnimationBg.style.width = diameter + 'px';
       el.menuAnimationBg.style.height = diameter + 'px';
       el.menuAnimationBg.style.top = -(diameter/2) + 'px';
       el.menuAnimationBg.style.left = -(diameter/2) + 'px';
-    },
-
-    setCookie: function( name, value, expires ) {
-      var today = new Date();
-      today.setTime( today.getTime() );
-      if ( expires ) {
-        expires = expires * 1000 * 60 * 60 * 24;
-      }
-      var expires_date = new Date( today.getTime() + (expires) );
-      document.cookie = name+'='+escape( value ) +
-        ( ( expires ) ? ';expires='+expires_date.toGMTString() : '' );
     },
 
     toggleMenu: function(e){
@@ -104,28 +126,139 @@ import Blazy from 'blazy';
       el.menuToggleBtn.setAttribute('aria-expanded', String(!state.isMenuOpen));
 
       state.isMenuOpen = !state.isMenuOpen;
+    },
+
+    showProject: function(e){
+      e.preventDefault();
+      let link = Util.findParentByTagName(e.target || e.srcElement, "A"),
+          timeout = 600;
+
+      const transition = function(){
+        document.documentElement.classList.add('pagetransition');
+        window.setTimeout(() => {
+          window.location = link.href;
+        }, timeout);
+      }
+      Util.scrollToTop(400, transition);
+    },
+
+    handleContactFormSubmit: function(){
+      let data = Util.captureForm(el.contactForm),
+          errors = this.validateContactForm(data),
+          errorIcon = this.generateIcon('warning', 'Error:'),
+          successIcon = this.generateIcon('check'),
+          feedbackArea = document.getElementById('contactform-feedback'),
+          submitButton = document.getElementById('contactform-submit');
+
+      if(Object.keys(errors).length){
+        //display errors
+        feedbackArea.innerHTML = `${errorIcon} Invalid form. Please check the fields and try again.`;
+        if(errors['bot']) {
+          return false;
+        }
+        this.displayFormErrors(errors);
+      }
+
+      else {
+        //send ajax request
+        submitButton.disabled = true;
+        NanoAjax.ajax({
+          url: el.contactForm.action, 
+          method: 'POST', 
+          body: Util.serialize(data)
+        }, 
+        function (code, responseText, request) {
+          let icon = errorIcon;
+          if(code == 200) {
+            el.contactForm.reset();
+            feedbackArea.classList.add('form__feedback--success');
+            icon = successIcon;
+          }
+          feedbackArea.innerHTML = icon + responseText;
+          submitButton.disabled = false;
+        });
+      }
+    },
+
+    validateContactForm: function(data){
+      this.resetFormErrors();
+      let errors = {};
+
+      Object.keys(data).map(key => {
+        let value = data[key];
+        switch(key){
+          case 'name':
+          case 'message':
+            if(!value.length){
+              errors[key] = 'This is a required field.';
+            }
+          break;
+
+          case 'email':
+            if (!Util.validateEmail(value)){
+              errors[key] = 'That email doesn\'t seem right.';
+            }
+          break;
+
+          case '1m4b0t':
+            if (value.length){
+              errors['bot'] = 1;
+            }
+          break;
+        }
+      });
+
+      return errors;
+    },
+
+    displayFormErrors: function(errors){
+      Object.keys(errors).map(key => {
+        let field = document.getElementById(key);
+        let fieldErrorArea = document.getElementById(`${key}-error`);
+        if(!!field){
+          field.setAttribute('aria-invalid', 'true');
+          fieldErrorArea.textContent = errors[key];
+          fieldErrorArea.hidden = false;
+        }
+      });
+    },
+
+    resetFormErrors: function(){
+      let fields = el.contactForm.getElementsByTagName("input");
+      for (var i = 0; i < fields.length; i++) {
+        fields[i].setAttribute('aria-invalid', 'false');
+        let fieldError = document.getElementById(`${fields[i].id}-error`);
+        if(!!fieldError){
+          fieldError.textContent = "";
+          fieldError.hidden = true;
+        }
+      }
+    },
+
+    generateIcon: function(name, label = false){
+      let ariaLabel = label ? `aria-label="${label}"` : '';
+      return `
+        <span class="icon icon--${name}">
+          <svg role="img" ${ariaLabel}>
+            <use xlink:href="/assets/icons/sprite.svg#${name}"></use>
+          </svg>
+        </span>
+      `;
+    },
+
+    registerServiceWorker: function(){
+      if ("serviceWorker" in navigator) {
+        navigator.serviceWorker.register('/sw.js').then(function(registration) {
+          console.log('ServiceWorker registration successful with scope: ', registration.scope);
+        }).catch(function(err) {
+          console.log('ServiceWorker registration failed: ', err);
+        });
+      }
     }
 
   };
 
+  // Kick shit off
   App.init();
 
-})();
-
-//throttled resize event
-(function() {
-  var throttle = function(type, name, obj) {
-      obj = obj || window;
-      var running = false;
-      var func = function() {
-          if (running) { return; }
-          running = true;
-           requestAnimationFrame(function() {
-              obj.dispatchEvent(new CustomEvent(name));
-              running = false;
-          });
-      };
-      obj.addEventListener(type, func);
-  };
-  throttle("resize", "throttledResize");
 })();

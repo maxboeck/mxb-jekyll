@@ -8,13 +8,13 @@
 
   &__title {
     margin:0 auto .25em;
-    max-width:55rem;
+    max-width:60rem;
   }
 
   &__meta {
     @extend %serif;
     color:$gray-light;
-    font-size:1em;
+    font-size:.9375em;
     margin-bottom:1rem;
   }
 
@@ -26,17 +26,28 @@
     text-transform: uppercase;
     letter-spacing: 3px;
     font-size: .77777em;
+  }
 
-    .thoughts-on {
-      display:none;
+  &__footer {
+    max-width: $main-column-max-width;
+    margin:0 auto 2rem;
+
+    small {
+      color:$gray-light;
+      display:block;
+      margin-bottom:1rem
     }
   }
 
   @include mq(md){
     font-size:1.375rem;
 
-    &__category .thoughts-on {
-      display:inline;
+    &__footer {
+      display:flex;
+      justify-content: space-between;
+      align-items:center;
+
+      small {margin:0}
     }
   }
 }

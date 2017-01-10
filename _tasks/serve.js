@@ -3,8 +3,9 @@
 import gulp from 'gulp';
 
 gulp.task('serve', ['browsersync'], () => {
+  
   //asset pipeline
-  gulp.watch(['_assets/styles/**/*.scss'], ['sass']);
+  gulp.watch(['_assets/styles/**/*.scss', '_projects/**/*.scss'], ['sass']);
   gulp.watch(['_assets/js/**/*.js'], ['scripts']);
   gulp.watch(['_assets/images/**/*'], ['imagemin']);
   gulp.watch(['_assets/icons/**/*.svg'], ['icons']);
@@ -12,11 +13,11 @@ gulp.task('serve', ['browsersync'], () => {
   //jekyll
   gulp.watch([
     '*.html', 
-    '_layouts/**/*', 
-    '_includes/**/*', 
-    '_posts/**/*', 
-    '_pages/**/*',
-    '_projects/**/*'
+    '_layouts/**/*.{html,md}', 
+    '_includes/**/*.{html,md}', 
+    '_posts/**/*.{html,md}', 
+    '_pages/**/*.{html,md}',
+    '_projects/**/*.{html,md}'
   ], ['jekyll:reload']);
 });
 

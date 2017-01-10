@@ -1,1 +1,5 @@
-<span class="icon icon--{{include.icon}}" data-grunticon-embed></span>
+<span class="icon icon--{{ include.icon }}" {% if include.aria-hidden %}aria-hidden="true"{% endif %}>
+  <svg role="img">
+    <use xlink:href="{{ "/assets/icons/sprite.svg#" | append: include.icon | relative_url }}"></use>
+  </svg>
+</span>

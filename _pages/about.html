@@ -6,8 +6,64 @@ excerpt: "Lorem Ipsum Dolor"
 ---
 
 <div class="page__header">
-  <h1 class="page__title title">About Me.</h1>
+  <h1 class="page__title title">About Me</h1>
 </div>
-<div class="page__content">
-  
+
+<div class="page__content about">
+
+  <div class="intro">
+    <img 
+      class="intro__image"
+      src="{{ "/assets/images/content/maxboeck.jpg" | relative_url }}" 
+      alt="Photo of Max"
+    >
+    <p class="intro__text lead">
+      I'm <span lang="de">Max B&ouml;ck</span>, a frontend web developer based in Vienna, Austria. 
+      For more than eight years, I've been working with all sorts of clients, helping them build awesome things on the web.
+    </p>
+  </div>
+
+  <div class="cv">
+
+    <div class="skills">
+      <h2 id="skills-title" class="skills__title label">
+        {% include icon.html icon="wrench" aria-hidden=true %} Skills
+      </h2>
+      <ul class="skills__list" aria-labelledby="skills-title">
+        <li class="skills__item">HTML5 / CSS3 / Javascript ES6</li>
+        <li class="skills__item">Sass / BEM</li>
+        <li class="skills__item">React</li>
+        <li class="skills__item">jQuery</li>
+        <li class="skills__item">PHP / WordPress</li>
+        <li class="skills__item">Sketch / Illustrator / Photoshop</li>
+        <li class="skills__item">Grunt / Gulp / other bear noises</li>
+      </ul>
+    </div>
+
+    <div class="education">
+      <h2 id="education-title" class="education__title label">
+        {% include icon.html icon="education" aria-hidden=true %} Education
+      </h2>
+      <ol class="education__list" aria-labelledby="education-title">
+        <li class="education__item">
+          BSc Webdesign and Development<br>
+          <span class="education__institute">2012, SAE Technology Institute Vienna</span>
+        </li>
+        <li class="education__item">
+          AHS Matura<br>
+          <span class="education__institute">2007, BRG/BORG St.P&ouml;lten</span>
+        </li>
+        <li class="education__item">
+          First Certificate in English (A)<br>
+          <span class="education__institute">2006, Cambridge Institute Vienna</span>
+        </li>
+      </ol>
+    </div>
+
+  </div>
+
+  <!--
+  <p>Occasionally, I can also make quite a decent <span lang="es">paella</span> too.</p>
+  -->
+
 </div>

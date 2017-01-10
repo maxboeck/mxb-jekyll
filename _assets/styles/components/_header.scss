@@ -2,6 +2,7 @@
 
 .header {
   &__inner {
+    position:relative;
     padding:2rem 0;
     
     @include mq(md){
@@ -14,7 +15,7 @@
   display:inline-block;
   width:5rem;
 
-  img {
+  svg {
     width:100%;
     height:auto;
   }

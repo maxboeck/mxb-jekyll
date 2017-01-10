@@ -1,0 +1,26 @@
+.page {
+
+  &__title {
+    @include mq(lg){
+      font-size:7rem !important;
+    }
+  }
+
+  &__header {
+    padding:2rem 0;
+
+    @include mq(md){
+      text-align:center;
+      padding:4rem 0;
+    }
+    @include mq(lg){
+      padding:5rem;
+    }
+  }
+
+  &__content {
+    margin:0 auto;
+    max-width: $main-column-max-width;
+  }
+  
+}

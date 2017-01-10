@@ -9,9 +9,11 @@ html {
   flex-direction: column;
   min-height: 100vh;
   height:100%;
+  position: relative;
 
   .main {
     flex: 1 0 auto;
+    padding-bottom:2rem;
 
     &::after {
       content: '\00a0'; /* &nbsp; */
@@ -19,26 +21,15 @@ html {
       height: 0px;
       visibility: hidden;
     }
+
+    @include mq(md){
+      padding-bottom:4rem;
+    }
   }
 
   .header, 
   .footer {
     flex: none;
-  }
-}
-
-.page {
-
-  &__header {
-    padding:2rem 0;
-
-    @include mq(md){
-      text-align:center;
-      padding:4rem 0;
-    }
-    @include mq(lg){
-      padding:6rem 0;
-    }
   }
 }
 

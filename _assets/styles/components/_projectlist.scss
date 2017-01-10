@@ -6,20 +6,45 @@
   padding:0;
   margin:0 -1rem;
 
+  &:hover {
+    .project {
+      will-change:transform;
+      &::after {
+        will-change:opacity;
+      }
+    }
+  }
+
   &__item {
     width:100%;
     margin-bottom:2rem;
     padding:0 1rem;
 
-    &--half {
-      width:50%;
-    }
-    &--one-third {
-      width:33.33333%;
-    }
-    &--two-thirds {
-      width:66.66666%;
+    &--1 {
+      width:100% !important;
     }
   }
 
+  @include mq(md){
+    &__item {
+      width:50%;
+    }
+  }
+
+  @include mq(lg){
+    &__item--1 .project__title {
+      font-size:3.5rem;
+    }
+    &__item--2,
+    &__item--5 {
+      width:33.3333%;
+    }
+    &__item--3,
+    &__item--4 {
+      width:66.6666%;
+    }
+  }
 }
+
+//2,5,6,9 = 33%
+//3,4,7,8 = 66%

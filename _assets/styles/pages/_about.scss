@@ -1,0 +1,69 @@
+.about {
+  max-width: 49rem;
+}
+
+.intro {
+  &__image {
+    display:block;
+    width: 150px;
+    height: auto;
+    border-radius:50%;
+    margin:0 2rem 1rem 0;
+  }
+
+  @include mq(md){
+    display:flex;
+    align-items: center;
+
+    &__image {
+      width: 210px;
+      height: 210px;
+      flex:0 0 210px;
+      border:1px solid darken($gray-lighter, 5%);
+      padding:10px;
+      margin:0 2rem 0 -4rem;
+    }
+  }
+}
+
+.cv {
+  @include clearfix;
+  padding:2rem 0;
+}
+
+.skills,
+.education {
+  &__list {
+    list-style-type: none;
+    padding:0;
+  }
+  &__title {
+    margin:2rem 0;
+  }
+
+  @include mq(md) {
+    float:left;
+    width:50%;
+  }
+}
+
+.skills {
+  &__item {
+    padding-left:2rem;
+    background:transparent url(../images/bullet.svg) no-repeat 0 center;
+    background-size:12px 12px;
+  }
+}
+
+.education {
+  &__item {
+    margin-bottom:.8125rem;
+  }
+
+  &__institute {
+    text-transform: uppercase;
+    font-size:.8125em;
+    letter-spacing: 1px;
+    color:$gray-light;
+  }
+}

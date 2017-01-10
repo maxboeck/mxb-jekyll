@@ -1,7 +1,7 @@
-<ul class="projectlist" aria-label="selected projects">
+<ul class="projectlist" aria-label="featured projects">
   {% assign projects = site.projects | sort: 'priority' %}
   {% for project in projects %}
-    <li class="projectlist__item">
+    <li class="projectlist__item projectlist__item--{{ forloop.index }}">
       {% include project-preview.html %}
     </li>
   {% endfor %}

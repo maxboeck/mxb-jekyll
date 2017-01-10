@@ -1,0 +1,18 @@
+<div class="relatedposts container">
+  <span class="relatedposts__title label" id="relatedposts-title">Other things I've written</span>
+  
+  <ol class="relatedposts__list" aria-labelledby="relatedposts-title">
+
+  {% for post in site.related_posts %}
+    <li class="relatedposts__item">
+      <a href="{{ post.url | relative_url }}" class="relatedpost">
+        <span class="relatedpost__title">{{ post.title }}</span>
+        <time class="relatedpost__date" datetime="{{ post.date | date_to_xmlschema }}" aria-label=", written {{ post.date | date: "%B %-d" }}">
+          {{ post.date | date: "%d %b %Y" }}
+        </time>
+      </a>
+    </li>
+  {% endfor %}
+
+  </ol>
+</div>
