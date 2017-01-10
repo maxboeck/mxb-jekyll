@@ -18,7 +18,6 @@ const webpackConfig = {
       loader: 'babel',
       exclude: '/node_modules/',
       query: { 
-        presets: ['es2015'],
         compact: false 
       }
     }]
