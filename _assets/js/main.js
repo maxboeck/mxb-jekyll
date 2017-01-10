@@ -1,5 +1,6 @@
-// Global Imports
+'use strict';
 
+// Global Imports
 import Promise from 'promise-polyfill';
 import FontFaceObserver from 'fontfaceobserver';
 import Blazy from 'blazy';
@@ -13,10 +14,11 @@ if (!window.Promise) {
 
 // Throttled Resize Event
 (function() {
-  var throttle = function(type, name, obj) {
+
+  const throttle = function(type, name, obj) {
     obj = obj || window;
-    var running = false;
-    var func = function() {
+    let running = false;
+    const func = function() {
       if (running) { return; }
       running = true;
       requestAnimationFrame(function() {
@@ -26,14 +28,14 @@ if (!window.Promise) {
     };
     obj.addEventListener(type, func);
   };
-  throttle("resize", "throttledResize");
+  throttle('resize', 'throttledResize');
+
 })();
 
 // Main App Object
 (function() {
-  'use-strict';
 
-  let state, el;
+  let state = {}, el = {};
   const App = {
 
     init: function(){
@@ -50,7 +52,7 @@ if (!window.Promise) {
     },
 
     setElements: function(){
-      let d = document;
+      const d = document;
       el = {
         menu: d.getElementById('menu'),
         menuToggleBtn: d.getElementById('menu-toggle'),
@@ -63,7 +65,7 @@ if (!window.Promise) {
     setInitialState: function(){
       state = {
         isMenuOpen: false
-      }
+      };
     },
 
     bindEvents: function(){
@@ -88,7 +90,7 @@ if (!window.Promise) {
     },
 
     fontFaceObserver: function(){
-      if(sessionStorage.getItem("fontsLoaded")){
+      if(sessionStorage.getItem('fontsLoaded')){
         return;
       }
       
@@ -102,7 +104,7 @@ if (!window.Promise) {
     },
 
     lazyLoading: function(){
-      const blazy = new Blazy({
+      new Blazy({
         selector: '.lazyload',
         successClass: 'loaded'
       });
@@ -120,7 +122,7 @@ if (!window.Promise) {
 
     toggleMenu: function(e){
       e.preventDefault();
-      let scale = (state.isMenuOpen) ? 0 : 1;
+      const scale = (state.isMenuOpen) ? 0 : 1;
 
       document.body.classList.toggle('menu-open');
       window.setTimeout(function(){
@@ -135,7 +137,7 @@ if (!window.Promise) {
 
     showProject: function(e){
       e.preventDefault();
-      let link = Util.findParentByTagName(e.target || e.srcElement, "A"),
+      let link = Util.findParentByTagName(e.target || e.srcElement, 'A'),
           timeout = 600;
 
       const transition = function(){
@@ -143,7 +145,8 @@ if (!window.Promise) {
         window.setTimeout(() => {
           window.location = link.href;
         }, timeout);
-      }
+      };
+
       Util.scrollToTop(400, transition);
     },
 
@@ -158,24 +161,23 @@ if (!window.Promise) {
       if(Object.keys(errors).length){
         //display errors
         feedbackArea.classList.remove('form__feedback--success');
-        feedbackArea.innerHTML = `${errorIcon} Invalid form. Please check the fields and try again.`;
-        if(errors['bot']) {
-          return false;
-        }
+        feedbackArea.innerHTML =  `${errorIcon} Invalid form.`;
+        feedbackArea.innerHTML += 'Please check the fields and try again.';
         this.displayFormErrors(errors);
       }
 
       else {
         //send ajax request
         submitButton.disabled = true;
+
         NanoAjax.ajax({
           url: el.contactForm.action, 
           method: 'POST', 
           body: Util.serialize(data)
         }, 
-        function (code, responseText, request) {
+        function (code, responseText) {
           let icon = errorIcon,
-              isSuccess = (code == 200);
+              isSuccess = (code === 200);
 
           if(isSuccess) {
             el.contactForm.reset();
@@ -210,7 +212,7 @@ if (!window.Promise) {
 
           case '1m4b0t':
             if (value.length){
-              errors['bot'] = 1;
+              errors.bot = 1;
             }
           break;
         }
@@ -232,19 +234,19 @@ if (!window.Promise) {
     },
 
     resetFormErrors: function(){
-      let fields = el.contactForm.querySelectorAll(".form__input");
+      let fields = el.contactForm.querySelectorAll('.form__input');
       for (var i = 0; i < fields.length; i++) {
         fields[i].setAttribute('aria-invalid', 'false');
         let fieldError = document.getElementById(`${fields[i].id}-error`);
         if(!!fieldError){
-          fieldError.textContent = "";
+          fieldError.textContent = '';
           fieldError.hidden = true;
         }
       }
     },
 
     generateIcon: function(name, label = false){
-      let ariaLabel = label ? `aria-label="${label}"` : '';
+      const ariaLabel = label ? `aria-label="${label}"` : '';
       return `
         <span class="icon icon--${name}">
           <svg role="img" ${ariaLabel}>
@@ -255,7 +257,7 @@ if (!window.Promise) {
     },
 
     registerServiceWorker: function(){
-      if ("serviceWorker" in navigator) {
+      if ('serviceWorker' in navigator) {
         navigator.serviceWorker.register('/sw.js').then(function(registration) {
           console.log('ServiceWorker registration successful with scope: ', registration.scope);
         }).catch(function(err) {
