@@ -1,10 +1,10 @@
 {
   "name": "MXB-Static",
   "version": "4.0.0",
-  "description": "personal website",
+  "description": "personal website built with Jekyll",
   "repository": {
     "type": "git",
-    "url": "http://github.com/maxboeck/jekyll-gulp"
+    "url": "http://github.com/maxboeck/mxb"
   },
   "author": "@mxbck",
   "license": "MIT",
