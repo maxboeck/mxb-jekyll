@@ -14,7 +14,8 @@ gulp.task('serve', ['browsersync'], () => {
   gulp.watch([
     '*.html', 
     '_layouts/**/*.{html,md}', 
-    '_includes/**/*.{html,md}', 
+    '_includes/**/*.{html,md}',
+    '_drafts/**/*.{html,md}', 
     '_posts/**/*.{html,md}', 
     '_pages/**/*.{html,md}',
     '_projects/**/*.{html,md}'
