@@ -30,7 +30,7 @@ Most importantly: you can define an `IgnoreList` file to <a href="http://sync-he
 
 __There's just one catch:__ without the cloud in between, both machines have to be online for the sync to happen. This was a deal-breaker for me, since I needed to be able to shut down my workstation at night, go home, and still have everything up-to-date on my laptop.
 
-Damn, so close.
+Damn, so close. 😭
 
 To get around this limitation, you need something to replace the missing cloud. An always-on server that acts as a middleman between the machines and keeps track of all file changes while they're offline. Here's where it gets (a little) tricky.
 
