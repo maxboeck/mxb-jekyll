@@ -4,7 +4,7 @@ permalink:    "project/mister-fernseher/"
 title:        "Mister Fernseher"
 title_lang:   "de"
 tagline:      "Animated madness studio"
-image:        "mf-featured.jpg"
+image:        "/assets/images/content/mf-featured.jpg"
 priority:     2
 link:         "http://misterfernseher.com"
 ---

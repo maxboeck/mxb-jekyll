@@ -3,7 +3,7 @@ layout:       project
 permalink:    "project/six-degrees-hostels/"
 title:        "Six Degrees Hostels"
 tagline:      "Indonesia's coolest backpacker hub"
-image:        "sixdegrees-featured.jpg"
+image:        "/assets/images/content/sixdegrees-featured.jpg"
 priority:     3
 link:         "http://jakarta-backpackers-hostel.com"
 ---
