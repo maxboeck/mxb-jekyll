@@ -9,13 +9,13 @@ email: hello@mxb.at
 permalink: /blog/:slug/
 
 # SEO/Meta settings
-logo: /assets/images/logo.jpg
 author: mxbck
 twitter:
   username: mxbck
 github:
   username: maxboeck
 facebook:
+  app_id: 127677017332959
   admins: 100000249390604
 social:
   name: Max Böck
@@ -26,8 +26,12 @@ social:
 seo:
   name: Max Böck
   type: Person
-analytics:
-  id: UA-8695781-1
+
+defaults:
+  - scope:
+      path: ""
+    values:
+      image: /assets/images/logo.jpg
 
 #Custom collections
 collections:
