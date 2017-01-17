@@ -1,5 +1,3 @@
-'use strict';
-
 const Util = {
 
   //get window width and height
@@ -14,24 +12,20 @@ const Util = {
     return {
       width: x,
       height: y
-    };
+    }
   },
 
   //basic form data to array
   captureForm: function(form) {
-    var field, i, s = {};
-    if (typeof form === 'object' && form.nodeName === 'FORM') {
+    var field, l, i, s = {};
+    if (typeof form == 'object' && form.nodeName == "FORM") {
       var len = form.elements.length;
       for (i=0; i<len; i++) {
         field = form.elements[i];
-        if (field.name && 
-            !field.disabled && 
-            field.type !== 'file' && 
-            field.type !== 'reset' && 
-            field.type !== 'submit' && 
-            field.type !== 'button'
-        ) {
-          s[field.name] = field.value || '';
+        if (field.name && !field.disabled && field.type != 'file' && field.type != 'reset' && field.type != 'submit' && field.type != 'button') {
+          if ((field.type != 'checkbox' && field.type != 'radio') || field.checked) {
+            s[field.name] = field.value || '';
+          }
         }
       }
     }
@@ -39,10 +33,7 @@ const Util = {
   },
 
   serialize: function(obj) {
-    return Object.keys(obj).reduce(function(a,k){
-      a.push(k+'='+encodeURIComponent(obj[k]));
-      return a;
-    },[]).join('&');
+    return Object.keys(obj).reduce(function(a,k){a.push(k+'='+encodeURIComponent(obj[k]));return a},[]).join('&');
   },
 
   validateEmail: function(email) {
@@ -63,7 +54,7 @@ const Util = {
         speed = duration || 600,
         currentTime = 0;
 
-    let time = Math.max(0.1, Math.min(Math.abs(scrollY - 0) / speed, 0.8));
+    let time = Math.max(.1, Math.min(Math.abs(scrollY - 0) / speed, .8));
     let easeOutCirc = function(pos) {
       return Math.sqrt(1 - Math.pow((pos-1), 2));
     };

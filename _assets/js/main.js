@@ -12,7 +12,7 @@ if (!window.Promise) {
   window.Promise = Promise;
 }
 
-// Throttled Events
+// Throttled Resize Event
 (function() {
 
   const throttle = function(type, name, obj) {
@@ -29,14 +29,13 @@ if (!window.Promise) {
     obj.addEventListener(type, func);
   };
   throttle('resize', 'throttledResize');
+
 })();
 
 // Main App Object
 (function() {
 
-  let state = {}, 
-      el = {};
-
+  let state = {}, el = {};
   const App = {
 
     init: function(){

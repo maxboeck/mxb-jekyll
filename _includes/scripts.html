@@ -16,6 +16,7 @@
     }
     function defer() {
       insert("{{ '/assets/js/defer.js' | relative_url }}", "deferred");
+      insert("//platform.twitter.com/widgets.js", "twitter");
     }
     if (window.addEventListener)
       window.addEventListener("load", defer, false);
