@@ -4,7 +4,7 @@
     <div class="project__content">
       <div class="project__info" id="project-{{ project.slug }}-info">
         <span class="sr-only">Featured Project: </span>
-        <h2 class="project__title" lang="{{ project.title_lang | default: 'en' }}">{{ project.title }}<span class="sr-only">.</span></h2>
+        <h2 class="project__title" lang="{{ project.title_lang | default: 'en' }}">{{ project.title }}</h2>
         {% if project.tagline %}
         <p class="project__desc">
           {{ project.tagline }}

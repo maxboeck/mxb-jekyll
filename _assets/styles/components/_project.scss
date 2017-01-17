@@ -68,11 +68,11 @@
 }
 
 //shadow and hover animation
-
 .project--preview {
   position: relative;
   transition:transform .3s ease-in-out;
   transform:scale(1) translateY(0);
+  will-change:transform;
 
   @include hover-focus {
     transform:scale(1.01) translateY(-5px);
@@ -93,6 +93,7 @@
     border-radius: $border-radius;
     box-shadow: 0 10px 30px rgba(0, 0, 0, .2), 0 1px 1px rgba(0,0,0,.1);
     transition: opacity .3s ease-in-out;
+    will-change:opacity;
   }
 }
 
