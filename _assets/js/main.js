@@ -162,7 +162,7 @@ if (!window.Promise) {
       if(Object.keys(errors).length){
         //display errors
         feedbackArea.classList.remove('form__feedback--success');
-        feedbackArea.innerHTML =  `${errorIcon} Invalid form.`;
+        feedbackArea.innerHTML =  `${errorIcon} Invalid form. `;
         feedbackArea.innerHTML += 'Please check the fields and try again.';
         this.displayFormErrors(errors);
       }
