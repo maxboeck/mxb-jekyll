@@ -103,7 +103,7 @@ Titles are set in Playfair Display, a font availabe on Google Fonts. I chose to 
 
 And besides, [no font-face syntax will ever be bulletproof, nor should it be](https://calendar.perfplanet.com/2016/no-font-face-bulletproof-syntax/).
 
-For `@font-face` loading, I used Bram Stein's [FontFaceObserver](https://github.com/bramstein/fontfaceobserver) to make sure users wouldn't see a <abbr title="Flash of Invisible Test">FOIT</abbr> on page load. Titles fall back to the similiar looking _Times New Roman_ until the font is ready.
+For `@font-face` loading, I used Bram Stein's [FontFaceObserver](https://github.com/bramstein/fontfaceobserver) to make sure users wouldn't see a <abbr title="Flash of Invisible Text">FOIT</abbr> on page load. Titles fall back to the similiar looking _Times New Roman_ until the font is ready.
 
 A couple of additional tweaks here:
 
