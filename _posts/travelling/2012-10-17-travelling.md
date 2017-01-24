@@ -6,8 +6,7 @@ category: life
 ---
 
 <p class="lead">
-  For the last couple of years, I've tried to see as much of the world as possible. 
-  Here are a few impressions of these travels.
+  For the last couple of years, I've been fortunate enough to see quite a few beautiful places on this planet. <a href="#copyright"><sup>*</sup></a> 
 </p>
 
 <div class="gallery">
@@ -102,4 +101,4 @@ category: life
   </figure>
 </div>
 
-<p>Most of these pictures were shot by my girlfriend, Tina.</p>
+<p id="copyright"><sup style="color:#fc6767;">*</sup> Most of these pictures were shot by my girlfriend, Tina.</p>
