@@ -14,7 +14,6 @@ if (!window.Promise) {
 
 // Throttled Events
 (function() {
-
   const throttle = function(type, name, obj) {
     obj = obj || window;
     let running = false;
