@@ -6,15 +6,18 @@ layout: default
   <header class="post__header container">
     <h1 id="{{ page.slug }}-title" class="post__title p-name title" itemprop="headline">{{ page.title }}</h1>
     <div class="post__meta">
-      <time class="post__date dt-published" itemprop="datePublished" datetime="{{ page.date | date_to_xmlschema }}">
-      {{ page.date | date: "%B %-d, %Y" }}
-      </time> 
+
+      <time class="post__date dt-published" itemprop="datePublished" datetime="{{ page.date | date_to_xmlschema }}">{{ page.date | date: "%B %-d, %Y" }}</time> 
+
       {% if page.category %}
         &sdot; <span class="post__category p-category">
           <span class="thoughts-on">Thoughts on </span>
           {{ page.category | capitalize }}
         </span>
       {% endif %}
+
+      {% include offlinebutton.html %}
+
     </div>
   </header>
 

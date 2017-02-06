@@ -33,6 +33,7 @@ $container-max-widths: (
 //
 // Control the order of layers in the application
 $z-layers: (
+  "overlay": 1000,
   "menu": 500,
   "modal": 100
 );

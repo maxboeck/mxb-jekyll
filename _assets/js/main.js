@@ -5,6 +5,8 @@ import Promise from 'promise-polyfill';
 import FontFaceObserver from 'fontfaceobserver';
 import Blazy from 'blazy';
 import NanoAjax from 'nanoajax';
+
+import OfflineSupport from './lib/offline';
 import Util from './lib/util';
 
 // Promise Polyfill
@@ -48,7 +50,7 @@ if (!window.Promise) {
 
       this.lazyLoading();
       this.fontFaceObserver();
-      this.registerServiceWorker();
+      this.checkOfflineSupport();
     },
 
     setElements: function(){
@@ -82,8 +84,8 @@ if (!window.Promise) {
 
       //contact form submit
       if(!!el.contactForm){
-        el.contactForm.addEventListener('submit', (event) => {
-          event.preventDefault();
+        el.contactForm.addEventListener('submit', (e) => {
+          e.preventDefault();
           this.handleContactFormSubmit();
         });
       }
@@ -256,13 +258,9 @@ if (!window.Promise) {
       `;
     },
 
-    registerServiceWorker: function(){
+    checkOfflineSupport: function(){      
       if ('serviceWorker' in navigator) {
-        navigator.serviceWorker.register('/sw.js').then(function(registration) {
-          console.log('ServiceWorker registration successful with scope: ', registration.scope);
-        }).catch(function(err) {
-          console.log('ServiceWorker registration failed: ', err);
-        });
+        OfflineSupport.init();
       }
     }
 
