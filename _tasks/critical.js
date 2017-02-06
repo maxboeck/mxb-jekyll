@@ -17,7 +17,7 @@ const config = {
 gulp.task('critical', () => {
   return gulp.src('_site/index.html')
     .pipe(plumber({
-      handleError: function (err) {
+      errorHandler: function (err) {
         gutil.log(gutil.colors.red(err));
         this.emit('end');
       }

@@ -27,7 +27,7 @@ const webpackConfig = {
 gulp.task('scripts', () => {
   return gulp.src(srcfiles)
     .pipe(plumber({
-      handleError: function (err) {
+      errorHandler: function (err) {
         gutil.log(gutil.colors.red(err));
         this.emit('end');
       }
@@ -41,7 +41,7 @@ gulp.task('scripts', () => {
 gulp.task('scripts:prod', () => {
   return gulp.src(srcfiles)
     .pipe(plumber({
-      handleError: function (err) {
+      errorHandler: function (err) {
         gutil.log(gutil.colors.red(err));
         this.emit('end');
       }

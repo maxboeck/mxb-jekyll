@@ -25,7 +25,7 @@ gulp.task('sass', () => {
   return gulp.src(sourcefiles)
     .pipe($.flatten())
     .pipe(plumber({
-      handleError: function (err) {
+      errorHandler: function (err) {
         gutil.log(gutil.colors.red(err));
         this.emit('end');
       }

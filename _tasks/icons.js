@@ -23,7 +23,7 @@ const config = {
 gulp.task('icons', () => {
   return gulp.src('_assets/icons/*.svg')
     .pipe(plumber({
-      handleError: function (err) {
+      errorHandler: function (err) {
         gutil.log(gutil.colors.red(err));
         this.emit('end');
       }
