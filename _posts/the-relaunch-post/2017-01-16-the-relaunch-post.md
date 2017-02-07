@@ -3,6 +3,7 @@ layout: post
 title: "The Relaunch Post"
 permalink: "/blog/the-relaunch-post/"
 category: code
+image: "/blog/the-relaunch-post/screenshot.jpg"
 ---
 
 <p class="lead">Two weeks into 2017, I used some spare time to relaunch my website.</p>
