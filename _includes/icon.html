@@ -1,5 +1,5 @@
-<span class="icon icon--{{ include.icon }}" {% if include.aria-hidden %}aria-hidden="true"{% endif %}>
-  <svg role="img">
+<span class="icon icon--{{ include.icon }}">
+  <svg role="img" aria-hidden="true">
     <use xlink:href="{{ "/assets/icons/sprite.svg#" | append: include.icon | relative_url }}"></use>
   </svg>
 </span>

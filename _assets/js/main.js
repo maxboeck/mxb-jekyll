@@ -6,8 +6,8 @@ import FontFaceObserver from 'fontfaceobserver';
 import Blazy from 'blazy';
 import NanoAjax from 'nanoajax';
 
-import OfflineSupport from './lib/offline';
-import Util from './lib/util';
+import OfflineSupport from './inc/offline';
+import Util from './inc/util';
 
 // Promise Polyfill
 if (!window.Promise) {
@@ -35,22 +35,19 @@ if (!window.Promise) {
 // Main App Object
 (function() {
 
-  let state = {}, 
-      el = {};
-
+  let state = {isMenuOpen: false}, el = {};
   const App = {
 
     init: function(){
       document.documentElement.classList.remove('no-js');
 
-      this.setInitialState();
       this.setElements();
       this.setLayers();
       this.bindEvents();
 
       this.lazyLoading();
       this.fontFaceObserver();
-      this.checkOfflineSupport();
+      this.checkServiceWorkerSupport();
     },
 
     setElements: function(){
@@ -61,12 +58,6 @@ if (!window.Promise) {
         menuAnimationBg: d.getElementById('menu-animation-bg'),
         projectList: d.getElementById('projectlist'),
         contactForm: d.getElementById('contactform')
-      };
-    },
-
-    setInitialState: function(){
-      state = {
-        isMenuOpen: false
       };
     },
 
@@ -258,7 +249,7 @@ if (!window.Promise) {
       `;
     },
 
-    checkOfflineSupport: function(){      
+    checkServiceWorkerSupport: function(){
       if ('serviceWorker' in navigator) {
         OfflineSupport.init();
       }

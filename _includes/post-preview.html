@@ -1,21 +1,21 @@
-<article id="post-{{ post.slug }}" class="post post--preview h-entry" aria-labelledby="post-{{ post.slug }}-title">
+<article id="post-{{ post.slug }}" class="post post--preview h-entry">
+  <a href="{{ post.url | relative_url }}" rel="bookmark" aria-labelledby="{{ post.slug }}-title">
 
-  <h2 id="post-{{ post.slug }}-title" class="post__title p-name">
-    <a href="{{ post.url | relative_url }}" rel="bookmark">{{ post.title }}</a>
-  </h2>
+    <h2 id="{{ post.slug }}-title" class="post__title p-name">{{ post.title }}</h2>
 
-  <div class="post__meta">
-    <time class="post__date dt-published" datetime="{{ post.date | date_to_xmlschema }}">
-      {{ post.date | date: "%B %-d, %Y" }}
-    </time> 
-    &sdot; 
-    <span class="post__category">
-      {{ post.category }}
-    </span>
-  </div>
+    <div class="post__meta">
+      <time class="post__date dt-published" datetime="{{ post.date | date_to_xmlschema }}">
+        {{ post.date | date: "%B %-d, %Y" }}
+      </time> 
+      &sdot; 
+      <span class="post__category">
+        {{ post.category }}
+      </span>
+    </div>
 
-  <p class="post__excerpt p-summary">
-    {{ post.content | strip_html | truncatewords: 30 }}
-  </p>
+    <p class="post__excerpt p-summary">
+      {{ post.content | strip_html | truncatewords: 30 }}
+    </p>
 
+  </a>
 </article>

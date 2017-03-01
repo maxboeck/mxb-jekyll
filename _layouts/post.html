@@ -10,10 +10,7 @@ layout: default
       <time class="post__date dt-published" itemprop="datePublished" datetime="{{ page.date | date_to_xmlschema }}">{{ page.date | date: "%B %-d, %Y" }}</time> 
 
       {% if page.category %}
-        &sdot; <span class="post__category p-category">
-          <span class="thoughts-on">Thoughts on </span>
-          {{ page.category | capitalize }}
-        </span>
+      &sdot; <span class="post__category p-category">{{ page.category | capitalize }}</span>
       {% endif %}
 
       {% include offlinebutton.html %}
@@ -31,7 +28,7 @@ layout: default
     </p>
     
     <a href="https://twitter.com/intent/follow?screen_name=mxbck" target="_blank" title="Follow Max Böck on Twitter" class="btn btn--twitter">
-      {% include icon.html icon="twitter" aria-hidden=true %} Follow @mxbck
+      {% include icon.html icon="twitter" %} Follow @mxbck
     </a>
   </div>
 

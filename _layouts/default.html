@@ -1,15 +1,17 @@
 <!DOCTYPE html>
-{% include inspector.html %}
 <html class="no-js" lang="{{ site.lang | default: page.lang | default: 'en' }}">
 
+  {% include inspector.html %}
   {% include head.html %}
 
   <body>
+
     <!--[if lte IE 9]>
     <div class="legacy-warning">
       <div class="container">Seems like your browser is quite outdated. Why not <a href="http://browsehappy.com/">upgrade to a modern one</a> for free and improve your experience?</div>
     </div>
     <![endif]-->
+    
     <a href="#main" class="sr-skip-link" accesskey="2">skip to main content</a>
 
     <div class="hfeed site" role="document">

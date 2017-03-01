@@ -6,7 +6,7 @@ const OfflineSupport = {
     //Register Service Worker
     navigator.serviceWorker.register('/sw.js').then(registration => {
       console.log('ServiceWorker registration successful with scope: ', registration.scope);
-      //this.setOfflineButton();
+      //this.initOfflineButton();
     }).catch(err => {
       console.log('ServiceWorker registration failed: ', err);
     });
@@ -40,7 +40,7 @@ const OfflineSupport = {
     });
   },
 
-  setOfflineButton: function(){
+  initOfflineButton: function(){
     //initialize the "save for offline" button
 
     const path = window.location.pathname;

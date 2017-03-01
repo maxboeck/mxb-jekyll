@@ -28,6 +28,10 @@
     font-size: .77777em;
   }
 
+  &__excerpt {
+    color:$body-color;
+  }
+
   &__footer {
     max-width: $main-column-max-width;
     margin:0 auto 2rem;
