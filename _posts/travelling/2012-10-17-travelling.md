@@ -10,6 +10,17 @@ category: life
 </p>
 
 <div class="gallery">
+
+  <figure>
+    <img 
+      src="data:image/gif;base64,R0lGODlhAQABAAAAACH5BAEKAAEALAAAAAABAAEAAAICTAEAOw==" 
+      data-src="vienna.jpg" 
+      class="lazyload" 
+      alt=""
+    >
+    <figcaption>My Home Town, Vienna</figcaption>
+  </figure>
+
   <figure>
     <img 
       src="data:image/gif;base64,R0lGODlhAQABAAAAACH5BAEKAAEALAAAAAABAAEAAAICTAEAOw==" 
@@ -98,6 +109,16 @@ category: life
       alt=""
     >
     <figcaption>Botanical Gardens, Singapore</figcaption>
+  </figure>
+
+  <figure>
+    <img 
+      src="data:image/gif;base64,R0lGODlhAQABAAAAACH5BAEKAAEALAAAAAABAAEAAAICTAEAOw==" 
+      data-src="portugal.jpg" 
+      class="lazyload" 
+      alt=""
+    >
+    <figcaption>Sagres - "The End of the World", Portugal</figcaption>
   </figure>
 </div>
 
