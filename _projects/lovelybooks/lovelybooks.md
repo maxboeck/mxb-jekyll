@@ -3,7 +3,7 @@ layout:       project
 permalink:    "project/lovelybooks/"
 title:        "Lovely Books"
 tagline:      "A community of book lovers"
-image:        "/assets/images/content/lovelybooks-featured.jpg"
+image:        "/assets/images/featured/lovelybooks.jpg"
 priority:     6
 link:         "http://www.lovelybooks.de"
 published:    false

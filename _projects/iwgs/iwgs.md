@@ -3,7 +3,7 @@ layout:       project
 permalink:    "project/iwgs/"
 title:        "International Wheat Genetics Symposium"
 tagline:      "Science to feed the world"
-image:        "/assets/images/content/iwgs-featured.jpg"
+image:        "/assets/images/featured/iwgs.jpg"
 priority:     4
 link:         "http://iwgs2017.boku.ac.at/"
 ---

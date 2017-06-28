@@ -2,8 +2,8 @@
 layout:       project
 permalink:    "project/tristar/"
 title:        "Tristar Real Estate"
-tagline:      "Find your own space for living"
-image:        "/assets/images/content/tristar-featured.jpg"
+tagline:      "Spaces for Living"
+image:        "/assets/images/featured/tristar.jpg"
 priority:     3
 link:         "http://www.tristar.at"
 ---
@@ -11,9 +11,7 @@ link:         "http://www.tristar.at"
   <img src="images/tristar_macbook.jpg" alt="Homepage on a Macbook">
 </figure>
 
-Lorem ipsum dolor sit amet, consectetur adipisicing elit. Laboriosam, quae quod beatae. Quos sequi, odio vero eius repellat perferendis, fuga ad tempora dignissimos suscipit. Quaerat praesentium provident eligendi blanditiis enim suscipit magnam delectus ad et earum, odio temporibus eos sapiente.
-
-Lorem ipsum dolor sit amet, consectetur adipisicing elit. Enim rem amet saepe debitis, eveniet placeat?
+**TRI**STAR is a real estate business based in Vienna. 
 
 <figure class="extend">
   <img src="images/realty_cards.jpg" alt="Card UI">
@@ -24,7 +22,7 @@ Lorem ipsum dolor sit amet, consectetur adipisicing elit. Enim rem amet saepe de
 Lorem ipsum dolor sit amet, consectetur adipisicing elit. Voluptas ipsam quia enim voluptatibus molestiae harum consequuntur tempore maxime aut repellat aspernatur neque laboriosam quibusdam nihil expedita culpa accusamus, ex porro placeat dolore eos voluptates illo. Vero veritatis quia iure illo doloribus id nihil optio, ex nemo consectetur assumenda non. Explicabo.
 
 <div class="extend" style="margin-top:3rem">
-  <video poster="images/realty-filter.jpg" preload="" autoplay="autoplay" loop="loop" width="944" height="460">
+  <video poster="images/realty_filter.jpg" preload="" autoplay="autoplay" loop="loop" width="944" height="460">
     <source src="video/searchrequest.webm" type="video/webm" />
     <source src="video/searchrequest.mp4" type="video/mp4" />
   </video>

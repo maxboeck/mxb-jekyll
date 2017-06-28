@@ -72,14 +72,6 @@
   position: relative;
   transition:transform .25s cubic-bezier(0.4, 0, 0.2, 1);
   transform:scale(1) translateY(0);
-  will-change:transform;
-
-  @include hover-focus {
-    transform:scale(1.01) translateY(-5px);
-    &::after {
-      opacity:1;
-    }
-  }
 
   &::after {
     content: '';
@@ -91,9 +83,15 @@
     height: 100%;
     opacity: 0;
     border-radius: $border-radius;
-    box-shadow: 0 10px 30px rgba(0, 0, 0, .2), 0 1px 1px rgba(0,0,0,.1);
-    transition: opacity .3s ease-in-out;
-    will-change:opacity;
+    box-shadow: 0 5px 30px 5px rgba(0, 0, 0, .2), 0 1px 1px rgba(0,0,0,.1);
+    transition: opacity .25s cubic-bezier(0.4, 0, 0.2, 1);
+  }
+  
+  &:hover {
+    transform:scale(1.01) translateY(-5px);
+    &::after {
+      opacity:1;
+    }
   }
 }
 

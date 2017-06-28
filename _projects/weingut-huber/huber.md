@@ -4,7 +4,7 @@ permalink:    "project/weingut-huber/"
 title:        "Weingut Huber"
 title_lang:   "de"
 tagline:      "World-class wines from Austria"
-image:        "/assets/images/content/huber-featured.jpg"
+image:        "/assets/images/featured/huber.jpg"
 css:          huber
 priority:     1
 link:         "http://www.weingut-huber.at"

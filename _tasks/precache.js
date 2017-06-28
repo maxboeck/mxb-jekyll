@@ -15,7 +15,7 @@ function writeServiceWorkerFile(rootDir, handleFetch, callback) {
       rootDir + '/{blog,about,contact}/*.html',
 
       rootDir + '/assets/{css,js,icons,fonts}/*',
-      rootDir + '/assets/images/content/*'
+      rootDir + '/assets/images/featured/*'
     ],
     stripPrefix: rootDir + '/',
     verbose: true
