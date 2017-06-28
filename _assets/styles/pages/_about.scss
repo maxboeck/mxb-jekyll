@@ -27,41 +27,39 @@
 .cv {
   @include clearfix;
   padding:2rem 0;
-}
 
-.skills,
-.education {
-  &__list {
-    list-style-type: none;
-    padding:0;
+  &__section {
+    @include mq(md) {
+      float:left;
+      width:50%;
+    }
   }
+
   &__title {
     margin:2rem 0;
   }
 
-  @include mq(md) {
-    float:left;
-    width:50%;
+  &__list {
+    list-style-type: none;
+    padding:0;
   }
-}
 
-.skills {
-  &__item {
-    padding-left:2rem;
-    background:transparent url(../images/bullet.svg) no-repeat 0 center;
-    background-size:12px 12px;
-  }
-}
-
-.education {
   &__item {
     margin-bottom:.8125rem;
-  }
 
-  &__institute {
-    text-transform: uppercase;
-    font-size:.8125em;
-    letter-spacing: 1px;
-    color:$gray-light;
+    &--bullet {
+      margin-bottom:0;
+      padding-left:2rem;
+      background:transparent url(../images/bullet.svg) no-repeat 0 center;
+      background-size:12px 12px;
+    }
+
+    &__desc {
+      text-transform: uppercase;
+      font-size:.8125em;
+      letter-spacing: 1px;
+      color:$gray-light;
+    }
   }
+  
 }
