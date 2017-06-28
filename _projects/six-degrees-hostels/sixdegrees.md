@@ -4,7 +4,7 @@ permalink:    "project/six-degrees-hostels/"
 title:        "Six Degrees Hostels"
 tagline:      "Indonesia's coolest backpacker hub"
 image:        "/assets/images/content/sixdegrees-featured.jpg"
-priority:     3
+priority:     2
 link:         "http://jakarta-backpackers-hostel.com"
 ---
 

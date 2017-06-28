@@ -5,7 +5,7 @@ title:        "Mister Fernseher"
 title_lang:   "de"
 tagline:      "Animated madness studio"
 image:        "/assets/images/content/mf-featured.jpg"
-priority:     2
+priority:     5
 link:         "http://misterfernseher.com"
 ---
 

@@ -4,8 +4,9 @@ permalink:    "project/lovelybooks/"
 title:        "Lovely Books"
 tagline:      "A community of book lovers"
 image:        "/assets/images/content/lovelybooks-featured.jpg"
-priority:     5
+priority:     6
 link:         "http://www.lovelybooks.de"
+published:    false
 ---
 
 <figure class="extend">

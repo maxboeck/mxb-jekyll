@@ -31,19 +31,19 @@
     position: absolute;
     height: 3px;
     width: 100%;
-    background-color: $gray-dark;
+    background-color: currentColor;
     left: 0;
     transform: rotate(0deg);
-    transition: all .25s ease-in-out;
+    transition: transform .25s ease-in-out;
 
-    &--1 {
+    &:nth-child(1) {
       top: 0px;
     }
-    &--2,
-    &--3 {
+    &:nth-child(2),
+    &:nth-child(3) {
       top: 50%;
     }
-    &--4 {
+    &:nth-child(4) {
       top: 100%;
     }
   }
@@ -54,18 +54,16 @@
     transform: rotate(180deg);
   }
   .menuicon__bar {
-    background-color:#FFF;
-
-    &--1,
-    &--4 {
+    &:nth-child(1),
+    &:nth-child(4) {
       width:0;
       top: 50%;
       left: 50%;
     }
-    &--2 {
+    &:nth-child(2) {
       transform: rotate(45deg);
     }
-    &--3 {
+    &:nth-child(3) {
       transform: rotate(-45deg);
     }
   }

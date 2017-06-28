@@ -1,9 +1,9 @@
 ---
 layout: post
-title: "Prototyping a React App in Static HTML"
-permalink: "/blog/prototyping-react-with-static-html/"
+title: "Prototyping an App in Static HTML"
+permalink: "/blog/prototyping-app-with-static-html/"
 category: code
-image: "/blog/prototyping-react-with-static-html/laptop-files.jpg"
+image: "/blog/prototyping-app-with-static-html/laptop-files.jpg"
 ---
 
 <p class="lead">I recently worked on a larger new web app. The product was in its early stages, so one of the first big tasks was to come up with a prototype for the UI design.</p>
