@@ -1,0 +1,19 @@
+{
+    "extends": "airbnb/base",
+    "env": {
+        "browser": true,
+        "commonjs": true,
+        "es6": true
+    },
+    "parser": "babel-eslint",
+    "rules": {
+        "strict": 0,
+        "linebreak-style": [2,"unix"],
+        "quotes": [2, "single"],
+        "semi": [0],
+        "max-len": [2, 250],
+        "no-console": [2, { "allow": ["warn", "error"] }],
+        "arrow-body-style": ["off", "always"],
+        "no-restricted-syntax": ["off", "always"]
+    }
+}
