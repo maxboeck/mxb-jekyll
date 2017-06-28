@@ -1,41 +1,25 @@
 .projectlist {
-  display:flex;
-  justify-content: space-between;
-  flex-wrap: wrap;
+  display:grid;
+  grid-gap:2rem;
+  grid-auto-rows: 400px;
   list-style-type: none;
   padding:0;
-  margin:0 -1rem;
 
-  &__item {
-    width:100%;
-    margin-bottom:2rem;
-    padding:0 1rem;
-
-    &--1 {
-      width:100% !important;
-    }
+  &__item:first-child {
+    grid-column:1 / -1;
   }
 
   @include mq(md){
-    &__item {
-      width:50%;
-    }
+    grid-template-columns:repeat(2, 1fr);
   }
 
   @include mq(lg){
-    &__item--1 .project__title {
-      font-size:3.5rem;
-    }
-    &__item--2,
-    &__item--5 {
-      width:33.3333%;
-    }
-    &__item--3,
-    &__item--4 {
-      width:66.6666%;
+    grid-template-columns:repeat(3, 1fr);
+
+    &__item:nth-child(3),
+    &__item:nth-child(4),
+    &__item:nth-child(7) {
+      grid-column: span 2;
     }
   }
 }
-
-//2,5,6,9 = 33%
-//3,4,7,8 = 66%
