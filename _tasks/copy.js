@@ -4,7 +4,7 @@ import gulp from 'gulp';
 
 gulp.task('copy', () => {
   return gulp.src([
-    '_assets/js/**',
+    '_assets/js/*.js',
     '!_assets/js/main.js',
     '_assets/fonts/**'
   ], {

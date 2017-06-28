@@ -12,14 +12,9 @@ function writeServiceWorkerFile(rootDir, handleFetch, callback) {
     logger: gutil.log,
     staticFileGlobs: [
       rootDir + '/index.html',
-      rootDir + '/blog/index.html',
-      rootDir + '/about/index.html',
-      rootDir + '/contact/index.html',
+      rootDir + '/{blog,about,contact}/*.html',
 
-      rootDir + '/assets/css/main.*',
-      rootDir + '/assets/fonts/*',
-      rootDir + '/assets/icons/*',
-      rootDir + '/assets/js/bundle.*',
+      rootDir + '/assets/{css,js,icons,fonts}/*',
       rootDir + '/assets/images/content/*'
     ],
     stripPrefix: rootDir + '/',
