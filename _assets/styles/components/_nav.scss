@@ -172,8 +172,9 @@
 
 // Toggle Button
 .nav__togglebtn {
-  display:table-cell;
-  vertical-align: center;
+  display:flex;
+  align-items:center;
+  justify-content: center;
   text-align: center;
   width: 48px;
   height: 48px;
@@ -184,7 +185,13 @@
   border:0;
   border-radius:50%;
   background-color:rgba($body-bg, .85);
+  color:$gray-dark;
   transform:translate3d(0,0,0);
+
+  &:focus {
+    outline:0;
+    box-shadow:0 0 0 5px $brand-cyan;
+  }
 
   @include mq(md){
     top:52px;
@@ -208,6 +215,7 @@
   }
 
   .nav__togglebtn {
+    color:#FFF;
     background-color:transparent;
   }
 
