@@ -115,7 +115,7 @@ if (!window.Promise) {
       const scale = (state.isMenuOpen) ? 0 : 1;
 
       document.body.classList.toggle('menu-open');
-      Window.setTimeout(() => {
+      window.setTimeout(() => {
         el.menu.classList.toggle('nav__list--visible');
       }, 50);
 
