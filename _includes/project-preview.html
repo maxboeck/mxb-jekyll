@@ -1,5 +1,5 @@
-<div class="project project--preview" aria-labelledby="project-{{ project.slug }}-info">
-  <a href="{{ project.url | relative_url }}" class="project__link js-project-link" rel="bookmark" title="read more about this project">
+<div class="project project--preview">
+  <a href="{{ project.url | relative_url }}" class="project__link js-project-link" rel="bookmark" aria-labelledby="project-{{ project.slug }}-info">
 
     <div class="project__content">
       <div class="project__info" id="project-{{ project.slug }}-info">
@@ -17,7 +17,7 @@
           class="lazyload" 
           src="data:image/gif;base64,R0lGODlhAQABAAAAACH5BAEKAAEALAAAAAABAAEAAAICTAEAOw==" 
           data-src="{{ project.image | relative_url }}" 
-          alt=""
+          alt=" "
         >
       </div>
     </div>
