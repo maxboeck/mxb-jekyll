@@ -6,21 +6,20 @@ import swPrecache from 'sw-precache';
 import path from 'path';
 
 function writeServiceWorkerFile(rootDir, handleFetch, callback) {
-  var config = {
+  const config = {
     cacheId: 'mxb',
-    handleFetch: handleFetch,
+    handleFetch,
     logger: gutil.log,
     staticFileGlobs: [
       rootDir + '/index.html',
       rootDir + '/{blog,about,contact}/*.html',
-
       rootDir + '/assets/{css,js,icons,fonts}/*',
-      rootDir + '/assets/images/featured/*'
+      rootDir + '/assets/images/featured/*',
     ],
     stripPrefix: rootDir + '/',
     verbose: true
   };
-  
+
   swPrecache.write(path.join(rootDir, 'sw.js'), config, callback);
 }
 
