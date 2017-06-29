@@ -188,11 +188,6 @@
   color:$gray-dark;
   transform:translate3d(0,0,0);
 
-  &:focus {
-    outline:0;
-    box-shadow:0 0 0 5px $brand-cyan;
-  }
-
   @include mq(md){
     top:52px;
   }
