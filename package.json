@@ -8,6 +8,10 @@
   },
   "author": "@mxbck",
   "license": "MIT",
+  "browserslist": [
+    "> 5%",
+    "last 3 versions"
+  ],
   "dependencies": {
     "blazy": "^1.8.2",
     "fontfaceobserver": "^1.6.3",
@@ -18,6 +22,7 @@
     "babel-core": "^6.21.0",
     "babel-eslint": "^7.2.3",
     "babel-loader": "^6.2.10",
+    "babel-preset-env": "^1.5.2",
     "babel-preset-es2015": "^6.18.0",
     "browser-sync": "^2.2.0",
     "critical": "^0.8.1",
