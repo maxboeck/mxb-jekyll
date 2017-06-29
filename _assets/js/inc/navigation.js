@@ -26,6 +26,8 @@ export default class Navigation {
     this.toggleBtn.addEventListener('click', () => this.toggleMenu());
     this.nav.addEventListener('keydown', e => this.handleTabPress(e));
     window.addEventListener('throttledResize', () => this.setCircleSize());
+
+    this.setCircleSize();
   }
 
   toggleMenu() {
