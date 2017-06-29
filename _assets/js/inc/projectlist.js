@@ -1,13 +1,10 @@
-import Blazy from 'blazy';
 import Util from './util';
 
 const SELECTORS = {
   projectLink: '.js-project-link',
-  lazyload: '.lazyload',
 }
 
 const CLASSES = {
-  lazyloadSuccess: 'loaded',
   pageTransition: 'pagetransition',
 }
 
@@ -21,12 +18,6 @@ const ProjectList = {
     for (let i = 0; i < projects.length; i += 1) {
       projects[i].addEventListener('click', this.showProject);
     }
-
-    // eslint-disable-next-line no-unused-vars
-    const lazyLoader = new Blazy({
-      selector: SELECTORS.lazyload,
-      successClass: CLASSES.lazyloadSuccess,
-    });
   },
 
   showProject(e) {

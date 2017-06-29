@@ -1,6 +1,7 @@
 // Global Imports
 import _Promise from 'promise-polyfill';
 import FontFaceObserver from 'fontfaceobserver';
+import Blazy from 'blazy';
 
 import Navigation from './inc/navigation';
 import ProjectList from './inc/projectlist';
@@ -16,19 +17,27 @@ if (!window.Promise) {
 Util.throttle('resize', 'throttledResize');
 
 // Main App Object
+/* eslint-disable no-new */
 const App = {
 
   init() {
     document.documentElement.classList.remove('no-js');
 
-    /* eslint-disable no-new */
     new Navigation();
     new ContactForm();
-    /* eslint-enable no-new */
 
     ProjectList.init();
     this.asyncLoadFonts();
+    this.lazyLoading();
     this.registerServiceWorker();
+  },
+
+  // init lazy loading of images
+  lazyLoading() {
+    new Blazy({
+      selector: '.lazyload',
+      successClass: 'loaded',
+    });
   },
 
   // load Fonts via FontFaceObserver
