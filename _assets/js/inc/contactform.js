@@ -25,13 +25,11 @@ export default class ContactForm {
     this.data = {};
     this.errors = {};
 
-    this.form.addEventListener('submit', (e) => {
-      e.preventDefault();
-      this.handleSubmit();
-    });
+    this.form.addEventListener('submit', e => this.handleSubmit(e));
   }
 
-  handleSubmit() {
+  handleSubmit(e) {
+    e.preventDefault();
     this.validate();
 
     if (Object.keys(this.errors).length) {
@@ -42,7 +40,7 @@ export default class ContactForm {
         url: this.form.action,
         method: 'POST',
         body: Util.serialize(this.data),
-      }, this.handleResponse);
+      }, (c, r) => this.handleResponse(c, r));
     }
   }
 
