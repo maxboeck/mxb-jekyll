@@ -87,7 +87,7 @@ export default class ContactForm {
           break;
 
         default :
-          return false;
+          break;
       }
     });
 

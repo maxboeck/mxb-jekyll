@@ -3,7 +3,6 @@
 import gulp from 'gulp';
 
 gulp.task('serve', ['browsersync'], () => {
-  
   //asset pipeline
   gulp.watch(['_assets/styles/**/*.scss', '_projects/**/*.scss'], ['sass']);
   gulp.watch(['_assets/js/**/*.js'], ['scripts']);
