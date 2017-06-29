@@ -1,25 +1,55 @@
 .projectlist {
-  display:grid;
+  display:flex;
+  flex-wrap:wrap;
   grid-gap:2rem;
   grid-auto-rows: 400px;
   list-style-type: none;
   padding:0;
+  margin:0 -1rem;
 
-  &__item:first-child {
-    grid-column:1 / -1;
+  &__item {
+    width:100%;
+    padding:1rem;
+
+    &:first-child {
+      width:100%;
+      grid-column:1 / -1;
+    }
   }
 
   @include mq(md){
     grid-template-columns:repeat(2, 1fr);
+
+    &__item {
+      width: 50%;
+    }
   }
 
   @include mq(lg){
     grid-template-columns:repeat(3, 1fr);
 
+    &__item {
+      width: 33.33%;
+    }
+
     &__item:nth-child(3),
     &__item:nth-child(4),
     &__item:nth-child(7) {
+      width:66.66%;
       grid-column: span 2;
+    }
+  }
+}
+
+
+@supports (display:grid) {
+  .projectlist {
+    display:grid;
+    margin:0;
+
+    &__item {
+      width:auto !important;
+      padding:0;
     }
   }
 }
