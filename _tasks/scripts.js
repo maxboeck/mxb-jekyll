@@ -47,7 +47,7 @@ gulp.task('scripts:prod', () => {
       }
     }))
     .pipe(webpack(webpackConfig))
-    .pipe($.uglify({onError: browserSync.notify}))
+    .pipe($.uglify())
     .pipe($.rename('bundle.min.js'))
     .pipe(gulp.dest('_site/assets/js'));
 });
