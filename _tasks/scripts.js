@@ -17,34 +17,34 @@ const webpackConfig = {
       test: /\.js$/,
       loader: 'babel',
       exclude: '/node_modules/',
-      query: { 
-        compact: false 
-      }
-    }]
-  }
+      query: {
+        compact: false,
+      },
+    }],
+  },
 };
 
 gulp.task('scripts', () => {
   return gulp.src(srcfiles)
     .pipe(plumber({
-      errorHandler: function (err) {
+      errorHandler: (err) => {
         gutil.log(gutil.colors.red(err));
         this.emit('end');
-      }
+      },
     }))
     .pipe(webpack(webpackConfig))
     .pipe($.rename('bundle.js'))
     .pipe(gulp.dest('_site/assets/js'))
-    .pipe(reload({stream: true}));
+    .pipe(reload({ stream: true }));
 });
 
 gulp.task('scripts:prod', () => {
   return gulp.src(srcfiles)
     .pipe(plumber({
-      errorHandler: function (err) {
+      errorHandler: (err) => {
         gutil.log(gutil.colors.red(err));
         this.emit('end');
-      }
+      },
     }))
     .pipe(webpack(webpackConfig))
     .pipe($.uglify())

@@ -3,21 +3,21 @@
 import gulp from 'gulp';
 
 gulp.task('serve', ['browsersync'], () => {
-  //asset pipeline
+  // asset pipeline
   gulp.watch(['_assets/styles/**/*.scss', '_projects/**/*.scss'], ['sass']);
   gulp.watch(['_assets/js/**/*.js'], ['scripts']);
   gulp.watch(['_assets/images/**/*'], ['imagemin']);
   gulp.watch(['_assets/icons/**/*.svg'], ['icons']);
 
-  //jekyll
+  // jekyll
   gulp.watch([
-    '*.html', 
-    '_layouts/**/*.{html,md}', 
+    '*.html',
+    '_layouts/**/*.{html,md}',
     '_includes/**/*.{html,md}',
-    '_drafts/**/*.{html,md}', 
-    '_posts/**/*.{html,md}', 
+    '_drafts/**/*.{html,md}',
+    '_posts/**/*.{html,md}',
     '_pages/**/*.{html,md}',
-    '_projects/**/*.{html,md}'
+    '_projects/**/*.{html,md}',
   ], ['jekyll:reload']);
 });
 

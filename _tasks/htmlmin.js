@@ -6,14 +6,14 @@ import gulpLoadPlugins from 'gulp-load-plugins';
 
 const $ = gulpLoadPlugins();
 const reload = browserSync.reload;
-const config  = {
+const config = {
   removeComments: true,
-  collapseWhitespace: true
+  collapseWhitespace: true,
 };
 
 gulp.task('htmlmin', () => {
   return gulp.src('./_site/**/*.html')
     .pipe($.htmlmin(config))
     .pipe(gulp.dest('./_site/'))
-    .pipe(reload({stream: true}));
+    .pipe(reload({ stream: true }));
 });
