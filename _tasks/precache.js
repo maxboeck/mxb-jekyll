@@ -11,13 +11,13 @@ function writeServiceWorkerFile(rootDir, handleFetch, callback) {
     handleFetch,
     logger: gutil.log,
     staticFileGlobs: [
-      rootDir + '/index.html',
-      rootDir + '/{blog,about,contact}/*.html',
-      rootDir + '/assets/{css,js,icons,fonts}/*',
-      rootDir + '/assets/images/featured/*',
+      `${rootDir}/index.html`,
+      `${rootDir}/{blog,about,contact}/*.html`,
+      `${rootDir}/assets/{css,js,icons,fonts}/*`,
+      `${rootDir}/assets/images/featured/*`,
     ],
-    stripPrefix: rootDir + '/',
-    verbose: true
+    stripPrefix: `${rootDir}/`,
+    verbose: true,
   };
 
   swPrecache.write(path.join(rootDir, 'sw.js'), config, callback);
