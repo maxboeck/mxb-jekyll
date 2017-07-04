@@ -4,8 +4,8 @@ import FontFaceObserver from 'fontfaceobserver';
 import Blazy from 'blazy';
 
 import Navigation from './inc/navigation';
-import ProjectList from './inc/projectlist';
 import ContactForm from './inc/contactform';
+import OfflineSupport from './inc/offline';
 import Util from './inc/util';
 
 // Promise Polyfill
@@ -23,13 +23,38 @@ const App = {
   init() {
     document.documentElement.classList.remove('no-js');
 
-    new Navigation();
-    new ContactForm();
-
-    ProjectList.init();
     this.asyncLoadFonts();
     this.lazyLoading();
+    this.projectList();
     this.registerServiceWorker();
+
+    new Navigation();
+    new ContactForm();
+  },
+
+  projectList() {
+    const projects = document.querySelectorAll('.js-project-link');
+    if (!projects.length) {
+      return;
+    }
+
+    const projectClickHandler = (e) => {
+      e.preventDefault();
+      const link = Util.findParentByTagName(e.target || e.srcElement, 'A');
+
+      const transition = () => {
+        document.documentElement.classList.add('pagetransition');
+        setTimeout(() => {
+          window.location = link.href;
+        }, 600);
+      };
+
+      Util.scrollToTop(400, transition);
+    };
+
+    for (let i = 0; i < projects.length; i += 1) {
+      projects[i].addEventListener('click', projectClickHandler);
+    }
   },
 
   // init lazy loading of images
@@ -58,14 +83,14 @@ const App = {
   // check for SW support and register
   registerServiceWorker() {
     if ('serviceWorker' in navigator) {
-      navigator.serviceWorker.register('/sw.js').then(() => {
-        return true;
-      }).catch((err) => {
-        console.warn('ServiceWorker registration failed: ', err);
-      });
+      navigator.serviceWorker.register('/sw.js', { scope: '/' });
+      new OfflineSupport();
     }
   },
-}
+};
 
 // Kick shit off
-App.init();
+(() => {
+  App.init()
+})()
+
