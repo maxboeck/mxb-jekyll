@@ -93,10 +93,10 @@ const Util = {
   },
 
   generateIcon(name, label = null) {
-    const ariaLabel = label ? `aria-label="${label}"` : '';
+    const aria = label ? `aria-label="${label}"` : 'aria-hidden="true"';
     return `
       <span class="icon icon--${name}">
-        <svg role="img" ${ariaLabel}>
+        <svg role="img" ${aria}>
           <use xlink:href="/assets/icons/sprite.svg#${name}"></use>
         </svg>
       </span>
