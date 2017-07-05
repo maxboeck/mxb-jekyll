@@ -1,0 +1,47 @@
+// Toast Messages
+
+.toast {
+  position: fixed;
+  bottom: 0;
+  left: 0;
+  right:0;
+  width:100%;
+
+  z-index: z('messages');
+  display: block;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+
+  will-change: transform;
+  transform: translate(0, 80px);
+  transition: transform 0.25s cubic-bezier(0.4, 0, 1, 1);
+  pointer-events: none;
+
+  &__message {
+    padding: 1rem 2rem;
+    background-color: $gray-dark;
+    color:#FFF;
+    border-radius:6px 6px 0 0;
+
+    @include mq(md) {
+      min-height: 48px;
+      max-height: 80px;
+    }
+
+    @include mq(lg){
+      padding:1rem 3.5rem;
+
+      .icon {
+        margin-left:-1rem;
+      }
+    }
+  }
+
+  // Show Toast
+  &--active {
+    transform: translate(0, 0);
+    pointer-events: auto;
+    transition: transform 0.25s cubic-bezier(0, 0, 0.2, 1);
+  }
+}

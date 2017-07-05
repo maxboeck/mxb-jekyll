@@ -3,36 +3,47 @@ import Util from './util';
 export default class OfflineSupport {
   constructor() {
     this.isOffline = false;
-    this.messageContainer = document.querySelector('#message');
-
+    this.elements = {
+      formFieldsets: document.querySelectorAll('form fieldset:not([disabled])'),
+    };
     window.addEventListener('load', () => this.checkConnectivity());
   }
 
   checkConnectivity() {
     this.updateStatus();
 
-    window.addEventListener('online', () => this.onOnline());
-    window.addEventListener('offline', () => this.onOffline());
+    window.addEventListener('online', () => this.updateStatus());
+    window.addEventListener('offline', () => this.updateStatus());
   }
 
   updateStatus() {
     this.isOffline = !navigator.onLine;
     document.documentElement.classList.toggle('offline', this.isOffline);
+    if (this.isOffline) {
+      this.onOffline();
+    } else {
+      this.onOnline();
+    }
   }
 
   onOffline() {
-    this.updateStatus();
     const message = `
-      ${Util.generateIcon('offline')} 
+      ${Util.generateIcon('offline', 'Warning:')} 
       You appear to be offline right now. Some parts of this site may not be available until you come back on.
     `;
-    this.messageContainer.innerHTML = message;
-    this.messageContainer.hidden = false;
+    window.Toast.show([{
+      message,
+      timeout: 6000,
+    }]);
+
+    Array.from(this.elements.formFieldsets).forEach((fieldset) => {
+      fieldset.disabled = true;
+    });
   }
 
   onOnline() {
-    this.updateStatus();
-    this.messageContainer.innerHTML = '';
-    this.messageContainer.hidden = true;
+    Array.from(this.elements.formFieldsets).forEach((fieldset) => {
+      fieldset.disabled = false;
+    });
   }
 }

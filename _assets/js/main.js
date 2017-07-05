@@ -5,6 +5,7 @@ import Blazy from 'blazy';
 
 import Navigation from './inc/navigation';
 import ContactForm from './inc/contactform';
+import Toast from './inc/toast';
 import OfflineSupport from './inc/offline';
 import Util from './inc/util';
 
@@ -28,8 +29,9 @@ const App = {
     this.projectList();
     this.registerServiceWorker();
 
-    new Navigation();
-    new ContactForm();
+    this.Navigation = new Navigation();
+    this.ContactForm = new ContactForm();
+    this.Toast = new Toast();
   },
 
   projectList() {
