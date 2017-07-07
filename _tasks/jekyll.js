@@ -8,7 +8,7 @@ import browserSync from 'browser-sync';
 const reload = browserSync.reload;
 
 gulp.task('jekyll', (done) => {
-  return childProcess.spawn('jekyll', ['build', '--drafts'], { stdio: 'inherit' })
+  return childProcess.spawn('jekyll', ['build', /*'--drafts'*/], { stdio: 'inherit' })
     .on('error', error => gutil.log(gutil.colors.red(error.message)))
     .on('close', done);
 });
