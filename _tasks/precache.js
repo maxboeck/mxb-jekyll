@@ -15,6 +15,7 @@ function writeServiceWorkerFile(rootDir, handleFetch, callback) {
       `${rootDir}/{blog,about,contact}/*.html`,
       `${rootDir}/assets/{css,js,icons,fonts}/*`,
       `${rootDir}/assets/images/featured/*`,
+      `${rootDir}/assets/images/max_boeck.jpg`,
     ],
     stripPrefix: `${rootDir}/`,
     verbose: true,
