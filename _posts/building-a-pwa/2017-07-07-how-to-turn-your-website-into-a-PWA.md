@@ -112,7 +112,7 @@ function registerServiceWorker() {
   }
 }
 ```
-The `scope` parameter defines which requests the SW should be able to intercept. It's a relative path to the domain root. For example, if you were to set this to `/articles`, you could control requests to `yourdomain.com/articles/my-post` but not to `yourdomain.com/contact`
+The `scope` parameter defines which requests the SW should be able to intercept. It's a relative path to the domain root. For example, if you were to set this to `/articles`, you could control requests to `yourdomain.com/articles/my-post` but not to `yourdomain.com/contact`.
 
 ### Offline is the new black
 
