@@ -15,12 +15,12 @@ image: "/blog/how-to-turn-your-website-into-a-pwa/cover.jpg"
 
 Turning a basic website into a PWA is not that hard and has a lot of real benefits, so I want to take a look at the three main steps necessary to achieve just that.
 
-But first, let me adress some common misconceptions:
+But first, let me address some common misconceptions:
 
 **1) Your thing does not have to be an "Application" to be a PWA.**<br>
 A Progressive Web App can easily be a blog, a marketing site, a shop or a collection of cat memes. At its core, a PWA is just a way to optimize your code for better, faster delivery. You can -and should- take advantage of these new possibilites, regardless of your content.
 
-*Side note: the term "Application" in PWA is [heavily debated](https://adactio.com/journal/12461), since some people feel it communicates the wrong idea. IMHO, these days it's hard to define the difference between websites and "web apps" anyway.* 
+*Side note: the term "Application" in PWA is [heavily debated](https://adactio.com/journal/12461), since some people feel it communicates the wrong idea. IMHO, its just a name - and these days it's hard to define the difference between websites and "web apps" anyway.* 
 
 **2) Your thing does not have to be a Javascript-powered single page app.**<br>
 Again, if you're not running a cutting edge React-Redux <abbr title="Single Page Application">SPA</abbr>, that's no reason to shy away from using this technology. My own site is just a [bunch of static HTML](https://github.com/maxboeck/mxb) based on Jekyll, and it's still a perfectly valid Progressive Web App. If you run something on the web, it can benefit.
@@ -86,13 +86,11 @@ To switch to HTTPS, you will need an SSL certificate from a trusted authority. H
 
 👉 If you're on **shared hosting**, a lot of providers unfortunately won't allow you the level of control you need to use LetsEncrypt. Instead, they usually offer SSL certificates for a monthly or annual fee. If you're unsure how to get a cert, contact your hosting provider.
 
-After you obtained a certificate, there might be some adjustments you need to make to your code so that all resources are fetched on a secure line.
+After you obtained a certificate, there might be some adjustments you need to make to your code so that all resources are fetched on a secure line. For more information about the process, read [this detailed guide from keyCDN](https://www.keycdn.com/blog/http-to-https/) or check out [Chris Coyier's article](https://css-tricks.com/moving-to-https-on-wordpress/) if you want to migrate a WordPress site.
 
 If everything goes as planned, you'll be rewarded with a nice green lock icon next to your URL:
 
 ![HTTPS lock icon](lock-icon.png)
-
-For more information about the process, read [this detailed guide from keyCDN](https://www.keycdn.com/blog/http-to-https/) or check out [Chris Coyier's article](https://css-tricks.com/moving-to-https-on-wordpress/) if you want to migrate a WordPress site.
 
 ## Step 3: The Service Worker.
 
@@ -165,9 +163,10 @@ gulp.task('generate-service-worker', callback => {
 });
 ```
 
-Run this task in your build, and you'll never have to worry about cache invalidation again!
+Run this task in your build, and you'll never have to worry about cache invalidation again! 
+For smaller, mostly static sites, you can have it precache every image, HTML, JavaScript, and CSS file. For sites with lots of dynamic content, or many large images that aren’t always needed, precaching a “skeleton” subset of your site often makes the most sense.
 
-PS: For a deeper look into the subject of offline support, be sure to check out ["The Offline Cookbook"](https://jakearchibald.com/2014/offline-cookbook/) by Jake Archibald.
+*PS: For a deeper look into the subject of offline support, be sure to check out ["The Offline Cookbook"](https://jakearchibald.com/2014/offline-cookbook/) by Jake Archibald.*
 
 ## Testing your PWA
 
