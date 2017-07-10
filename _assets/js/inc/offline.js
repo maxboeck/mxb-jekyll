@@ -3,14 +3,28 @@ import Util from './util';
 export default class OfflineSupport {
   constructor() {
     this.isOffline = false;
+    this.wasOffline = false;
     this.elements = {
+      pageLinks: document.querySelectorAll('a[href]'),
       formFieldsets: document.querySelectorAll('form fieldset:not([disabled])'),
     };
-    window.addEventListener('load', () => this.checkConnectivity());
+    window.addEventListener('load', () => this.init());
   }
 
-  checkConnectivity() {
+  init() {
     this.updateStatus();
+
+    Array.from(this.elements.pageLinks).forEach((link) => {
+      let path = link.href;
+      if (path.slice(-1) === '/') {
+        path += 'index.html';
+      }
+      caches.match(path, { ignoreSearch: true }).then((response) => {
+        if (response) {
+          link.classList.add('is-cached');
+        }
+      });
+    });
 
     window.addEventListener('online', () => this.updateStatus());
     window.addEventListener('offline', () => this.updateStatus());
@@ -31,19 +45,19 @@ export default class OfflineSupport {
       ${Util.generateIcon('offline', 'Warning:')} 
       You appear to be offline right now. Some parts of this site may not be available until you come back on.
     `;
-    window.Toast.show([{
-      message,
-      timeout: 6000,
-    }]);
+    window.Toast.show([{ message }]);
 
     Array.from(this.elements.formFieldsets).forEach((fieldset) => {
       fieldset.disabled = true;
     });
+    this.wasOffline = true;
   }
 
   onOnline() {
-    Array.from(this.elements.formFieldsets).forEach((fieldset) => {
-      fieldset.disabled = false;
-    });
+    if (this.wasOffline) {
+      Array.from(this.elements.formFieldsets).forEach((fieldset) => {
+        fieldset.disabled = false;
+      });
+    }
   }
 }

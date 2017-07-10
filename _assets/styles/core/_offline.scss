@@ -1,0 +1,32 @@
+// Offline State Styles
+.offline {
+
+  a:not(.is-cached) {
+    cursor:not-allowed;
+    pointer-events: none;
+    opacity:.5;
+  }
+  a[href^="#"],
+  a[href^="mailto"],
+  a[href^="tel"] {
+    cursor:auto;
+    pointer-events: auto;
+    opacity:1;
+  }
+
+  .form {
+    cursor:not-allowed;
+    
+    &::after {
+      content: 'Sorry, you\'re offline.';
+      display:block;
+      color:#FFF;
+      background-color:$gray-dark;
+      padding:.5rem 1rem;
+      position:absolute;
+      top:0;
+      left:50%;
+      transform:translateX(-50%);
+    }
+  }
+}

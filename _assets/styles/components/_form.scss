@@ -85,20 +85,3 @@
     color:$brand-red;
   }
 }
-
-//Disable Forms on when offline
-.offline .form {
-  cursor:not-allowed;
-  
-  &::after {
-    content: 'Sorry, you\'re offline.';
-    display:block;
-    color:#FFF;
-    background-color:$gray-dark;
-    padding:.5rem 1rem;
-    position:absolute;
-    top:0;
-    left:50%;
-    transform:translateX(-50%);
-  }
-}
