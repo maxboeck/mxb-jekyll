@@ -7,12 +7,14 @@ export default class OfflineSupport {
     this.elements = {
       pageLinks: document.querySelectorAll('a[href]'),
       formFieldsets: document.querySelectorAll('form fieldset:not([disabled])'),
+      cachedElement: document.querySelector('[data-cached]'),
     };
     window.addEventListener('load', () => this.init());
   }
 
   init() {
     this.updateStatus();
+    this.cacheContents();
 
     Array.from(this.elements.pageLinks).forEach((link) => {
       let path = link.href;
@@ -59,5 +61,29 @@ export default class OfflineSupport {
         fieldset.disabled = false;
       });
     }
+  }
+
+  cacheContents() {
+    if (!this.elements.cachedElement) {
+      return;
+    }
+
+    const cacheName = `mxb-${this.elements.cachedElement.id}`;
+    const resources = [`${window.location.pathname}index.html`];
+    const resourceSelector = this.elements.cachedElement.querySelectorAll('img, video source[type="video/mp4"]');
+
+    Array.from(resourceSelector).forEach((resource) => {
+      if (resource.src) {
+        resources.push(resource.src)
+      }
+    });
+
+    caches.open(cacheName).then((cache) => {
+      cache.addAll(resources).then(() => {
+        // console.log(`added ${resources.length} resources to cache '${cacheName}'`);
+      }).catch((error) => {
+        console.warn('error while caching resources:', error);
+      });
+    });
   }
 }
