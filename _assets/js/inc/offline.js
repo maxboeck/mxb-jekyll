@@ -17,7 +17,11 @@ export default class OfflineSupport {
     this.cacheContents();
 
     Array.from(this.elements.pageLinks).forEach((link) => {
-      caches.match(link.href, { ignoreSearch: true }).then((response) => {
+      let path = link.href;
+      if (path.slice(-1) === '/'){
+        path += 'index.html';
+      }
+      caches.match(path, { ignoreSearch: true }).then((response) => {
         if (response) {
           link.classList.add('is-cached');
         }
@@ -65,7 +69,7 @@ export default class OfflineSupport {
     }
 
     const cacheName = `mxb-${this.elements.cachedElement.id}`;
-    const resources = [window.location.pathname];
+    const resources = [window.location.pathname + 'index.html'];
     const resourceSelector = this.elements.cachedElement.querySelectorAll('img, video source[type="video/mp4"]');
 
     Array.from(resourceSelector).forEach((resource) => {
