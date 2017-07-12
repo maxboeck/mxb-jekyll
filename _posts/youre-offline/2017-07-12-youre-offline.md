@@ -4,6 +4,7 @@ title: "You're Offline"
 permalink: "/blog/youre-offline/"
 category: code
 image: "/blog/youre-offline/cover.jpg"
+description: "A truly responsive website should adapt to all kinds of situations. Besides different viewport sizes, there are other factors to consider. A change in connectivity is one of them."
 ---
 
 <figure>
