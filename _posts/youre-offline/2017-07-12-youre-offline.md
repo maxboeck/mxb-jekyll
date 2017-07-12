@@ -14,7 +14,7 @@ image: "/blog/youre-offline/cover.jpg"
 
 Earlier this week, I was sitting in a train on my way to speak at a local meetup. InterCity trains in Austria all have WIFI now, so I was doing some last-minute work on my slides online. Train WIFI being what it is though, the network wasn't exactly reliable. The connection kept dropping everytime we went through a tunnel or too many passengers were logged on.
 
-This is quite a common scenario. People are on the move, network coverage can be poor, internet connections fail. Luckily, we can prepare our websites and make them more resilient by [building them offline-first](https://bitsofco.de/bitsofcode-pwa-part-1-offline-first-with-service-worker/).
+This is quite a common scenario. People are on the move, network coverage can be poor, internet connections fail. Luckily, we can prepare our websites for this and make them more resilient by [building them offline-first](https://bitsofco.de/bitsofcode-pwa-part-1-offline-first-with-service-worker/).
 
 Offline support is awesome, however your users might not be aware of these capabilites - and they shouldn't have to be. In some cases they might not even know that they've gone offline. That's why it's important to communicate what's going on.
 
@@ -48,7 +48,7 @@ function updateStatus() {
 }
 ```
 
-⚠️ Note: With the `online` event, there's a slight possibility of false positives: A user might be connected to a network (which is interpreted as being online), but something higher up might block actual internet access. The `offline` event is a bit more reliable, in the way that an "offline" user can be somewhat sure to **NOT** have access.
+⚠️ Note: With the `online` event, there's a slight possibility of false positives: A user might be connected to a network (which is interpreted as being online), but something higher up might block actual internet access. The `offline` event is a bit more reliable, in the sense that an "offline" user can be  expected **NOT** to have access.
 
 ## Get Notified
 
@@ -69,7 +69,7 @@ Using such a notification bar is pretty straightforward. First, define an elemen
 
 The `aria-live` attribute tells screen readers to announce changes to this element. "assertive" means it will interrupt whatever it is currently announcing at the time and prioritize the new message. The `aria-relevant` tells it to listen for changes in the text content of the element.
 
-You can extend the handler function from before to populate the notification area whenever you detect that the user has gone offline:
+You can extend the handler function from before to populate the notification area whenever you detect that a user has gone offline:
 
 ```js
 function updateStatus() {
@@ -85,7 +85,7 @@ function updateStatus() {
 }
 ```
 
-This is just a simple implementation, so you can of course always get a bit fancier with an animated notification bar (or "toast message"). There are also some nice [pre-made components](https://getmdl.io/components/index.html#snackbar-section) for this.
+This is a very simple implementation - you can of course always get a bit fancier with an animated notification bar (or "toast message"). There are also some nice [pre-made components](https://getmdl.io/components/index.html#snackbar-section) for this.
 
 If you're reading this on [my site](https://mxb.at/), you can see a version of these notifications in action if you simply switch off your WIFI for a second. 
 Go ahead, I'll wait. 
