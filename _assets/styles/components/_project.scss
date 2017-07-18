@@ -70,8 +70,9 @@
 //shadow and hover animation
 .project--preview {
   position: relative;
-  transition:transform .3s cubic-bezier(0.4, 0, 0.2, 1);
+  transition:all .3s cubic-bezier(0.4, 0, 0.2, 1);
   transform:translateY(0);
+  filter: brightness(100%);
 
   &::after {
     content: '';
@@ -83,12 +84,14 @@
     height: 100%;
     opacity: 0;
     border-radius: $border-radius;
-    box-shadow: 0 5px 30px 5px rgba(0, 0, 0, .2), 0 1px 1px rgba(0,0,0,.1);
+    box-shadow: 0 15px 45px -5px rgba(10, 16, 34, .3);
     transition: opacity .3s cubic-bezier(0.4, 0, 0.2, 1);
   }
   
   &:hover {
     transform:translateY(-5px);
+    filter: brightness(110%);
+
     &::after {
       opacity:1;
     }
