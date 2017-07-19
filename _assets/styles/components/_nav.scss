@@ -188,6 +188,10 @@
   color:$gray-dark;
   transform:translate3d(0,0,0);
 
+  &:focus {
+    outline:0;
+  }
+
   @include mq(md){
     top:52px;
   }
