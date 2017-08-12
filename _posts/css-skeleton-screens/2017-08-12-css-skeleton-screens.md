@@ -1,9 +1,9 @@
 ---
 layout: post
 title: "CSS Skeleton Screens"
-permalink: "/blog/loading-skeletons-with-css/"
+permalink: "/blog/css-skeleton-screens/"
 category: "code, design"
-image: "/blog/loading-skeletons-with-css/cover.jpg"
+image: "/blog/css-skeleton-screens/cover.jpg"
 ---
 
 <p class="lead">Designing loading states on the web is often overlooked, or dismissed as an afterthought. Performance is not only a developer's responsibility - building an experience that works with slow connections is a design challenge too.</p>
@@ -63,7 +63,7 @@ Keep in mind that multiple background-images are stacked on top of each other he
   background-image: 
     /* layer 2: avatar */
     /* white circle with 16px radius */
-    radial-gradient(circle 16px, white 100%, transparent 0),
+    radial-gradient(circle 16px, white 99.99%, transparent 0),
     /* layer 1: title */
     /* white rectangle with 40px height */
     linear-gradient(white 40px, transparent 0),
@@ -144,7 +144,7 @@ Thankfully, we can now use [custom properties](https://www.smashingmagazine.com/
 }
 ```
 Not only is this a lot more readable, it's also way easier to change some of the values later on.
-Plus we can use some of the variables (think `--avatar-size`, `--card-padding`, etc) to define the styles for the actual card, and keep it always in sync with the skeleton version.
+Plus we can use some of the variables (think `--avatar-size`, `--card-padding`, etc.) to define the styles for the actual card and always keep it in sync with the skeleton version.
 
 Adding a media query to adjust parts of the skeleton at different breakpoints is now also quite simple:
 ```css
@@ -153,6 +153,8 @@ Adding a media query to adjust parts of the skeleton at different breakpoints is
   --card-height: 360px;
 }
 ```
+
+Caveat: [Browser support](http://caniuse.com/#feat=css-variables) for custom properties is good, but not at 100%. Basically all modern browsers have support, with IE/Edge a bit late to the party. For this specific usecase, it would be easy to add a fallback using Sass variables though.
 
 ## Add Animation
 
