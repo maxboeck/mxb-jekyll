@@ -25,9 +25,11 @@ export default class ContactForm {
 
     this.data = {};
     this.errors = {};
+    this.loading = false;
 
     this.form.addEventListener('submit', e => this.handleSubmit(e));
     window.addEventListener('online', () => this.checkStorage());
+    window.addEventListener('load', () => this.checkStorage());
   }
 
   handleSubmit(e) {
@@ -39,7 +41,10 @@ export default class ContactForm {
       return;
     }
     if (!navigator.onLine && this.storeData()) {
-      const offlineMsg = 'You appear to be offline right now. Your message was saved an will be sent once you come back online.';      
+      const offlineMsg = `
+        You appear to be offline right now. 
+        Your message was saved and will be sent once you come back online.
+      `;
       this.handleResponse(false, offlineMsg);
       return;
     }
@@ -49,7 +54,10 @@ export default class ContactForm {
   }
 
   sendData() {
+    this.loading = true;
+
     const responseCallback = (code, response) => {
+      this.loading = false;
       this.handleResponse(code, response);
     };
 
@@ -161,6 +169,7 @@ export default class ContactForm {
         const now = new Date().getTime();
         const day = 24 * 60 * 60 * 1000;
         if (now - day > submission.time) {
+          localStorage.removeItem(this.id);
           return;
         }
 
