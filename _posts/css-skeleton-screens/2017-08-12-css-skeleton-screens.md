@@ -4,30 +4,23 @@ title: "CSS Skeleton Screens"
 permalink: "/blog/css-skeleton-screens/"
 category: "code, design"
 image: "/blog/css-skeleton-screens/cover.jpg"
+published: false
 ---
 
-<p class="lead">Designing loading states on the web is often overlooked, or dismissed as an afterthought. Performance is not only a developer's responsibility - building an experience that works with slow connections is a design challenge too.</p>
+<p class="lead">Designing loading states on the web is often overlooked, or dismissed as an afterthought. Performance is not only a developer's responsibility - building an experience that works with slow connections is a design challenge as well.</p>
 
 ## The illusion of speed
 
-As our expectations for mobile experiences change, so does our understanding of performance. People expect web apps to feel as snappy and responsive as native apps, regardless of their current situation. 
+As our expectations for mobile experiences change, so does our understanding of performance. People expect web apps to feel just as snappy and responsive as native apps, regardless of their current network coverage. 
 
-For a developer, this requires attention to things like minification, caching, and the performance budget. For a designer, the loading state is a lot about managing expectations and keeping the user informed.
+For a developer, this requires close attention to things like minification, caching, or the performance budget. A designer on the other hand has to think about how the UI will look and behave while it is in a "loading" or "offline" state.
 
-[Perceived performance](http://blog.teamtreehouse.com/perceived-performance) is a measure of how fast something **feels** to the user. The idea is that users are more patient and will think of a system as faster, if they know what's going on and can anticipate content before it's actually there. 
+[Perceived performance](https://en.wikipedia.org/wiki/Perceived_performance) is a measure of how fast something **feels** to the user. The idea is that users are more patient and will think of a system as faster, if they know what's going on and can anticipate content before it's actually there. It's a lot about managing expectations, and keeping the user informed. 
 
-![speech bubble typing animation](typing.gif)
-
-Nobody likes to wait for the unknown - that's why you see a typing indicator in chat applications, resembling the incoming message. While a simple loading spinner would communicate the state too, this adds an extra layer of usefulness. It says:
-
-> "Something is about to happen, and here's what to expect".
-
-In other apps, this concept might include displaying "mockups" of text, images or other content elements - called **skeleton screens** 💀. 
-
-You can find these in the wild, being used by big names like Facebook, Google, Slack and others:
+For a web app, this concept might include displaying "mockups" of text, images or other content elements - called **skeleton screens**. You can find these in the wild, used by companies like Facebook, Google, Slack and others:
 
 <figure>
-  <img src="slack-skeleton.jpg" alt="Screenshot of slack app using skeletons" style="box-shadow:0 0 32px rgba(0,0,0,.1)">
+  <img src="slack-skeleton.jpg" alt="Screenshot of slack app using skeleton screens">
   <figcaption>Holy moly to you too, Slack.</figcaption>
 </figure>
 
@@ -35,21 +28,17 @@ You can find these in the wild, being used by big names like Facebook, Google, S
 
 Say you are building a web app. It's a travel-advice kind of thing where people can share their trips and recommend places, so your main piece of content might look something like this:
 
-<p class="text--center">
-  <img src="card.jpg" alt="card UI of a travel article">
-</p>
+![card UI of a travel blog post](card.jpg)
 
 You can take that card and reduce it down to its basic visual shapes, the *skeleton* of the UI component.
 
-<p class="text--center">
-  <img src="card-skeleton.jpg" alt="skeleton version of the same card, outlined in gray rectangles">
-</p>
+![skeleton version of the same card, outlined in gray rectangles](card-skeleton.jpg)
 
-Whenever someone requests new content from the server, you can immediately start showing this skeleton, while data is being loaded in the background. Once the content is ready, simply swap the skeletons for the actual cards. If you're building a [Progressive Web App](https://mxb.at/blog/how-to-turn-your-website-into-a-pwa/), you might even want to cache the "App Shell" (stuff like the header bar, navigation, etc.) for offline use.
+Whenever someone requests new content from the server, you can immediately start showing the skeleton, while data is being loaded in the background. Once the content is ready, simply swap the skeleton for the actual card. This can be done with plain vanilla Javascript, or using a library like React.
 
-Now you could use an image to display the skeleton, but that would introduce an additional request and data overhead. We're already loading stuff here, so it's not a great idea to wait for another image to load first. Plus, if we ever decided to adjust some of the content card's styling, we would have to duplicate the changes to the skeleton image so they'd match again. 😒 Meh.
+Now you could use an image to display the skeleton, but that would introduce an additional request and data overhead. We're already loading stuff here, so it's not a great idea to wait for another image to load first. Plus it's not responsive, and if we ever decided to adjust some of the content card's styling, we would have to duplicate the changes to the skeleton image so they'd match again. 😒 Meh.
 
-A better solution is to create the whole thing with just CSS. No extra requests, minimal overhead, responsive, not even any additional markup. And we can build it in a way that makes changing the design later much easier.
+A better solution is to create the whole thing with just CSS. No extra requests, minimal overhead, not even any additional markup. And we can build it in a way that makes changing the design later much easier.
 
 ## Drawing Skeletons in CSS
 
@@ -147,6 +136,7 @@ Not only is this a lot more readable, it's also way easier to change some of the
 Plus we can use some of the variables (think `--avatar-size`, `--card-padding`, etc.) to define the styles for the actual card and always keep it in sync with the skeleton version.
 
 Adding a media query to adjust parts of the skeleton at different breakpoints is now also quite simple:
+
 ```css
 @media screen and (min-width: 47em){
   --card-padding: 32px;
@@ -158,7 +148,7 @@ Caveat: [Browser support](http://caniuse.com/#feat=css-variables) for custom pro
 
 ## Add Animation
 
-To make this even better, we can animate our skeleton *[insert necromancer joke here]*, and make it look more like a loading indicator. All we need to do is put a new gradient on the top layer and then animate its position with `@keyframes`.
+To make this even better, we can animate our skeleton *[insert halloween joke here]*, and make it look more like a loading indicator. All we need to do is put a new gradient on the top layer and then animate its position with `@keyframes`.
 
 Here's a full example of how the finished skeleton card could look:
 
@@ -168,9 +158,11 @@ Here's a full example of how the finished skeleton card could look:
   <script async src="https://production-assets.codepen.io/assets/embed/ei.js"></script>
 </div>
 
-💡 Pro Tip: Use the `:empty` selector and a pseudo element to draw the skeleton, so it only applies to empty card elements. Once the content is injected, the skeleton screen will automatically disappear.
+💡 Pro Tip: You can use the `:empty` selector and a pseudo element to draw the skeleton, so it only applies to empty card elements. Once the content is injected, the skeleton screen will automatically disappear.
 
 ## More on this
+
+For a closer look at designing for perceived performance, check out these links:
 
 * Designer VS. Developer #8: [Designing for Great Performance](https://www.youtube.com/watch?v=551nfxay-M4)
 * Vince Speelman: [The Nine States of Design](https://medium.com/swlh/the-nine-states-of-design-5bfe9b3d6d85)
