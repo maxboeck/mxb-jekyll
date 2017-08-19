@@ -3,10 +3,8 @@ import Util from './util';
 export default class OfflineSupport {
   constructor() {
     this.isOffline = false;
-    this.wasOffline = false;
     this.elements = {
       pageLinks: document.querySelectorAll('a[href]'),
-      formFieldsets: document.querySelectorAll('form fieldset:not([disabled])'),
       cachedElement: document.querySelector('[data-cached]'),
     };
     window.addEventListener('load', () => this.init());
@@ -36,30 +34,11 @@ export default class OfflineSupport {
     this.isOffline = !navigator.onLine;
     document.documentElement.classList.toggle('offline', this.isOffline);
     if (this.isOffline) {
-      this.onOffline();
-    } else {
-      this.onOnline();
-    }
-  }
-
-  onOffline() {
-    const message = `
-      ${Util.generateIcon('offline', 'Warning:')} 
-      You appear to be offline right now. Some parts of this site may not be available until you come back on.
-    `;
-    window.Toast.show([{ message }]);
-
-    Array.from(this.elements.formFieldsets).forEach((fieldset) => {
-      fieldset.disabled = true;
-    });
-    this.wasOffline = true;
-  }
-
-  onOnline() {
-    if (this.wasOffline) {
-      Array.from(this.elements.formFieldsets).forEach((fieldset) => {
-        fieldset.disabled = false;
-      });
+      const message = `
+        ${Util.generateIcon('offline', 'Warning:')} 
+        You appear to be offline right now. Some parts of this site may not be available until you come back on.
+      `;
+      window.Toast.show([{ message }]);
     }
   }
 
@@ -69,7 +48,8 @@ export default class OfflineSupport {
     }
 
     const cacheName = `mxb-${this.elements.cachedElement.id}`;
-    const resources = [window.location.pathname + 'index.html'];
+    const currentURL = `${window.location.pathname}index.html`;
+    const resources = [currentURL];
     const resourceSelector = this.elements.cachedElement.querySelectorAll('img, video source[type="video/mp4"]');
 
     Array.from(resourceSelector).forEach((resource) => {
@@ -79,9 +59,7 @@ export default class OfflineSupport {
     });
 
     caches.open(cacheName).then((cache) => {
-      cache.addAll(resources).then(() => {
-        // console.log(`added ${resources.length} resources to cache '${cacheName}'`);
-      }).catch((error) => {
+      cache.addAll(resources).catch((error) => {
         console.warn('error while caching resources: %O', error);
       });
     });

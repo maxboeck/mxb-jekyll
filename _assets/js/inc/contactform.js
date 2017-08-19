@@ -14,6 +14,7 @@ const CLASSES = {
 
 export default class ContactForm {
   constructor() {
+    this.id = 'contactform';
     this.form = document.querySelector(SELECTORS.contactForm);
     if (!this.form) {
       return;
@@ -26,6 +27,7 @@ export default class ContactForm {
     this.errors = {};
 
     this.form.addEventListener('submit', e => this.handleSubmit(e));
+    window.addEventListener('online', () => this.checkStorage());
   }
 
   handleSubmit(e) {
@@ -34,26 +36,53 @@ export default class ContactForm {
 
     if (Object.keys(this.errors).length) {
       this.displayErrors();
-    } else {
-      this.submitButton.disabled = true;
-      NanoAjax.ajax({
-        url: this.form.action,
-        method: 'POST',
-        body: Util.serialize(this.data),
-      }, (c, r) => this.handleResponse(c, r));
+      return;
     }
+    if (!navigator.onLine && this.storeData()) {
+      const offlineMsg = 'You appear to be offline right now. Your message was saved an will be sent once you come back online.';      
+      this.handleResponse(false, offlineMsg);
+      return;
+    }
+
+    this.submitButton.disabled = true;
+    this.sendData();
   }
 
-  handleResponse(code, responseText) {
+  sendData() {
+    const responseCallback = (code, response) => {
+      this.handleResponse(code, response);
+    };
+
+    NanoAjax.ajax({
+      url: this.form.action,
+      method: 'POST',
+      body: Util.serialize(this.data),
+    }, responseCallback);
+  }
+
+  storeData() {
+    if (typeof Storage !== 'undefined') {
+      const entry = {
+        time: new Date().getTime(),
+        data: this.data,
+      }
+      localStorage.setItem(this.id, JSON.stringify(entry));
+      return true;
+    }
+    return false;
+  }
+
+  handleResponse(code, response) {
     const isSuccess = (code === 200);
     const statusIcon = (isSuccess) ? Util.generateIcon('check') : Util.generateIcon('warning', 'Error:');
 
     if (isSuccess) {
       this.form.reset();
+      localStorage.removeItem(this.id);
     }
 
     this.feedbackArea.classList.toggle(CLASSES.feedbackSuccess, isSuccess);
-    this.feedbackArea.innerHTML = statusIcon + responseText;
+    this.feedbackArea.innerHTML = statusIcon + response;
     this.submitButton.disabled = false;
   }
 
@@ -118,6 +147,25 @@ export default class ContactForm {
       if (fieldError) {
         fieldError.textContent = '';
         fieldError.hidden = true;
+      }
+    }
+  }
+
+  checkStorage() {
+    if (typeof Storage !== 'undefined') {
+      const entry = localStorage.getItem(this.id);
+      const submission = entry && JSON.parse(entry);
+
+      if (submission) {
+        // only allow submissions newer than one day
+        const now = new Date().getTime();
+        const day = 24 * 60 * 60 * 1000;
+        if (now - day > submission.time) {
+          return;
+        }
+
+        this.data = submission.data;
+        this.sendData();
       }
     }
   }
