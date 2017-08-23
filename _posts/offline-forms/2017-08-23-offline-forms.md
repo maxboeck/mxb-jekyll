@@ -86,8 +86,8 @@ Once the user comes back online, we want to check if there's any stored submissi
 ```js
 constructor(form){
   ...
-  window.addEventListener('online', () => this.checkStorage());
-  window.addEventListener('load', () => this.checkStorage());
+  window.addEventListener('online', this.checkStorage);
+  window.addEventListener('load', this.checkStorage);
 }
 ```
 
@@ -137,7 +137,7 @@ sendData() {
 
 If you dont want to use ajax to send your form submission, another solution would be to just repopulate the form fields with the stored data, then calling `form.submit()` or have the user press the button themselves.
 
-☝️ _Note: I've omitted some other parts like form validation and security tokens in this demo to keep it short, obviously these would have to be implemented in a real production-ready thing._
+☝️ _Note: I've omitted some other parts like form validation and security tokens in this demo to keep it short, obviously these would have to be implemented in a real production-ready thing. Dealing with sensitive data is another issue here, as you should not store stuff like passwords or credit card data unencrypted._
 
 If you're interested, check out the full example on CodePen:
 
