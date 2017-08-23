@@ -49,7 +49,7 @@ function updateStatus() {
 }
 ```
 
-⚠️ Note: With the `online` event, there's a slight possibility of false positives: A user might be connected to a network (which is interpreted as being online), but something higher up might block actual internet access. The `offline` event is a bit more reliable, in the sense that an "offline" user can be  expected **NOT** to have access.
+⚠️ Note: With the `online` event, there's a slight possibility of false positives: A user might be connected to a network (which is interpreted as being online), but something higher up might block actual internet access. The `offline` event is a bit more reliable, in the sense that an "offline" user can be expected **NOT** to have access.
 
 ## Get Notified
 

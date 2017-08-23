@@ -10,6 +10,8 @@ image: "/blog/offline-forms/cover.jpg"
 
 <small>TL;DR: Here's the <a href="https://codepen.io/mxbck/pen/ayYGGO/" target="_blank">CodePen Demo</a> of this post.</small>
 
+With the introduction of Service Workers, developers are now able to supply experiences on the web that will work even without an internet connection. While it's relatively easy to cache static resources, things like forms that require server interaction are harder to optimize. It is possible to provide a somewhat useful offline fallback though.
+
 First, we have to set up a new class for our offline-friendly forms. We'll save a few properties of the `<form>` element and then attach a function to fire on submit:
 
 ```js
