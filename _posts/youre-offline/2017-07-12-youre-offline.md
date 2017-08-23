@@ -175,6 +175,8 @@ That effectively disables every form on the page, indicating that this functiona
 
 If you're doing this, remember to suppress "submit on enter" as well, and make sure the user knows why submitting won't work at the moment.
 
+__UPDATE:__ I found a better way to handle this - by storing form submissions in `localStorage` and then checking for them once the connection comes back online. Read about it in ["Offline-Friendly Forms"](https://mxb.at/blog/offline-forms/).
+
 ## Further Reading
 
 * Intro: [OfflineFirst.org](http://offlinefirst.org/)
