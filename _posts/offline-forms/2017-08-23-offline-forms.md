@@ -6,7 +6,7 @@ category: code
 image: "/blog/offline-forms/cover.jpg"
 ---
 
-<p class="lead">Forms on the web don't usually play nice with bad connections. If you're trying to submit a form while offline, you'll most likely just lose your input. Here's how we might fix that.</p>
+<p class="lead">Forms on the web don't usually play nice with bad connections. If you try to submit a form while offline, you'll most likely just lose your input. Here's how we might fix that.</p>
 
 <small>TL;DR: Here's the <a href="https://codepen.io/mxbck/pen/ayYGGO/" target="_blank">CodePen Demo</a> of this post.</small>
 
@@ -27,7 +27,11 @@ class OfflineForm {
 }
 ```
 
-In the submit handler, we can include a simple connectivity check using the `navigator.onLine` property. [Browser support for it](http://caniuse.com/online-status/embed/) is great across the board. If a user is currently offline, we'll hold off submitting the form for now and instead store the data locally.
+In the submit handler, we can include a simple connectivity check using the `navigator.onLine` property. [Browser support for it](http://caniuse.com/online-status/embed/) is great across the board, and it's trivial to implement.
+
+⚠️ There is however a [possibility of false positives](https://developer.mozilla.org/en-US/docs/Web/API/NavigatorOnLine/onLine) with it, as the property can only detect if the client is connected to a network, not actual internet access. A `false` value on the other hand can be trusted to mean "offline" with relative certainty. So it's best to check for that, instead of the other way around.
+
+If a user is currently offline, we'll hold off submitting the form for now and instead store the data locally.
 
 ```js
 handleSubmit(e) {
@@ -47,7 +51,9 @@ handleSubmit(e) {
 
 ## Storing the Form Input
 
-There are [a few different options](https://developer.mozilla.org/en-US/docs/Web/API/Storage) on how to store arbitrary data on the user's device. Let's go with `localStorage` here. We can timestamp the form data, put it into a new object and then save it using `localStorage.setItem`. This method takes two arguments: a __key__ (the form id) and a __value__ (the JSON string of our data).
+There are [a few different options](https://developer.mozilla.org/en-US/docs/Web/API/Storage) on how to store arbitrary data on the user's device. Depending on your data, you could use `sessionStorage` if you don't want the local copy to persist in memory. For our example, let's go with `localStorage`. 
+
+We can timestamp the form data, put it into a new object and then save it using `localStorage.setItem`. This method takes two arguments: a __key__ (the form id) and a __value__ (the JSON string of our data).
 
 ```js
 storeData() {
@@ -71,7 +77,7 @@ _Hint: You can check the storage in Chrome's devtools under the "Application" ta
   <img src="devtools.png" alt="chrome devtools showing the localstorage contents" />
 </figure>
 
-It's also a good idea to inform the user of what just happened, so they know that their data wasn't just lost. 
+It's also a good idea to inform the user of what happened, so they know that their data wasn't just lost. 
 We could extend the `handleSubmit` function to display some kind of feedback message.
 
 <figure>
@@ -86,8 +92,8 @@ Once the user comes back online, we want to check if there's any stored submissi
 ```js
 constructor(form){
   ...
-  window.addEventListener('online', this.checkStorage);
-  window.addEventListener('load', this.checkStorage);
+  window.addEventListener('online', () => this.checkStorage());
+  window.addEventListener('load', () => this.checkStorage());
 }
 ```
 
@@ -137,7 +143,7 @@ sendData() {
 
 If you dont want to use ajax to send your form submission, another solution would be to just repopulate the form fields with the stored data, then calling `form.submit()` or have the user press the button themselves.
 
-☝️ _Note: I've omitted some other parts like form validation and security tokens in this demo to keep it short, obviously these would have to be implemented in a real production-ready thing. Dealing with sensitive data is another issue here, as you should not store stuff like passwords or credit card data unencrypted._
+☝️ _Note: I've omitted some other parts like form validation and security tokens in this demo to keep it short, obviously these would have to be implemented in a real production-ready thing. Dealing with sensitive data is another issue here, as you should not store stuff like passwords or credit card data unencrypted locally._
 
 If you're interested, check out the full example on CodePen:
 
