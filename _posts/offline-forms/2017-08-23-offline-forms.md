@@ -29,7 +29,7 @@ class OfflineForm {
 
 In the submit handler, we can include a simple connectivity check using the `navigator.onLine` property. [Browser support for it](http://caniuse.com/online-status/embed/) is great across the board, and it's trivial to implement.
 
-⚠️ There is however a [possibility of false positives](https://developer.mozilla.org/en-US/docs/Web/API/NavigatorOnLine/onLine) with it, as the property can only detect if the client is connected to a network, not actual internet access. A `false` value on the other hand can be trusted to mean "offline" with relative certainty. So it's best to check for that, instead of the other way around.
+⚠️ There is however a [possibility of false positives](https://developer.mozilla.org/en-US/docs/Web/API/NavigatorOnLine/onLine) with it, as the property can only detect if the client is connected to a network, not if there's actual internet access. A `false` value on the other hand can be trusted to mean "offline" with relative certainty. So it's best to check for that, instead of the other way around.
 
 If a user is currently offline, we'll hold off submitting the form for now and instead store the data locally.
 
