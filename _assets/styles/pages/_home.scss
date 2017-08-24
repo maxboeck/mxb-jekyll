@@ -21,3 +21,13 @@
     padding:2rem 0 6rem;
   }
 }
+
+.nda {
+  margin-top:3rem;
+  font-style: italic;
+
+  @include mq(md){
+    font-size:.875rem;
+    text-align: right;
+  }
+}
