@@ -169,4 +169,4 @@ For a closer look at designing for perceived performance, check out these links:
 * Designer VS. Developer #8: [Designing for Great Performance](https://www.youtube.com/watch?v=551nfxay-M4)
 * Harry Roberts: [Improving Perceived Performance with Multiple Background Images](https://csswizardry.com/2016/10/improving-perceived-performance-with-multiple-background-images/)
 * Sitepoint: [A Designer’s Guide to Perceived Performance](https://www.sitepoint.com/a-designers-guide-to-fast-websites-and-perceived-performance/)
-[Manuel Wieser: Dominant Color Lazy Loading](https://manu.ninja/dominant-colors-for-lazy-loading-images)
+* Manuel Wieser: [Dominant Color Lazy Loading](https://manu.ninja/dominant-colors-for-lazy-loading-images)
