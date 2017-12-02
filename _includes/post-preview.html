@@ -14,7 +14,11 @@
     </div>
 
     <p class="post__excerpt p-summary">
-      {{ post.content | strip_html | truncatewords: 30 }}
+      {% if post.description %}
+        {{ post.description }}
+      {% else %}
+        {{ post.content | strip_html | truncatewords: 30 }}
+      {% endif %}
     </p>
 
   </a>
