@@ -19,6 +19,10 @@
 
   @include mq(lg){
     padding:2rem 0 6rem;
+
+    &__title__line {
+      display:block;
+    }
   }
 }
 

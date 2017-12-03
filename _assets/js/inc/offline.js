@@ -16,7 +16,7 @@ export default class OfflineSupport {
 
     Array.from(this.elements.pageLinks).forEach((link) => {
       let path = link.href;
-      if (path.slice(-1) === '/'){
+      if (path.slice(-1) === '/') {
         path += 'index.html';
       }
       caches.match(path, { ignoreSearch: true }).then((response) => {
