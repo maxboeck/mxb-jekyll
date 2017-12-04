@@ -4,7 +4,7 @@ title: "Building Skeleton Screens with CSS"
 permalink: "/blog/css-skeleton-screens/"
 category: code
 image: "/blog/css-skeleton-screens/cover.png"
-description: "Designing loading states on the web is often overlooked or dismissed as an afterthought. Building an experience that works with slow connections can be a design challenge as well."
+description: "Designing loading states on the web is often overlooked or dismissed as an afterthought. Building an experience that works with slow connections is not only a developer's challenge..."
 ---
 
 *This article was originally published on [CSS-Tricks.com](https://css-tricks.com/building-skeleton-screens-css-custom-properties/).*
