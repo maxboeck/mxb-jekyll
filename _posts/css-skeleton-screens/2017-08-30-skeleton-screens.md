@@ -3,7 +3,7 @@ layout: post
 title: "Building Skeleton Screens with CSS"
 permalink: "/blog/css-skeleton-screens/"
 category: code
-image: "/blog/css-skeleton-screens/card-skeleton.png"
+image: "/blog/css-skeleton-screens/cover.png"
 description: "Designing loading states on the web is often overlooked or dismissed as an afterthought. Building an experience that works with slow connections can be a design challenge as well."
 ---
 
