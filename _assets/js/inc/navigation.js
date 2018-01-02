@@ -1,3 +1,4 @@
+import debounce from 'lodash/debounce';
 import Util from './util';
 
 const SELECTORS = {
@@ -25,7 +26,7 @@ export default class Navigation {
 
     this.toggleBtn.addEventListener('click', () => this.toggleMenu());
     this.nav.addEventListener('keydown', e => this.handleTabPress(e));
-    window.addEventListener('throttledResize', () => this.setCircleSize());
+    window.addEventListener('resize', debounce(() => this.setCircleSize(), 200));
 
     this.setCircleSize();
   }
@@ -43,7 +44,7 @@ export default class Navigation {
 
   setCircleSize() {
     const screen = Util.getWindowDimensions();
-    const diameter = Math.sqrt(Math.pow(screen.height, 2) + Math.pow(screen.width, 2));
+    const diameter = Math.sqrt((screen.height ** 2) + (screen.width ** 2));
 
     this.animationCircle.style.width = `${diameter * 2}px`;
     this.animationCircle.style.height = `${diameter * 2}px`;

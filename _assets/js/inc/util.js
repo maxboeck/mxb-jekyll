@@ -8,7 +8,7 @@ const Util = {
     const g = d.getElementsByTagName('body')[0];
 
     const x = w.innerWidth || e.clientWidth || g.clientWidth;
-    const y = w.innerHeight|| e.clientHeight|| g.clientHeight;
+    const y = w.innerHeight || e.clientHeight || g.clientHeight;
 
     return {
       width: x,
@@ -101,20 +101,6 @@ const Util = {
         </svg>
       </span>
     `;
-  },
-
-  // Throttled Events
-  throttle(type, name) {
-    let running = false;
-    const func = () => {
-      if (running) { return; }
-      running = true;
-      window.requestAnimationFrame(() => {
-        dispatchEvent(new CustomEvent(name));
-        running = false;
-      });
-    };
-    window.addEventListener(type, func);
   },
 }
 

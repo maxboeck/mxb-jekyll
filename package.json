@@ -14,7 +14,7 @@
   ],
   "dependencies": {
     "blazy": "^1.8.2",
-    "fontfaceobserver": "^2.0.13",
+    "lodash": "^4.17.4",
     "nanoajax": "^0.4.3",
     "promise-polyfill": "^6.0.2"
   },

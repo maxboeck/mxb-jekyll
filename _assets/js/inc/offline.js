@@ -1,18 +1,28 @@
+import { toast } from './toast'
 import Util from './util';
+
+const SELECTORS = {
+  pageLinks: 'a[href]',
+  cachedElement: '[data-cached]',
+}
+
+const CLASSES = {
+  cached: 'is-cached',
+}
 
 export default class OfflineSupport {
   constructor() {
     this.isOffline = false;
     this.elements = {
-      pageLinks: document.querySelectorAll('a[href]'),
-      cachedElement: document.querySelector('[data-cached]'),
+      pageLinks: document.querySelectorAll(SELECTORS.pageLinks),
+      cachedElement: document.querySelector(SELECTORS.cachedElement),
     };
     window.addEventListener('load', () => this.init());
   }
 
   init() {
     this.updateStatus();
-    this.cacheContents();
+    // this.cacheContents();
 
     Array.from(this.elements.pageLinks).forEach((link) => {
       let path = link.href;
@@ -21,7 +31,7 @@ export default class OfflineSupport {
       }
       caches.match(path, { ignoreSearch: true }).then((response) => {
         if (response) {
-          link.classList.add('is-cached');
+          link.classList.add(CLASSES.cached);
         }
       });
     });
@@ -38,30 +48,30 @@ export default class OfflineSupport {
         ${Util.generateIcon('offline', 'Warning:')} 
         You appear to be offline right now. Some parts of this site may not be available until you come back on.
       `;
-      window.Toast.show([{ message }]);
+      toast.show([{ message }]);
     }
   }
 
-  cacheContents() {
-    if (!this.elements.cachedElement) {
-      return;
-    }
+  // cacheContents() {
+  //   if (!this.elements.cachedElement) {
+  //     return;
+  //   }
 
-    const cacheName = `mxb-${this.elements.cachedElement.id}`;
-    const currentURL = `${window.location.pathname}index.html`;
-    const resources = [currentURL];
-    const resourceSelector = this.elements.cachedElement.querySelectorAll('img, video source[type="video/mp4"]');
+  //   const cacheName = `mxb-${this.elements.cachedElement.id}`;
+  //   const currentURL = `${window.location.pathname}index.html`;
+  //   const resources = [currentURL];
+  //   const resourceSelector = this.elements.cachedElement.querySelectorAll('img, video source[type="video/mp4"]');
 
-    Array.from(resourceSelector).forEach((resource) => {
-      if (resource.src) {
-        resources.push(resource.src)
-      }
-    });
+  //   Array.from(resourceSelector).forEach((resource) => {
+  //     if (resource.src) {
+  //       resources.push(resource.src)
+  //     }
+  //   });
 
-    caches.open(cacheName).then((cache) => {
-      cache.addAll(resources).catch((error) => {
-        console.warn('error while caching resources: %O', error);
-      });
-    });
-  }
+  //   caches.open(cacheName).then((cache) => {
+  //     cache.addAll(resources).catch((error) => {
+  //       console.warn('error while caching resources: %O', error);
+  //     });
+  //   });
+  // }
 }

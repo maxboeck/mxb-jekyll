@@ -20,9 +20,6 @@ export default class Toast {
     this.queuedMessages = [];
     this.defaultTimeout = 5000;
     this.reset();
-
-    // make this available on the global scope
-    window.Toast = this;
   }
 
   show(messages) {
@@ -96,3 +93,5 @@ export default class Toast {
     }
   }
 }
+
+export const toast = new Toast()
