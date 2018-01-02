@@ -19,8 +19,8 @@
 
 .fade-in {
   transform: translate3d(0, 0, 0);
-  -webkit-backface-visibility: hidden;
-  -webkit-perspective: 1000;
+  backface-visibility: hidden;
+  perspective: 1000;
   animation: fadeInUp .5s ease;
 }
 

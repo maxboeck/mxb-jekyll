@@ -8,7 +8,7 @@ const SELECTORS = {
 
 const CLASSES = {
   lazyLoadSuccess: 'loaded',
-  pagetransition: 'pagetranstion'
+  pagetransition: 'pagetransition',
 }
 
 export default class ProjectGrid {
@@ -20,26 +20,27 @@ export default class ProjectGrid {
   }
 
   init() {
-    for (let i = 0; i < this.projects.length; i += 1) {
-      this.projects[i].addEventListener('click', this.onProjectClick)
+    const onProjectClick = (e) => {
+      e.preventDefault()
+      const link = Util.findParentByTagName(e.target || e.srcElement, 'A')
+
+      const transition = () => {
+        document.documentElement.classList.add(CLASSES.pagetransition)
+        setTimeout(() => {
+          window.location = link.href
+        }, 600)
+      }
+
+      Util.scrollToTop(400, transition)
     }
+
+    for (let i = 0; i < this.projects.length; i += 1) {
+      this.projects[i].addEventListener('click', onProjectClick)
+    }
+
     this.lazyload = new Blazy({
       selector: SELECTORS.lazyload,
       successClass: CLASSES.lazyLoadSuccess,
     })
-  }
-
-  onProjectClick(e) {
-    e.preventDefault()
-    const link = Util.findParentByTagName(e.target || e.srcElement, 'A')
-
-    const transition = () => {
-      document.documentElement.classList.add(CLASSES.pagetransition)
-      setTimeout(() => {
-        window.location = link.href
-      }, 600)
-    }
-
-    Util.scrollToTop(400, transition)
   }
 }
