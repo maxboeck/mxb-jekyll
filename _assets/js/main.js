@@ -1,6 +1,5 @@
 // Global Imports
 import _Promise from 'promise-polyfill';
-import FontFaceObserver from 'fontfaceobserver';
 import Blazy from 'blazy';
 
 import Navigation from './inc/navigation';
@@ -24,7 +23,6 @@ const App = {
   init() {
     document.documentElement.classList.remove('no-js');
 
-    this.asyncLoadFonts();
     this.lazyLoading();
     this.projectList();
     this.registerServiceWorker();
@@ -64,21 +62,6 @@ const App = {
     new Blazy({
       selector: '.lazyload',
       successClass: 'loaded',
-    });
-  },
-
-  // load Fonts via FontFaceObserver
-  asyncLoadFonts() {
-    if (sessionStorage.getItem('fontsLoaded')) {
-      return;
-    }
-
-    const playfairObserver = new FontFaceObserver('Playfair Display', {});
-    playfairObserver.load().then(() => {
-      document.documentElement.classList.add('fonts-loaded');
-      sessionStorage.setItem('fontsLoaded', true);
-    }, () => {
-      document.documentElement.classList.remove('fonts-loaded');
     });
   },
 

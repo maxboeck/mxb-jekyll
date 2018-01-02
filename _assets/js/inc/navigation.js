@@ -58,13 +58,13 @@ export default class Navigation {
 
     const lastLink = this.navLinks[(this.navLinks.length - 1)];
     switch (e.keyCode) {
-      case 27 : // ESC
+      case 27: // ESC
 
         this.toggleMenu();
         this.toggleBtn.focus();
         break;
 
-      case 9 : // TAB
+      case 9: // TAB
 
         if (e.shiftKey) {
           if (document.activeElement === this.toggleBtn) {
@@ -77,7 +77,7 @@ export default class Navigation {
         }
         break;
 
-      default : break;
+      default: break;
     }
   }
 }
