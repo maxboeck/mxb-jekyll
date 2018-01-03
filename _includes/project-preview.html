@@ -13,7 +13,6 @@
       {% endif %}
     >
       <div class="project__info" id="project-{{ project.slug }}-info">
-        <span class="sr-only">Featured Project: </span>
         <h2 class="project__title" lang="{{ project.title_lang | default: 'en' }}">{{ project.title }}</h2>
         {% if project.tagline %}
         <p class="project__desc">
@@ -27,7 +26,7 @@
           class="lazyload" 
           src="data:image/gif;base64,R0lGODlhAQABAAAAACH5BAEKAAEALAAAAAABAAEAAAICTAEAOw==" 
           data-src="{{ project.image | relative_url }}" 
-          alt=" "
+          alt=""
         >
       </div>
     </div>
