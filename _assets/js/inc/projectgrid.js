@@ -1,13 +1,10 @@
-import Blazy from 'blazy'
 import Util from './util'
 
 const SELECTORS = {
   projectLink: '.js-project-link',
-  lazyload: '.lazyload',
 }
 
 const CLASSES = {
-  lazyLoadSuccess: 'loaded',
   pagetransition: 'pagetransition',
 }
 
@@ -37,10 +34,5 @@ export default class ProjectGrid {
     for (let i = 0; i < this.projects.length; i += 1) {
       this.projects[i].addEventListener('click', onProjectClick)
     }
-
-    this.lazyload = new Blazy({
-      selector: SELECTORS.lazyload,
-      successClass: CLASSES.lazyLoadSuccess,
-    })
   }
 }

@@ -1,5 +1,6 @@
-// Global Imports
+// Imports
 import _Promise from 'promise-polyfill';
+import Blazy from 'blazy'
 
 import Navigation from './inc/navigation';
 import ProjectGrid from './inc/projectgrid';
@@ -18,10 +19,18 @@ const App = {
   init() {
     document.documentElement.classList.remove('no-js');
     this.registerServiceWorker();
+    this.lazyLoading();
 
     this.Navigation = new Navigation();
     this.ProjectGrid = new ProjectGrid();
     this.ContactForm = new ContactForm();
+  },
+
+  lazyLoading() {
+    this.LazyLoading = new Blazy({
+      selector: '.lazyload',
+      successClass: 'loaded',
+    })
   },
 
   // check for SW support and register
