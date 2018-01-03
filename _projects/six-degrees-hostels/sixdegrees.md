@@ -5,6 +5,7 @@ title:        "Six Degrees Hostels"
 tagline:      "Indonesia's coolest backpacker hub"
 image:        "/assets/images/featured/sixdegrees.jpg"
 priority:     2
+tilecolor:    "#FFC396"
 link:         "http://jakarta-backpackers-hostel.com"
 ---
 

@@ -5,6 +5,7 @@ title:        "Tristar Real Estate"
 tagline:      "Spaces for Living"
 image:        "/assets/images/featured/tristar.jpg"
 priority:     3
+tilecolor:    "#429BBF"
 link:         "http://www.tristar.at"
 ---
 <figure class="extend">

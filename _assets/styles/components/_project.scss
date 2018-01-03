@@ -1,4 +1,5 @@
 .project {
+
   &__header {
     @extend .post__header;
 
@@ -15,7 +16,8 @@
     width:100%;
     height: 400px;
     position: relative;
-    background-color:$gray-lighter;
+    background-color: $gray-lighter;
+    background-color: var(--tile-color, #{$gray-lighter});
     border-radius:$border-radius;
     overflow:hidden;
   }

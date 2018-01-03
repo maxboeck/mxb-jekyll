@@ -5,6 +5,7 @@ title:        "International Wheat Genetics Symposium"
 tagline:      "Science to feed the world"
 image:        "/assets/images/featured/iwgs.jpg"
 priority:     4
+tilecolor:    "#B07546"
 link:         "http://iwgs2017.boku.ac.at/"
 ---
 

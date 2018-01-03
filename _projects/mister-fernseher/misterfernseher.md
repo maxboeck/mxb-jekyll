@@ -6,6 +6,7 @@ title_lang:   "de"
 tagline:      "Animated madness studio"
 image:        "/assets/images/featured/fernseher.jpg"
 priority:     5
+tilecolor:    "#F9CC69"
 link:         "http://misterfernseher.com"
 ---
 

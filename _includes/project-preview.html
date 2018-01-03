@@ -1,7 +1,17 @@
 <div class="project project--preview">
-  <a href="{{ project.url | relative_url }}" class="project__link js-project-link" rel="bookmark" aria-labelledby="project-{{ project.slug }}-info">
+  <a
+    href="{{ project.url | relative_url }}"
+    class="project__link js-project-link"
+    rel="bookmark"
+    aria-labelledby="project-{{ project.slug }}-info"
+  >
 
-    <div class="project__content">
+    <div
+      class="project__content"
+      {% if project.tilecolor %}
+        style="--tile-color: {{ project.tilecolor }}"
+      {% endif %}
+    >
       <div class="project__info" id="project-{{ project.slug }}-info">
         <span class="sr-only">Featured Project: </span>
         <h2 class="project__title" lang="{{ project.title_lang | default: 'en' }}">{{ project.title }}</h2>

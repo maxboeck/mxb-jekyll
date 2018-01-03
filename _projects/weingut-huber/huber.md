@@ -7,6 +7,7 @@ tagline:      "World-class wines from Austria"
 image:        "/assets/images/featured/huber.jpg"
 css:          huber
 priority:     1
+tilecolor:    "#979C44"
 link:         "http://www.weingut-huber.at"
 ---
 
