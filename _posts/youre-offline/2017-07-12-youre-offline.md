@@ -81,7 +81,7 @@ function updateStatus() {
     notification.removeAttribute('hidden');
   } else {
     notification.textContent = '';
-    notification.addAttribute('hidden');
+    notification.setAttribute('hidden');
   }
 }
 ```
