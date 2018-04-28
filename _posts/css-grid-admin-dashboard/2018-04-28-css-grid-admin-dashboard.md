@@ -7,7 +7,9 @@ image: "/blog/css-grid-admin-dashboard/cover.jpg"
 description: "A closer look at how CSS grid layout can be used in production today, including fallback styles for flexbox."
 ---
 
-<p class="lead">Good News! Lorem Ipsum dolor sit amet ex fgshaur hsund gwpasm,rtzis, et sonhauzg rt aszdp.</p>
+<p class="lead">Good News! <a href="https://www.w3.org/TR/css-grid-1/">CSS Grid</a> has been out for some time now, and browser support is very good. If you're building stuff on the web, this is definitely a tool you should have on your belt.</p>
+
+Not only is grid worth checking out, it's also ready to be used in production, today. You know - on the *real* web.
 
 <figure class="extend">
   <a href="https://caniuse.com/#search=grid">
@@ -16,9 +18,7 @@ description: "A closer look at how CSS grid layout can be used in production tod
   <figcaption>Grid support as of 04/18. Look at all that green.</figcaption>
 </figure>
 
-The tools are ready - let's use them.
-
-So, what can we build with this? I've used grid on several production projects now, and I found that it really makes building some layouts a lot easier. I've put together a small demo here to show possible applications of CSS grids and how to make them work cross-browser. 
+So, what can we build with this? I've used grid on several projects now, and I found that it really makes building layouts a lot easier. I've put together a small demo here to show possible applications of CSS grids and how to make them work cross-browser. 
 
 👉 *Only after the code? You can find the [full demo on Codepen](https://codepen.io/mxbck/pen/5be32fd8e3ca7b6b2f5108ba7d22debd).*
 
@@ -30,6 +30,7 @@ We're going to build a pretty common layout for the backend of an application, w
     <a href="https://codepen.io/mxbck/pen/5be32fd8e3ca7b6b2f5108ba7d22debd" target="_blank" rel="noopener noreferrer">
         <img src="admin.png" alt="An admin interface layout demo" />
     </a>
+    <figcaption>Our admin dashboard. (Nevermind the hyperrealistic content)</figcaption>
 </figure>
 
 By looking at the design above, we can already imagine the underlying grid. Unlike "regular" websites, these admin screens often have a lot of fixed UI elements that span the entire viewport, and only the main content area is scrollable.
