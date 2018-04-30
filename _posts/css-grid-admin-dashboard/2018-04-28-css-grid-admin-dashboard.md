@@ -66,7 +66,7 @@ Finally, the `grid-template-areas` is just a convienience rule to let us name th
 .header {
   grid-area: header;
 }
-.navigtaion {
+.navigation {
   grid-area: nav;
 }
 // ...you get the idea.
@@ -75,7 +75,9 @@ Finally, the `grid-template-areas` is just a convienience rule to let us name th
 
 ## Nested Grids: The Dashboard
 
-We can nest another grid inside our main content area to display the dashboard. Here's a common design pattern where different statistics and widgets are displayed in a card grid:
+We can nest another grid inside our main content area to display the dashboard. This will be a separate grid instance though, not connected to the main layout. (Sidenote: connected grids or "subgrids" are not yet possible, but the spec for it is already in development, and [subgrids are likely to land with Grid Level 2](https://rachelandrew.co.uk/archives/2017/03/16/subgrid-moved-to-level-2-of-the-css-grid-specification/)). 
+
+Here's a common design pattern where different statistics and widgets are displayed in a card grid:
 
 ![Grid Layout for the dashboard view](dashboard_grid.png)
 
