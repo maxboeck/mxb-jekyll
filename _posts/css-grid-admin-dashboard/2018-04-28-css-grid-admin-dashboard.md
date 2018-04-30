@@ -60,13 +60,18 @@ $admin-nav-width: 250px;
 ```
 We can define the heights and widths using the `grid-template-rows` and `grid-template-columns` properties. The `1fr` (= one fraction) in there is similar to `flex-grow`: it tells the browser to distribute any leftover space equally to the middle row, so the main content takes up all available space.
 
-Finally, the `grid-template-areas` is just a convienience rule to let us name the parts of our grid to something a bit more readable. After doing that, we can assign all grid-items to their position on the grid. The visual placement should generally follow the source order.
+Finally, the `grid-template-areas` is just a convienience rule to let us name the parts of our grid to something a bit more readable. After doing that, we can assign all grid-items to their position on the grid. 
 
-```css
+```scss
 .header {
   grid-area: header;
 }
+.navigtaion {
+  grid-area: nav;
+}
+// ...you get the idea.
 ```
+*Remember: The visual placement should generally follow the source order, to keep the document accessible.*
 
 ## Nested Grids: The Dashboard
 
