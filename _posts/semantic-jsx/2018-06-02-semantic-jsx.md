@@ -3,7 +3,7 @@ layout: post
 title: "Semantic JSX"
 permalink: "/blog/semantic-jsx/"
 category: code
-image: "/blog/semantic-jsx/cover.jpg"
+image: "/blog/semantic-jsx/cover.png"
 description: "The React JSX Syntax offers a layer of abstraction that's very useful for component-based systems - but it's easy to forget that everything you write ultimately compiles down to HTML."
 ---
 
@@ -126,9 +126,3 @@ return (
     </React.Fragment>
 )
 ```
-
-## more
-
-* [HTML5 Semantics]()
-* [Eslint Plugin JSX A11y](https://www.npmjs.com/package/eslint-plugin-jsx-a11y)
-* [Semantic UI]()
