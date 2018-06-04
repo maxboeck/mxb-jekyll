@@ -126,3 +126,9 @@ return (
     </React.Fragment>
 )
 ```
+
+## Further Resources
+
+* [HTML5 Semantics](http://html5doctor.com/lets-talk-about-semantics/)
+* [Eslint Plugin JSX A11y](https://www.npmjs.com/package/eslint-plugin-jsx-a11y)
+* [Semantic UI Library](https://react.semantic-ui.com/introduction)
