@@ -1,71 +1,81 @@
 .post {
-  position:relative;
-  font-size:1.125rem;
+    position: relative;
+    font-size: 1.125rem;
 
-  &__header {
-    @extend .page__header;
-  }
-
-  &__title {
-    margin:0 auto .25em;
-    max-width:60rem;
-  }
-
-  &__meta {
-    font-family: $font-family-serif;
-    color:$gray-light;
-    font-size:.9375em;
-    margin-bottom:1rem;
-  }
-
-  &__date {
-    font-style:italic;
-  }
-
-  &__category {
-    text-transform: uppercase;
-    letter-spacing: 3px;
-    font-size: .77777em;
-  }
-
-  &__excerpt {
-    color:$body-color;
-  }
-
-  &__footer {
-    max-width: $main-column-max-width;
-    margin:0 auto 2rem;
-
-    small {
-      color:$gray-light;
-      display:block;
-      margin-bottom:1rem
+    &__header {
+        @extend .page__header;
     }
-  }
 
-  @include mq(md){
-    font-size:1.375rem;
+    &__title {
+        margin: 0 auto 0.25em;
+        max-width: 60rem;
+    }
+
+    &__meta {
+        font-family: $font-family-serif;
+        color: $gray-light;
+        font-size: 0.9375em;
+        margin-bottom: 1rem;
+    }
+
+    &__date {
+        font-style: italic;
+    }
+
+    &__category {
+        text-transform: uppercase;
+        letter-spacing: 3px;
+        font-size: 0.77777em;
+    }
+
+    &__demo {
+        font-family: $font-family-base;
+
+        @include mq(md) {
+            margin-left: 2rem;
+        }
+    }
+
+    &__excerpt {
+        color: $body-color;
+    }
 
     &__footer {
-      display:flex;
-      justify-content: space-between;
-      align-items:center;
+        max-width: $main-column-max-width;
+        margin: 0 auto 2rem;
 
-      small {margin:0}
+        small {
+            color: $gray-light;
+            display: block;
+            margin-bottom: 1rem;
+        }
     }
-  }
+
+    @include mq(md) {
+        font-size: 1.375rem;
+
+        &__footer {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+
+            small {
+                margin: 0;
+            }
+        }
+    }
 }
 
 //Previews
 .post--preview {
-  .post__title {
-    margin:0;
-  }
-  .post__link {
-    display:block;
-  }
-  .post__readmore {
-    white-space: nowrap;
-    font-style: italic;
-  }
+    .post__title {
+        margin: 0;
+    }
+    .post__link {
+        display: block;
+    }
+    .post__readmore {
+        white-space: nowrap;
+        font-style: italic;
+    }
 }
