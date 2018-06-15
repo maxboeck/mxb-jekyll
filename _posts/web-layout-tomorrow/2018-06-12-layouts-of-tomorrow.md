@@ -4,7 +4,7 @@ title: "The Layouts of Tomorrow"
 permalink: "/blog/layouts-of-tomorrow/"
 category: code, design
 image: "/blog/css-grids-tomorrow/cover.jpg"
-description: ""
+description: "I went over to dribbble in search of fresh webdesign ideas - how hard is it to build a non-standard layout, given the modern CSS tools we have today? An experiment on CodePen."
 ---
 
 If you've been to any web design talk in the last couple of years, you've probably seen this famous tweet by Jon Gold:
@@ -26,8 +26,6 @@ Now I know it's hard to get into a fresh mindset when you've been building stuff
 But to keep our industry moving forward (and our jobs interesting), it's a good idea to take a step back once in a while and rethink how we do things.
 
 If we didn't, we'd still be building stuff with spacer gifs and all-uppercase `<TABLE>` tags. 😉
-
-<!-- On the other hand, it's important to look at some of the established patterns and ask yourself why they're there. What problem do they solve? Why did they win over others? Innovation should never be done just for innovation's sake - but as with everything, there's different ways we can approach it. -->
 
 ## So, how could things look?
 
@@ -82,9 +80,9 @@ There's a lot of great work out there - here's a few of my favorites:
 
 I especially like that last one. It reminds me a bit of the "Metro Tiles" that were all the rage in Windows 8. Not only is this visually impressive, its very flexible too - I could see this working on a phone, a tablet, even on huge TV screens or in augemented reality, as suggested by the designer.
 
-How hard is it to build something like this, given the tools we have today?
+How hard is it to make something like this, given the tools we have today? I wanted to find out and started building a prototype.
 
-I tried to approach this as if I was handed the design on my regular job - with real production constraints in mind. So the interface had to be responsive, performant and accessible. (Designs are not required to be pixel-perfect everywhere though, cause you know - [that's not a real thing](http://dowebsitesneedtobeexperiencedexactlythesameineverybrowser.com/).)
+I tried to approach this with real production constraints in mind. So the interface had to be responsive, performant and accessible. (It's not required to be pixel-perfect everywhere though, cause you know - [that's not a real thing](http://dowebsitesneedtobeexperiencedexactlythesameineverybrowser.com/).)
 
 Here's how it turned out:
 
@@ -97,7 +95,7 @@ Here's how it turned out:
 
 You can check out <a href="https://codepen.io/mxbck/live/81020404c9d5fd873a717c4612c914dd" target="_blank" rel="noopener noreferrer">the final result</a> on Codepen.
 
-👉 *Since this is just for demo purposes, I chose not to include fallbacks and polyfills for older browsers. My goal was to test the capabilities of modern tools here. I found that it works best in recent Firefox or Chrome versions.*
+👉 *Since this is just for demo purposes, I did not include fallbacks and polyfills for older browsers. My goal was to test the capabilities of modern CSS here, so not all features have cross-browser support (read below). I found that it works best in recent versions of Firefox or Chrome.*
 
 Some of the things that made this interesting:
 
@@ -134,35 +132,64 @@ The `--push` modifier class is used to achieve the design's effect where some bo
 
 The original design shows that the section backgrounds and the tile grid move at different speeds, creating the illusion of depth. Nothing extraordinary, just some good old parallax.
 
-While this effect is usually achieved by hooking into the scroll event and then applying different `transform` styles via Javascript, there's a better way to do it, entirely without Javascript. This reduces the number of repaints the browser has to perform.
+While this effect is usually achieved by hooking into the scroll event and then applying different `transform` styles via Javascript, there's a better way to do it, entirely in CSS.
 
 The secret here is to leverage CSS 3D transforms to separate the layers along the z-axis. [This technique](https://developers.google.com/web/updates/2016/12/performant-parallaxing) by Scott Kellum and Keith Clark essentially works by using `perspective` on the scroll container and `translateZ` on the parallax children:
 
 ```css
-.container {
+.parallax-container {
   height: 100%;
   overflow-x: hidden;
   overflow-y: scroll;
+
+  /* set a 3D perspective and origin */
   perspective: 1px;
   perspective-origin: 0 0;
 }
 
 .parallax-child {
   transform-origin: 0 0;
+  /* move the children to a layer in the background,
+     then scale them back up to their original size */
   transform: translateZ(-2px) scale(3);
 }
 ```
 
-A huge benefit of this method is the improved performance, resulting in an almost 60fps smooth parallax scroll.
+A huge benefit of this method is the improved performance (because it doesn't touch the DOM with calcualted styles), resulting in fewer repaints and an almost 60fps smooth parallax scroll.
 
-### Scrolling
+### Snap Points
 
-The only Javascript involved is handling the smooth scrolls when the menu items on the left, or the direction arrows on top/bottom are clicked. This is progressively enhanced from a simple in-page-anchor like `<a href="#vienna">` that jumps to the selected section. 
+[CSS Scroll Snap Points](https://drafts.csswg.org/css-scroll-snap/) are a somewhat experimental feature, but I thought it would fit in nicely with this design. Basically, you can tell the browser scroll to "snap" to certain elements in the document, if it comes in the proximity of such a point. Support is [quite limited](https://caniuse.com/#feat=css-snappoints) at the moment, your best bet to see this working is in Firefox or Safari.
 
-To animate it, I chose to use the vanilla `Element.scrollIntoView()` method [(MDN Docs)](https://developer.mozilla.org/de/docs/Web/API/Element/scrollIntoView). It accepts an option to use "smooth" scrolling behaviour instead of jumping to the target section right away.
+There are currently different versions of the spec, and only Safari supports the most recent implementation. Firefox still uses an older syntax. My combined approach looks like this:
 
-The [scroll behaviour property](https://developer.mozilla.org/en-US/docs/Web/CSS/scroll-behavior) is currrently a Working Draft, so support is not quite there yet. Only Chrome and Firefox have native support at the moment - However, there is [a polyfill](http://iamdustan.com/smoothscroll/) available if necessary.
+```css
+.scroll-container {
+    /* current spec / Safari */
+    scroll-snap-type: block proximity;
 
-## Other cool layouts in production
+    /* old spec / Firefox */
+    scroll-snap-destination: 0% 100%;
+    scroll-snap-points-y: repeat(100%);
+}
+.snap-to-element {
+    scroll-snap-align: start;
+}
+```
+The `scroll-snap-type` tells the scroll container to snap along the `y` axis (vertical) with a "strictness" of `proximity`. This lets the browser decide whether a snap point is in reach, and if it's a good time to jump.
 
-[Invision "Design Genome" Site](https://www.invisionapp.com/enterprise/design-genome)
+Snap points are a small enhancement for capable browsers, all others simply fall back to default scrolling.
+
+### Smooth Scroll
+
+The only Javascript involved is handling the smooth scrolls when the menu items on the left, or the direction arrows on top/bottom are clicked. This is progressively enhanced from a simple in-page-anchor link `<a href="#vienna">` that jumps to the selected section. 
+
+To animate it, I chose to use the vanilla `Element.scrollIntoView()` method [(MDN Docs)](https://developer.mozilla.org/de/docs/Web/API/Element/scrollIntoView). Modern browsers accept an option to use "smooth" scrolling behaviour here, instead of jumping to the target section right away.
+
+The [scroll behaviour property](https://developer.mozilla.org/en-US/docs/Web/CSS/scroll-behavior) is currrently a Working Draft, so support is not quite there yet. Only Chrome and Firefox support this at the moment - However, there is [a polyfill](http://iamdustan.com/smoothscroll/) available if necessary.
+
+## Further Resources
+
+* [Invision "Design Genome" Site](https://www.invisionapp.com/enterprise/design-genome) - Awesome Grid Layout
+* [Layout Land](https://www.youtube.com/channel/UC7TizprGknbDalbHplROtag) - Jen Simmons' Youtube Channel
+* [The New CSS Layout](https://abookapart.com/products/the-new-css-layout) - Rachel Andrew (A Book Apart)
