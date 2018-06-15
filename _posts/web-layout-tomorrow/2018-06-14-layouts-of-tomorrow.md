@@ -132,7 +132,7 @@ The `--push` modifier class is used to achieve the design's effect where some bo
 
 The original design shows that the section backgrounds and the tile grid move at different speeds, creating the illusion of depth. Nothing extraordinary, just some good old parallax.
 
-While this effect is usually achieved by hooking into the scroll event and then applying different `transform` styles via Javascript, there's a better way to do it, entirely in CSS.
+While this effect is usually achieved by hooking into the scroll event and then applying different `transform` styles via Javascript, there's a better way to do it: entirely in CSS.
 
 The secret here is to leverage CSS 3D transforms to separate the layers along the z-axis. [This technique](https://developers.google.com/web/updates/2016/12/performant-parallaxing) by Scott Kellum and Keith Clark essentially works by using `perspective` on the scroll container and `translateZ` on the parallax children:
 
@@ -155,18 +155,18 @@ The secret here is to leverage CSS 3D transforms to separate the layers along th
 }
 ```
 
-A huge benefit of this method is the improved performance (because it doesn't touch the DOM with calcualted styles), resulting in fewer repaints and an almost 60fps smooth parallax scroll.
+A huge benefit of this method is the improved performance (because it doesn't touch the DOM with calculated styles), resulting in fewer repaints and an almost 60fps smooth parallax scroll.
 
 ### Snap Points
 
 [CSS Scroll Snap Points](https://drafts.csswg.org/css-scroll-snap/) are a somewhat experimental feature, but I thought it would fit in nicely with this design. Basically, you can tell the browser scroll to "snap" to certain elements in the document, if it comes in the proximity of such a point. Support is [quite limited](https://caniuse.com/#feat=css-snappoints) at the moment, your best bet to see this working is in Firefox or Safari.
 
-There are currently different versions of the spec, and only Safari supports the most recent implementation. Firefox still uses an older syntax. My combined approach looks like this:
+There are currently different versions of the spec, and only Safari supports the most recent implementation. Firefox still uses an older syntax. The combined approach looks like this:
 
 ```css
 .scroll-container {
     /* current spec / Safari */
-    scroll-snap-type: block proximity;
+    scroll-snap-type: y proximity;
 
     /* old spec / Firefox */
     scroll-snap-destination: 0% 100%;
@@ -182,9 +182,9 @@ Snap points are a small enhancement for capable browsers, all others simply fall
 
 ### Smooth Scroll
 
-The only Javascript involved is handling the smooth scrolls when the menu items on the left, or the direction arrows on top/bottom are clicked. This is progressively enhanced from a simple in-page-anchor link `<a href="#vienna">` that jumps to the selected section. 
+The only Javascript involved is handling the smooth scroll when the menu items on the left, or the direction arrows on top/bottom are clicked. This is progressively enhanced from a simple in-page-anchor link `<a href="#vienna">` that jumps to the selected section. 
 
-To animate it, I chose to use the vanilla `Element.scrollIntoView()` method [(MDN Docs)](https://developer.mozilla.org/de/docs/Web/API/Element/scrollIntoView). Modern browsers accept an option to use "smooth" scrolling behaviour here, instead of jumping to the target section right away.
+To animate it, I chose to use the vanilla `Element.scrollIntoView()` method [(MDN Docs)](https://developer.mozilla.org/de/docs/Web/API/Element/scrollIntoView). Some browsers accept an option to use "smooth" scrolling behaviour here, instead of jumping to the target section right away.
 
 The [scroll behaviour property](https://developer.mozilla.org/en-US/docs/Web/CSS/scroll-behavior) is currrently a Working Draft, so support is not quite there yet. Only Chrome and Firefox support this at the moment - However, there is [a polyfill](http://iamdustan.com/smoothscroll/) available if necessary.
 
