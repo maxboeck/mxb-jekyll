@@ -189,6 +189,10 @@ To animate it, I chose to use the vanilla `Element.scrollIntoView()` method [(MD
 
 The [scroll behaviour property](https://developer.mozilla.org/en-US/docs/Web/CSS/scroll-behavior) is currrently a Working Draft, so support is not quite there yet. Only Chrome and Firefox support this at the moment - However, there is [a polyfill](http://iamdustan.com/smoothscroll/) available if necessary.
 
+## Think outside the box(es)
+
+While this is just one interpretation of what's possible, I'm sure there are countless other innovative ideas that could be realized using the tools we have today. Design trends may come and go as they always have; but I truly think it's worth remembering that the web is a fluid medium. Technologies are constantly changing, so why should our layouts stay the same? Go out there and explore.
+
 ## Further Resources
 
 * [Invision "Design Genome" Site](https://www.invisionapp.com/enterprise/design-genome) - Awesome Grid Layout
