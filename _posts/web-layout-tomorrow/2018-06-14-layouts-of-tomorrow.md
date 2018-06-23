@@ -66,7 +66,7 @@ There's a lot of great work out there - here's a few of my favorites:
         <img src="travel_summary.jpg" alt="" />
     </a>
     <figcaption>
-        "Travel Summary" by <a href="https://dribbble.com/Radium" rel="noopener noreferrer" target="_blank">Piotr Adam Kwiatkowski</a>
+        "Travel Summary" by <a href="https://dribbble.com/p_kwiatkowski" rel="noopener noreferrer" target="_blank">Piotr Adam Kwiatkowski</a>
     </figcaption>
 </figure>
 
