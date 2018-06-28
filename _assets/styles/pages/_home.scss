@@ -19,7 +19,9 @@
 
   @include mq(lg){
     padding:2rem 0 6rem;
+  }
 
+  @media screen and (min-width: 1280px) {
     &__title__line {
       display:block;
     }
