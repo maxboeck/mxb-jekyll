@@ -18,7 +18,7 @@ What if there was a way to adapt websites based on our users connections, just l
 
 ## The Network Information API
 
-This API is an editor's draft of the <a href="https://wicg.io/" title="Web Incubator Community Group">WICG</a> and currently available in Chrome. It can be accessed through the read-only property `navigator.connection` ([MDN](https://developer.mozilla.org/en-US/docs/Web/API/Navigator/connection)), which exposes several properties that provide information about a user's current connection:
+This API is an editor's draft by the <a href="https://wicg.io/" title="Web Incubator Community Group">WICG</a> and currently available in Chrome. It can be accessed through the read-only property `navigator.connection` ([MDN](https://developer.mozilla.org/en-US/docs/Web/API/Navigator/connection)), which exposes several properties that provide information about a user's current connection:
 
 * `connection.type`:
 
@@ -49,7 +49,7 @@ This is a combined estimation of the network quality, based on the round-trip ti
 
 ### Responding to Changes
 
-There is also an Event Listener available on the `connection` property that fires whenever a change in the network quality is detected. It could be used to dynamically determine a users bandwith:
+There is also an Event Listener available on the `connection` property that fires whenever a change in the network quality is detected:
 
 ```js
 function onConnectionChange() {
