@@ -67,7 +67,7 @@ navigator.connection.addEventListener('change', onConnectionChange)
     <img src="support.png" alt="can I use support table for the network information API" />
 </a>
 
-👉 __Be aware that all of this is still experimental.__ Only Chrome and Samsung Internet browsers have currently implemented the API - Support for other platforms [is on the way](https://docs.google.com/document/d/1LTk9uVMGi4kurzcF5ellsAJReTF31fFJMHrQwSVtBjc/edit) though.
+👉 __Be aware that all of this is still experimental.__ Only Chrome and Samsung Internet browsers have currently implemented the API. It's a very good candidate for progressive enhancement though - and support for other platforms [is on the way](https://docs.google.com/document/d/1LTk9uVMGi4kurzcF5ellsAJReTF31fFJMHrQwSVtBjc/edit).
 
 ## Connection-aware components
 
