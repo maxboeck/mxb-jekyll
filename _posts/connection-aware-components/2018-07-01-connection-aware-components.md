@@ -78,7 +78,14 @@ By combining the Network Information API with **React**, we could write a compon
 * __offline__: a placeholder with alt text
 * __2g / reduced data mode__: a low-resolution image, ~30kb
 * __3g__: a high resolution retina image, ~200kb
-* __4g__: a HD video ~2.3MB
+* __4g__: a HD video ~1.8MB
+
+<div class="extend">
+    <figure>
+        <img src="component-states.jpg" alt="a media component, showing four different states of an image or video of a chameleon" />
+        <figcaption>The different states of our Media component</figcaption> 
+    </figure>
+</div>
 
 Here's a (very simplified) example of how that might work:
 
@@ -94,7 +101,9 @@ class ConnectionAwareMedia extends React.Component (
     componentWillMount() {
         // check connection type before first render.
         if (navigator.connection && navigator.connection.effectiveType) {
-            const connectionType = navigator.connection.effectiveType
+            const connectionType = navigator.onLine 
+                ? navigator.connection.effectiveType
+                : 'offline'
             this.setState({
                 connectionType
             })
@@ -112,6 +121,9 @@ class ConnectionAwareMedia extends React.Component (
 
         // render different subcomponents based on network speed.
         switch(connectionType) {
+            case 'offline':
+                return <Placeholder caption={alt} />
+
             case '4g':
                 return <Video src={videoSrc} />
 
@@ -127,10 +139,9 @@ class ConnectionAwareMedia extends React.Component (
 
 ### Using a Higher-Order Component
 
-The above example introduces side-effects into our component - it renders different things, even when given the same props.
-So to keep the component predictable and enable reuse of our logic, moving the network condition check into a separate higher-order component might be a good idea.
+The above example makes our component a bit unpredictable - it renders different things, even when given the same props. This makes it harder to test and maintain. To simplify it and enable reuse of our logic, moving the network condition check into a separate higher-order component might be a good idea.
 
-Such a <abbr title="Higher Order Component">HOC</abbr> could take in any component we want and make it connection-aware, injecting the effective connection type as a prop.
+Such a <abbr title="Higher Order Component">HoC</abbr> could take in any component we want and make it connection-aware, injecting the effective connection type as a prop.
 
 ```jsx
 function withConnectionType(WrappedComponent, respondToChange = false) {
@@ -210,7 +221,7 @@ function withConnectionType(WrappedComponent, respondToChange = false) {
 const ConnectionAwareMedia = withConnectionType(Media)
 ```
 
-👉  This small proof-of concept is [available on CodePen](https://codepen.io/mxbck/pen/5e897c9cd7c75d130d1f86bc5b87a1d2?editors=0010), if you want to play around.
+👉  This small proof-of concept is also <a href="https://codepen.io/mxbck/pen/5e897c9cd7c75d130d1f86bc5b87a1d2?editors=0010" target="_blank" rel="noopener noreferrer">available on CodePen</a>, if you want to play around.
 
 ## Further Reading
 
