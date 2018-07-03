@@ -106,13 +106,13 @@ Unsurprisingly, the essential factor for the "Metro Tiles" is the grid. The enti
 
 ```scss
 .boxgrid {
-    display:grid;
+    display: grid;
     grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
     grid-auto-rows: minmax(150px, auto);
     grid-gap: 2rem .5rem;
 
     &__item {
-        display:flex;
+        display: flex;
 
         &--wide {
             grid-column: span 2;

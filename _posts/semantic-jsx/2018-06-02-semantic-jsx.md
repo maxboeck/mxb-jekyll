@@ -53,7 +53,7 @@ Most of the time, the element you're looking for to trigger an arbitrary action 
 
 The same goes for "empty" links that do not change the URL in some way: If you find something like this in your code:
 
-```html
+```jsx
 <a href="#" onClick={someFunction}>
 ``` 
 Make it a button instead. 
@@ -91,7 +91,7 @@ Most of the time when you want to `map()` an array of items to a JSX structure, 
 
 Here's a useful pattern:
 
-```js
+```jsx
 const CardList = ({ items, title }) => (
     <ul className="cardlist" aria-label={title}>
         {items.map(item => (
@@ -118,7 +118,7 @@ As of React v16, you can use `<React.Fragment>` (or the shorthand `<>...</>` if 
 
 It's awesome - use it.
 
-```js
+```jsx
 return (
     <React.Fragment>
         <h1>Multiple Siblings without a wrapper!</h1>
