@@ -23,17 +23,15 @@
     }
 
     &__category {
+        display: inline-block;
         text-transform: uppercase;
         letter-spacing: 3px;
         font-size: 0.77777em;
+        margin-right: 2rem;
     }
 
     &__demo {
         font-family: $font-family-base;
-
-        @include mq(md) {
-            margin-left: 2rem;
-        }
     }
 
     &__excerpt {
