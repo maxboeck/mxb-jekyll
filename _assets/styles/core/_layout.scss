@@ -1,41 +1,41 @@
 // Main Site Layout
 
 html {
-  overflow-y:scroll;
+    overflow-y: scroll;
 }
 
 .site {
-  display:flex;
-  flex-direction: column;
-  min-height: 100vh;
-  height:100%;
-  position: relative;
+    display: flex;
+    flex-direction: column;
+    min-height: 100vh;
+    height: 100%;
+    position: relative;
 
-  .main {
-    flex: 1 0 auto;
-    padding-bottom:2rem;
+    .main {
+        flex: 1 0 auto;
+        padding-bottom: 2rem;
 
-    &::after {
-      content: '\00a0'; /* &nbsp; */
-      display: block;
-      height: 0px;
-      visibility: hidden;
+        &::after {
+            content: '\00a0'; /* &nbsp; */
+            display: block;
+            height: 0px;
+            visibility: hidden;
+        }
+
+        @include mq(md) {
+            padding-bottom: 4rem;
+        }
     }
 
-    @include mq(md){
-      padding-bottom:4rem;
+    .header,
+    .footer {
+        flex: none;
     }
-  }
-
-  .header, 
-  .footer {
-    flex: none;
-  }
 }
 
 .container {
-  width:90%;
-  margin-left:auto;
-  margin-right:auto;
-  max-width:$main-container-max-width;
+    width: 90%;
+    margin-left: auto;
+    margin-right: auto;
+    max-width: $main-container-max-width;
 }

@@ -1,19 +1,18 @@
 // Offline State Styles
 .offline {
-
-  a:not(.is-cached) {
-    cursor:not-allowed;
-    pointer-events: none;
-    opacity:.5;
-  }
-  a[href^="#"],
-  a[href^="mailto"],
-  a[href^="tel"] {
-    cursor:auto;
-    pointer-events: auto;
-    opacity:1;
-  }
-/*
+    a:not(.is-cached) {
+        cursor: not-allowed;
+        pointer-events: none;
+        opacity: 0.5;
+    }
+    a[href^='#'],
+    a[href^='mailto'],
+    a[href^='tel'] {
+        cursor: auto;
+        pointer-events: auto;
+        opacity: 1;
+    }
+    /*
   .form {
     cursor:not-allowed;
     

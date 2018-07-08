@@ -1,128 +1,131 @@
 // Main Typography Styles
 
 //TODO: define lineheight for headlines
-h1, h2, h3, h4 {
-  line-height: 1.3;
+h1,
+h2,
+h3,
+h4 {
+    line-height: 1.3;
 }
 
 .title {
-  font-family: $font-family-serif;
-  font-size:2.5rem;
-  font-weight:400;
+    font-family: $font-family-serif;
+    font-size: 2.5rem;
+    font-weight: 400;
 
-  @include mq(md){
-    font-size:5rem;
-  }
+    @include mq(md) {
+        font-size: 5rem;
+    }
 }
 
 .content {
-  font-size:1.125rem;
+    font-size: 1.125rem;
 
-  > * {
-    width:90%;
-    max-width:$main-column-max-width;
-    margin-left:auto;
-    margin-right:auto;
-    margin-bottom:2rem;
-  }
-
-  img {
-    display:block;
-    max-width: 100%;
-    margin:0 auto;
-  }
-
-  .extend {
-    max-width: 60rem;
-  }
-
-  .twitter-tweet-rendered {
-    margin:0 auto 2rem !important;
-  }
-
-  a {
-    box-shadow: inset 0 -2px 0 0 $link-color;
-    border-bottom: 1px solid $link-color;
-
-    &:hover,
-    &:focus {
-      color:#FFF;
-      box-shadow: inset 0 -1.25em 0 0 $link-color;
+    > * {
+        width: 90%;
+        max-width: $main-column-max-width;
+        margin-left: auto;
+        margin-right: auto;
+        margin-bottom: 2rem;
     }
-  }
 
-  h2, h3, h4 {
-    margin-top: 1.5em;
-    margin-bottom: .75em;
-  }
+    img {
+        display: block;
+        max-width: 100%;
+        margin: 0 auto;
+    }
 
-  @include mq(md){
-    font-size:1.375rem;
-  }
+    .extend {
+        max-width: 60rem;
+    }
+
+    .twitter-tweet-rendered {
+        margin: 0 auto 2rem !important;
+    }
+
+    a {
+        box-shadow: inset 0 -2px 0 0 $link-color;
+        border-bottom: 1px solid $link-color;
+
+        &:hover,
+        &:focus {
+            color: #fff;
+            box-shadow: inset 0 -1.25em 0 0 $link-color;
+        }
+    }
+
+    h2,
+    h3,
+    h4 {
+        margin-top: 1.5em;
+        margin-bottom: 0.75em;
+    }
+
+    @include mq(md) {
+        font-size: 1.375rem;
+    }
 }
-
 
 .label {
-  font-size:.875rem;
-  text-transform: uppercase;
-  font-weight:700;
-  letter-spacing: 1px;
+    font-size: 0.875rem;
+    text-transform: uppercase;
+    font-weight: 700;
+    letter-spacing: 1px;
 }
 
-
 .lead {
-  font-size: 1.5rem;
-  font-weight:300;
-  line-height:1.4;
+    font-size: 1.5rem;
+    font-weight: 300;
+    line-height: 1.4;
 
-  @include mq(md){
-    font-size:2rem;
-  }
+    @include mq(md) {
+        font-size: 2rem;
+    }
 }
 
 figure {
-  max-width: none;
-  margin-left:auto;
-  margin-right:auto;
-  text-align: center;
+    max-width: none;
+    margin-left: auto;
+    margin-right: auto;
+    text-align: center;
 
-  img {
-    width:auto;
-    max-width: 100%;
-  }
-  figcaption {
-    padding-top:.75rem;
-    font-style: italic;
-    font-size:1rem;
-  }
+    img {
+        width: auto;
+        max-width: 100%;
+    }
+    figcaption {
+        padding-top: 0.75rem;
+        font-style: italic;
+        font-size: 1rem;
+    }
 }
 
 video {
-  max-width: 100%;
-  height:auto;
+    max-width: 100%;
+    height: auto;
 }
 
 hr {
-  border:0;
-  border-bottom:1px solid $gray-lighter;
-  margin:2rem 0;
+    border: 0;
+    border-bottom: 1px solid $gray-lighter;
+    margin: 2rem 0;
 }
 
 blockquote {
-  font-family: $font-family-serif;
-  font-style:italic;
-  padding-left:2.25em;
-  border-left:10px solid $gray-lighter;
+    font-family: $font-family-serif;
+    font-style: italic;
+    padding-left: 2.25em;
+    border-left: 10px solid $gray-lighter;
 
-  footer {
-    font-family: $font-family-sans-serif;
-    text-align: right;
-    font-size:.875em;
-  }
+    footer {
+        font-family: $font-family-sans-serif;
+        text-align: right;
+        font-size: 0.875em;
+    }
 }
 
 // Text Utilities
 
 .text--center {
-  text-align: center;
+    text-align: center;
 }

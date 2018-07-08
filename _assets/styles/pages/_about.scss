@@ -1,65 +1,64 @@
 .about {
-  max-width: 49rem;
+    max-width: 49rem;
 }
 
 .intro {
-  @include clearfix;
-  
-  &__image {
-    width: 150px;
-    height: auto;
-    border-radius:50%;
-    margin:0 2rem 1rem 0;
-  }
+    @include clearfix;
 
-  @include mq(md){
     &__image {
-      width: 210px;
-      height: 210px;
-      float:left;
-      border:1px solid darken($gray-lighter, 5%);
-      padding:10px;
-      margin-left:-4rem;
+        width: 150px;
+        height: auto;
+        border-radius: 50%;
+        margin: 0 2rem 1rem 0;
     }
-  }
+
+    @include mq(md) {
+        &__image {
+            width: 210px;
+            height: 210px;
+            float: left;
+            border: 1px solid darken($gray-lighter, 5%);
+            padding: 10px;
+            margin-left: -4rem;
+        }
+    }
 }
 
 .cv {
-  @include clearfix;
-  padding:2rem 0;
+    @include clearfix;
+    padding: 2rem 0;
 
-  &__section {
-    @include mq(md) {
-      float:left;
-      width:50%;
-    }
-  }
-
-  &__title {
-    margin:2rem 0;
-  }
-
-  &__list {
-    list-style-type: none;
-    padding:0;
-  }
-
-  &__item {
-    margin-bottom:.8125rem;
-
-    &--bullet {
-      margin-bottom:0;
-      padding-left:2rem;
-      background:transparent url(../images/bullet.svg) no-repeat 0 center;
-      background-size:12px 12px;
+    &__section {
+        @include mq(md) {
+            float: left;
+            width: 50%;
+        }
     }
 
-    &__desc {
-      text-transform: uppercase;
-      font-size:.8125em;
-      letter-spacing: 1px;
-      color:$gray-light;
+    &__title {
+        margin: 2rem 0;
     }
-  }
-  
+
+    &__list {
+        list-style-type: none;
+        padding: 0;
+    }
+
+    &__item {
+        margin-bottom: 0.8125rem;
+
+        &--bullet {
+            margin-bottom: 0;
+            padding-left: 2rem;
+            background: transparent url(../images/bullet.svg) no-repeat 0 center;
+            background-size: 12px 12px;
+        }
+
+        &__desc {
+            text-transform: uppercase;
+            font-size: 0.8125em;
+            letter-spacing: 1px;
+            color: $gray-light;
+        }
+    }
 }

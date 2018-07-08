@@ -1,26 +1,24 @@
 /* Header Component */
 
 .header {
-  &__inner {
-    @include clearfix;
-    position:relative;
-    padding:2rem 0;
-    
-    @include mq(md){
-      padding:3.125rem 0;
+    &__inner {
+        @include clearfix;
+        position: relative;
+        padding: 2rem 0;
+
+        @include mq(md) {
+            padding: 3.125rem 0;
+        }
     }
-  }
 }
 
 .brand {
-  display:block;
-  float:left;
-  padding-top:.5rem;
+    display: block;
+    float: left;
+    padding-top: 0.5rem;
 
-  svg {
-    width:5rem;
-    height:1.75rem;
-  }
+    svg {
+        width: 5rem;
+        height: 1.75rem;
+    }
 }
-
-

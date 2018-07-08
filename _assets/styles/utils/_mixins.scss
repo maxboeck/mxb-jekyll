@@ -2,36 +2,35 @@
 // SCSS MIXINS
 //--------------------
 
-@import "../vendor/bootstrap/mixins";
-
+@import '../vendor/bootstrap/mixins';
 
 // shorthand for media-breakpoint-up
 @mixin mq($name) {
-  @include media-breakpoint-up($name) {
-    @content;
-  }
+    @include media-breakpoint-up($name) {
+        @content;
+    }
 }
 
 // shorthand for media-breakpoint-down
 @mixin mq-down($name) {
-  @include media-breakpoint-down($name) {
-    @content;
-  }
+    @include media-breakpoint-down($name) {
+        @content;
+    }
 }
 
 // shorthand for hover & focus
 @mixin hover-focus {
-  &:focus,
-  &:hover {
-    @content;
-  }
+    &:focus,
+    &:hover {
+        @content;
+    }
 }
 
 // dynamic z-index function
 @function z($layer) {
-  @if map-has-key($z-layers, $layer) == false {
-    @warn "No layer found for `#{$layer}` in $z-layers map. Property omitted.";
-  }
- 
-  @return map-get($z-layers, $layer);
+    @if map-has-key($z-layers, $layer) == false {
+        @warn "No layer found for `#{$layer}` in $z-layers map. Property omitted.";
+    }
+
+    @return map-get($z-layers, $layer);
 }

@@ -1,38 +1,37 @@
 .scrollpane {
-  max-width:none;
-  width:100%;
-  background:transparent url(../images/wall.jpg) repeat 0 0;
-  padding:3rem 0;
-  overflow-x: scroll;
-  -webkit-overflow-scrolling: touch;
-
-  &__content {
+    max-width: none;
     width: 100%;
-    position: relative;
-    white-space: nowrap;
-    padding:0 1rem;
-  }
+    background: transparent url(../images/wall.jpg) repeat 0 0;
+    padding: 3rem 0;
+    overflow-x: scroll;
+    -webkit-overflow-scrolling: touch;
 
-  &__item {
-    transform: translate3d(0,0,0);
-    display: inline-block;
-    padding:0 1rem;
-
-    img {
-      max-width:100%;
-      height:auto;
-      box-shadow: 0 1px 5px 1px rgba(0,0,0,.3);
+    &__content {
+        width: 100%;
+        position: relative;
+        white-space: nowrap;
+        padding: 0 1rem;
     }
-  }
+
+    &__item {
+        transform: translate3d(0, 0, 0);
+        display: inline-block;
+        padding: 0 1rem;
+
+        img {
+            max-width: 100%;
+            height: auto;
+            box-shadow: 0 1px 5px 1px rgba(0, 0, 0, 0.3);
+        }
+    }
 }
 
 .scrollpane--posters {
-  .scrollpane__item {
-    width:320px;
+    .scrollpane__item {
+        width: 320px;
 
-    @include mq(md){
-      width:auto;
+        @include mq(md) {
+            width: auto;
+        }
     }
-  }
 }
-

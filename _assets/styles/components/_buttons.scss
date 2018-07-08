@@ -1,41 +1,41 @@
 .btn {
-  display: inline-block;
-  text-align: center;
-  white-space: nowrap;
-  vertical-align: middle;
-  user-select: none;
-  transition:all .2s ease-in-out;
-  font-size: .875rem;
-  padding: .75rem 1.5rem;
-  border: 2px solid rgba(0,0,0,.2);
-  border-radius: $border-radius;
-  color: $gray;
+    display: inline-block;
+    text-align: center;
+    white-space: nowrap;
+    vertical-align: middle;
+    user-select: none;
+    transition: all 0.2s ease-in-out;
+    font-size: 0.875rem;
+    padding: 0.75rem 1.5rem;
+    border: 2px solid rgba(0, 0, 0, 0.2);
+    border-radius: $border-radius;
+    color: $gray;
 
-  &:disabled {
-    cursor: not-allowed;
-    pointer-events: none;
-    opacity: .65;
-  }
+    &:disabled {
+        cursor: not-allowed;
+        pointer-events: none;
+        opacity: 0.65;
+    }
 }
 
 .btn--primary {
-  background-color: $link-color;
-  border-color: transparent;
-  color:#FFF;
+    background-color: $link-color;
+    border-color: transparent;
+    color: #fff;
 
-  @include hover-focus {
-    color:#FFF;
-    background-color:$link-hover-color;
-  }
+    @include hover-focus {
+        color: #fff;
+        background-color: $link-hover-color;
+    }
 }
 
 .btn--twitter {
-  background-color:#1da1f2;
-  border-color:#1da1f2;
-  color:#FFF;
+    background-color: #1da1f2;
+    border-color: #1da1f2;
+    color: #fff;
 
-  @include hover-focus {
-    color:#1da1f2;
-    background-color:transparent;
-  }
+    @include hover-focus {
+        color: #1da1f2;
+        background-color: transparent;
+    }
 }

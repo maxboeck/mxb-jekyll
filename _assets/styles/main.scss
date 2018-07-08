@@ -2,55 +2,55 @@
 // MIXINS & VARIABLES
 //--------------------
 
-@import "utils/var";
-@import "utils/mixins";
+@import 'utils/var';
+@import 'utils/mixins';
 
 //--------------------
 // CORE MODULES
 // partials for site-wide styling
 //--------------------
 
-@import "core/fonts";
-@import "core/normalize";
-@import "core/reboot";
-@import "core/helpers";
-@import "core/typography";
-@import "core/layout";
-@import "core/syntax";
-@import "core/icons";
-@import "core/animation";
-@import "core/offline";
+@import 'core/fonts';
+@import 'core/normalize';
+@import 'core/reboot';
+@import 'core/helpers';
+@import 'core/typography';
+@import 'core/layout';
+@import 'core/syntax';
+@import 'core/icons';
+@import 'core/animation';
+@import 'core/offline';
 
 //--------------------
 // COMPONENTS
 // partials directly tied to an element
 //--------------------
 
-@import "components/header";
-@import "components/nav";
-@import "components/buttons";
-@import "components/form";
-@import "components/toppanel";
-@import "components/page";
-@import "components/post";
-@import "components/postlist";
-@import "components/relatedposts";
-@import "components/project";
-@import "components/projectlist";
-@import "components/highlight";
-@import "components/tooltip";
-@import "components/toast";
-@import "components/scrollpane";
-@import "components/footer";
+@import 'components/header';
+@import 'components/nav';
+@import 'components/buttons';
+@import 'components/form';
+@import 'components/toppanel';
+@import 'components/page';
+@import 'components/post';
+@import 'components/postlist';
+@import 'components/relatedposts';
+@import 'components/project';
+@import 'components/projectlist';
+@import 'components/highlight';
+@import 'components/tooltip';
+@import 'components/toast';
+@import 'components/scrollpane';
+@import 'components/footer';
 
 //--------------------
 // PAGES
 // styles for specific page configurations
 //--------------------
 
-@import "pages/home";
-@import "pages/about";
-@import "pages/404";
+@import 'pages/home';
+@import 'pages/about';
+@import 'pages/404';
 
 //--------------------
 // VENDOR STYLES

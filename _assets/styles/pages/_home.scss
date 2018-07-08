@@ -1,39 +1,39 @@
 // Home Page Specific Styles
 
 .hero {
-  display:flex;
-  flex-direction: column;
-  justify-content: center;
-  padding:2rem 0;
-  height: 400px;
-  height: 70vh;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    padding: 2rem 0;
+    height: 400px;
+    height: 70vh;
 
-  &__title {
-    font-size:calc(1.5rem + 5vmin);
-  }
-
-  &__pretitle {
-    //color:$link-color;
-    margin-bottom:0;
-  }
-
-  @include mq(lg){
-    padding:2rem 0 6rem;
-  }
-
-  @media screen and (min-width: 1280px) {
-    &__title__line {
-      display:block;
+    &__title {
+        font-size: calc(1.5rem + 5vmin);
     }
-  }
+
+    &__pretitle {
+        //color:$link-color;
+        margin-bottom: 0;
+    }
+
+    @include mq(lg) {
+        padding: 2rem 0 6rem;
+    }
+
+    @media screen and (min-width: 1280px) {
+        &__title__line {
+            display: block;
+        }
+    }
 }
 
 .nda {
-  margin-top:3rem;
-  font-style: italic;
+    margin-top: 3rem;
+    font-style: italic;
 
-  @include mq(md){
-    font-size:.875rem;
-    text-align: right;
-  }
+    @include mq(md) {
+        font-size: 0.875rem;
+        text-align: right;
+    }
 }

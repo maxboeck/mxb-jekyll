@@ -1,61 +1,61 @@
 [tooltip] {
-  position: relative;
+    position: relative;
 
-  &::before,
-  &::after {
-    line-height: 1;
-    user-select: none;
-    pointer-events: none;
-    position: absolute;
-    display: none;
-    opacity: 0;
-    left: 50%;
-    transform: translate(-50%, -.5rem);
-    text-transform: none; 
-    font-size: .875rem;
-  }
-
-  @include hover-focus {
     &::before,
     &::after {
-      display:block;
-      animation: tooltip .3s ease-out forwards; 
+        line-height: 1;
+        user-select: none;
+        pointer-events: none;
+        position: absolute;
+        display: none;
+        opacity: 0;
+        left: 50%;
+        transform: translate(-50%, -0.5rem);
+        text-transform: none;
+        font-size: 0.875rem;
     }
-  }
 
-  &::before {
-    content: '';
-    z-index: z('overlay') + 1;
-    border: 5px solid transparent;
-    bottom: 98%;
-    border-bottom-width: 0;
-    border-top-color: #333;
-  }
+    @include hover-focus {
+        &::before,
+        &::after {
+            display: block;
+            animation: tooltip 0.3s ease-out forwards;
+        }
+    }
 
-  &::after {
-    content: attr(tooltip); /* magic! */
-    z-index: z('overlay');
-    bottom: calc(98% + 5px);
-     
-    /* most of the rest of this is opinion */
-    text-align: center;
-    min-width: 3em;
-    max-width: 21em;
-    white-space: nowrap;
-    overflow: hidden;
-    text-overflow: ellipsis;
-    font-family: $font-family-sans-serif;
-     
-    /* visible design of the tooltip bubbles */
-    padding: 1ch;
-    border-radius: .3ch;
-    box-shadow: 0 1em 2em -.5em rgba(0, 0, 0, 0.35);
-    background: #333;
-    color: #fff;
-  }
+    &::before {
+        content: '';
+        z-index: z('overlay') + 1;
+        border: 5px solid transparent;
+        bottom: 98%;
+        border-bottom-width: 0;
+        border-top-color: #333;
+    }
+
+    &::after {
+        content: attr(tooltip); /* magic! */
+        z-index: z('overlay');
+        bottom: calc(98% + 5px);
+
+        /* most of the rest of this is opinion */
+        text-align: center;
+        min-width: 3em;
+        max-width: 21em;
+        white-space: nowrap;
+        overflow: hidden;
+        text-overflow: ellipsis;
+        font-family: $font-family-sans-serif;
+
+        /* visible design of the tooltip bubbles */
+        padding: 1ch;
+        border-radius: 0.3ch;
+        box-shadow: 0 1em 2em -0.5em rgba(0, 0, 0, 0.35);
+        background: #333;
+        color: #fff;
+    }
 }
 
 [tooltip='']::before,
 [tooltip='']::after {
-  display: none !important;
+    display: none !important;
 }
