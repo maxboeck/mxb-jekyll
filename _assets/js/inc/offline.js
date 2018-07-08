@@ -1,77 +1,77 @@
 import { toast } from './toast'
-import Util from './util';
+import Util from './util'
 
 const SELECTORS = {
-  pageLinks: 'a[href]',
-  cachedElement: '[data-cached]',
+    pageLinks: 'a[href]',
+    cachedElement: '[data-cached]'
 }
 
 const CLASSES = {
-  cached: 'is-cached',
+    cached: 'is-cached'
 }
 
 export default class OfflineSupport {
-  constructor() {
-    this.isOffline = false;
-    this.elements = {
-      pageLinks: document.querySelectorAll(SELECTORS.pageLinks),
-      cachedElement: document.querySelector(SELECTORS.cachedElement),
-    };
-    window.addEventListener('load', () => this.init());
-  }
-
-  init() {
-    this.updateStatus();
-    // this.cacheContents();
-
-    Array.from(this.elements.pageLinks).forEach((link) => {
-      let path = link.href;
-      if (path.slice(-1) === '/') {
-        path += 'index.html';
-      }
-      caches.match(path, { ignoreSearch: true }).then((response) => {
-        if (response) {
-          link.classList.add(CLASSES.cached);
+    constructor() {
+        this.isOffline = false
+        this.elements = {
+            pageLinks: document.querySelectorAll(SELECTORS.pageLinks),
+            cachedElement: document.querySelector(SELECTORS.cachedElement)
         }
-      });
-    });
-
-    window.addEventListener('online', () => this.updateStatus());
-    window.addEventListener('offline', () => this.updateStatus());
-  }
-
-  updateStatus() {
-    this.isOffline = !navigator.onLine;
-    document.documentElement.classList.toggle('offline', this.isOffline);
-    if (this.isOffline) {
-      const message = `
-        ${Util.generateIcon('offline', 'Warning:')} 
-        You appear to be offline right now. Some parts of this site may not be available until you come back on.
-      `;
-      toast.show([{ message }]);
+        window.addEventListener('load', () => this.init())
     }
-  }
 
-  // cacheContents() {
-  //   if (!this.elements.cachedElement) {
-  //     return;
-  //   }
+    init() {
+        this.updateStatus()
+        // this.cacheContents();
 
-  //   const cacheName = `mxb-${this.elements.cachedElement.id}`;
-  //   const currentURL = `${window.location.pathname}index.html`;
-  //   const resources = [currentURL];
-  //   const resourceSelector = this.elements.cachedElement.querySelectorAll('img, video source[type="video/mp4"]');
+        Array.from(this.elements.pageLinks).forEach(link => {
+            let path = link.href
+            if (path.slice(-1) === '/') {
+                path += 'index.html'
+            }
+            caches.match(path, { ignoreSearch: true }).then(response => {
+                if (response) {
+                    link.classList.add(CLASSES.cached)
+                }
+            })
+        })
 
-  //   Array.from(resourceSelector).forEach((resource) => {
-  //     if (resource.src) {
-  //       resources.push(resource.src)
-  //     }
-  //   });
+        window.addEventListener('online', () => this.updateStatus())
+        window.addEventListener('offline', () => this.updateStatus())
+    }
 
-  //   caches.open(cacheName).then((cache) => {
-  //     cache.addAll(resources).catch((error) => {
-  //       console.warn('error while caching resources: %O', error);
-  //     });
-  //   });
-  // }
+    updateStatus() {
+        this.isOffline = !navigator.onLine
+        document.documentElement.classList.toggle('offline', this.isOffline)
+        if (this.isOffline) {
+            const message = `
+              ${Util.generateIcon('offline', 'Warning:')} 
+              You appear to be offline right now. Some parts of this site may not be available until you come back on.
+            `
+            toast.show([{ message }])
+        }
+    }
+
+    // cacheContents() {
+    //   if (!this.elements.cachedElement) {
+    //     return;
+    //   }
+
+    //   const cacheName = `mxb-${this.elements.cachedElement.id}`;
+    //   const currentURL = `${window.location.pathname}index.html`;
+    //   const resources = [currentURL];
+    //   const resourceSelector = this.elements.cachedElement.querySelectorAll('img, video source[type="video/mp4"]');
+
+    //   Array.from(resourceSelector).forEach((resource) => {
+    //     if (resource.src) {
+    //       resources.push(resource.src)
+    //     }
+    //   });
+
+    //   caches.open(cacheName).then((cache) => {
+    //     cache.addAll(resources).catch((error) => {
+    //       console.warn('error while caching resources: %O', error);
+    //     });
+    //   });
+    // }
 }
