@@ -14,6 +14,8 @@ html {
     .main {
         flex: 1 0 auto;
         padding-bottom: 2rem;
+        opacity: 1;
+        transition: opacity 0.4s linear 0.2s;
 
         &::after {
             content: '\00a0'; /* &nbsp; */
