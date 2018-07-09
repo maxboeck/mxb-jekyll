@@ -38,6 +38,8 @@ webmentions:
     destination: _assets/js
     uglify: true
     deploy: false
+  templates:
+    webmentions: _includes/webmentions.html
 
 defaults:
   - scope:
