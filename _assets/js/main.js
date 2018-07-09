@@ -1,6 +1,7 @@
 // Imports
 import _Promise from 'promise-polyfill'
 import Blazy from 'blazy'
+import './JekyllWebmentionIO'
 
 import Navigation from './inc/navigation'
 import ProjectGrid from './inc/projectgrid'

@@ -27,6 +27,18 @@ seo:
   name: Max Böck
   type: Person
 
+webmentions:
+  username: mxb.at
+  cache_folder: _cache
+  cache_bad_uris_for: 5
+  legacy_domains:
+    - http://mxb.at
+    - http://www.mxb.at
+  js:
+    destination: _assets/js
+    deploy: false
+    uglify: false
+
 defaults:
   - scope:
       path: ""
@@ -77,3 +89,4 @@ plugins:
   - jekyll-seo-tag
   - jekyll-email-protect
   - jekyll-postfiles
+  - jekyll-webmention_io

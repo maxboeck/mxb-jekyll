@@ -1,5 +1,6 @@
 _site
 _drafts
+_cache
 ftpconfig.js
 Gemfile.lock
 .sass-cache

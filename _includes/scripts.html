@@ -41,3 +41,7 @@
   
   {% endfor %}
 {% endif %}
+
+{% if page.is_post %}
+  {% webmentions_js %}
+{% endif %}

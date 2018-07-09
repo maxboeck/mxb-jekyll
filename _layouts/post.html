@@ -36,4 +36,10 @@ layout: default
 
 </article>
 
-{% include related-posts.html %}
+<section class="container" id="related-posts">
+  {% include related-posts.html %}
+</section>
+
+<section class="container" id="webmentions">
+  {% webmentions page.url links %}
+</section>
