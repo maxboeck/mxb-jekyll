@@ -1,5 +1,4 @@
 {% if jekyll.environment == "production" %}
-
   <!-- Production Bundle -->
   <script src="{{ "/assets/js/bundle.min.js" | relative_url }}" defer></script>
 
@@ -24,16 +23,17 @@
       window.attachEvent("onload", defer);
     else window.onload = defer;
   </script>
-  
 {% else %}
 
   <!-- Dev Bundle -->
   <script src="{{ "/assets/js/bundle.js" | relative_url }}" defer></script>
+  <!-- Tweet Embeds -->
   <script src="//platform.twitter.com/widgets.js" charset="utf-8" async defer></script>
   
 {% endif %}
 
 {% if page.is_post %}
+  <!-- Webmentions Async Loading-->
   <script src="{{ "/assets/js/JekyllWebmentionIO.js" | relative_url }}" async defer></script>
   {% webmentions_js %}
 {% endif %}
