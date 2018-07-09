@@ -36,8 +36,8 @@ webmentions:
     - http://www.mxb.at
   js:
     destination: _assets/js
+    uglify: true
     deploy: false
-    uglify: false
 
 defaults:
   - scope:

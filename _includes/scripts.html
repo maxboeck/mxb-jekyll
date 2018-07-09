@@ -33,15 +33,14 @@
   
 {% endif %}
 
-{% if page.js %}
-  {% for script in page.js %}
-
-  <!-- Page Specific Scripts -->
-  <script src="{{ "/assets/js/" | append: script | append: '.js' | relative_url }}"></script>
-  
-  {% endfor %}
+{% if page.is_post %}
+  <script src="{{ "/assets/js/JekyllWebmentionIO.js" | relative_url }}" async defer></script>
+  {% webmentions_js %}
 {% endif %}
 
-{% if page.is_post %}
-  {% webmentions_js %}
+{% if page.js %}
+  {% for script in page.js %}
+  <!-- Page Specific Scripts -->
+  <script src="{{ "/assets/js/" | append: script | append: '.js' | relative_url }}"></script>
+  {% endfor %}
 {% endif %}
