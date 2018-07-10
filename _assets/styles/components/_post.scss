@@ -81,3 +81,9 @@
         font-style: italic;
     }
 }
+
+// Drafts
+.post--preview.post--draft {
+    opacity: 0.5;
+    padding-left: 3rem;
+}
