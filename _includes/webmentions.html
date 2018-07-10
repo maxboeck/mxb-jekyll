@@ -4,14 +4,14 @@
     <div class="webmentions__panel" id="wm-panel">
         <ol class="webmentions__list" aria-labelledby="wm-title">
             {% for webmention in webmentions %}
-                {% assign content = webmention.content | strip_newlines | strip %}
+                {% assign content = webmention.content | strip_html | strip_newlines %}
                 {% unless content == '' %}
                 <li
                     id="webmention-{{ webmention.id }}"
                     class="webmention webmention--{{ webmention.type }}{% if webmention.author.url == 'https://mxb.at' %} webmention--own{% endif %}"
                 >
                     <div class="webmention__content p-content">
-                        {% if webmention.content.size < 3000 %}
+                        {% if content.size < 1000 %}
                             {{ webmention.content }}
                         {% else %}
                             {{ webmention.raw.activity.sentence_html }}

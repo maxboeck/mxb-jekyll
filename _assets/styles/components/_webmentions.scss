@@ -1,8 +1,26 @@
 .webmentions {
+    &__header {
+        display: flex;
+        align-items: center;
+    }
     &__list {
         list-style-type: none;
         padding: 0;
         margin: 0;
+    }
+    &__toggle,
+    &__stats {
+        display: flex;
+        align-items: center;
+        padding: 0 1rem;
+    }
+    &__toggle {
+        margin-right: auto;
+        padding-left: 0;
+
+        .icon {
+            transform: translateY(2px);
+        }
     }
     &__panel {
         display: none;
@@ -13,7 +31,7 @@
     .webmentions__panel {
         display: block;
     }
-    .webmentions__toggle {
+    .webmentions__header {
         display: none;
     }
 }
