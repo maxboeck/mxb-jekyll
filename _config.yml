@@ -43,7 +43,7 @@ webmentions:
     uglify: true
     deploy: false
   templates:
-    webmentions: _includes/webmentions.html
+    webmentions: _includes/webmentions/list.html
   throttle_lookups:
     last_month: daily
     last_year: weekly

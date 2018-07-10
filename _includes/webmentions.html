@@ -1,71 +1,22 @@
-{% capture webmention_types %}{{ types | join: ',' }}{% endcapture %}
-<div class="webmentions"{% unless webmention_types=="" %} data-webmention-types="{{ webmention_types }}"{% endunless %}>
-  {% if webmentions.size > 0 %}
-    <div class="webmentions__panel" id="wm-panel">
-        <ol class="webmentions__list" aria-labelledby="wm-title">
-            {% for webmention in webmentions %}
-                {% assign content = webmention.content | strip_html | strip_newlines %}
-                {% unless content == '' %}
-                <li
-                    id="webmention-{{ webmention.id }}"
-                    class="webmention webmention--{{ webmention.type }}{% if webmention.author.url == 'https://mxb.at' %} webmention--own{% endif %}"
-                >
-                    <div class="webmention__content p-content">
-                        {% if content.size < 1000 %}
-                            {{ webmention.content }}
-                        {% else %}
-                            {{ webmention.raw.activity.sentence_html }}
-                        {% endif %}
-                    </div>
-                    <div class="webmention__meta">
-                        
-                        {% if webmention.author %}
-                            {% if webmention.author.url %}
-                                <a class="webmention__author h-card u-url" href="{{ webmention.author.url }}">
-                            {% else %}
-                                <span class="webmention__author h-card">
-                            {% endif %}
-                                {% if webmention.author.photo %}
-                                    <img class="webmention__author__photo u-photo" src="{{ webmention.author.photo }}" alt="" title="{{ webmention.author.name }}">
-                                {% else %}
-                                    <img class="webmention__author__photo" src="/assets/images/avatar-default.jpg" alt="">
-                                {% endif %}
-                                <strong class="p-name">{{ webmention.author.name }}</strong>
-                            {% if webmention.author.url %}
-                                </a>
-                            {% else %}
-                                </span>
-                            {% endif %}
-                        {% else %}
-                            <span class="webmention__author">
-                                <img class="webmention__author__photo" src="/assets/images/avatar-default.jpg" alt="">
-                                <strong>Anonymous</strong>
-                            </span>
-                        {% endif %}
+<div class="webmentions__header">
+    <a href="#webmentions" class="webmentions__toggle">
+        {% include icon.html icon="message" %}
+        Show All ({% webmention_count page.url posts replies links %})
+    </a>
 
-                        <span class="webmention__meta__divider">&sdot;</span>
+    <span class="webmentions__stats">
+        {% include icon.html icon="repost" %}
+        {% webmention_count page.url reposts %}
+        <span class="sr-only">Reposts</span>
+    </span>
 
-                        {% if webmention.pubdate %}
-                            <time class="webmention__pubdate dt-published" datetime="{{ webmention.pubdate | date: '%FT%T%:z' }}">{{ webmention.pubdate | date: '%d %B %Y' }}</time>
-                        {% endif %}
+    <span class="webmentions__stats">
+        {% include icon.html icon="heart" %}
+        {% webmention_count page.url likes %}
+        <span class="sr-only">Likes</span>
+    </span>
+</div>
 
-                        {% if webmention.source %}
-                            <span class="webmention__source {% if webmention.source == 'twitter' %}webmention__source--twitter{% endif %}">
-                                on 
-                                {% if webmention.uri %}
-                                    <a href="{{ webmention.uri }}">{{ webmention.source | capitalize }}</a>
-                                {% else %}
-                                    {{ webmention.source | capitalize }}
-                                {% endif %}
-                            </span>
-                        {% endif %}
-                    </div>
-                </li>
-                {% endunless %}
-            {% endfor %}
-        </ol>
-    </div>
-  {% else %}
-    <p class="webmentions__not-found">No webmentions were found.</p>
-  {% endif %}
+<div class="webmentions__panel" id="wm-panel">
+    {% webmentions page.url posts replies links %}
 </div>
