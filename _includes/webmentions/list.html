@@ -11,14 +11,13 @@
                     class="webmention webmention--{{ webmention.type }}{% if webmention.author.url == 'https://mxb.at' %} webmention--own{% endif %}"
                 >
                     <div class="webmention__content p-content">
-                        {% if content.size < 1000 %}
-                            {{ webmention.content }}
-                        {% else %}
+                        {% if content.size > 1000 %}
                             {{ webmention.raw.activity.sentence_html }}
+                        {% else %}
+                            {{ webmention.content }}
                         {% endif %}
                     </div>
                     <div class="webmention__meta">
-                        
                         {% if webmention.author %}
                             {% if webmention.author.url %}
                                 <a class="webmention__author h-card u-url" href="{{ webmention.author.url }}">
