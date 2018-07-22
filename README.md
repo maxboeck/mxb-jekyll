@@ -15,7 +15,7 @@ For a more detailed description, please read [The Relaunch Post](https://mxb.at/
 
 ## Installation
 
-This site runs on [Jekyll](https://jekyllrb.com/docs/installation/#requirements), so you will need Ruby in version 2.2.5 or higher. If not you can get a recent Ruby version through Homebrew (on OSX) There are two types of dependencies necessary to get started:
+This site runs on [Jekyll](https://jekyllrb.com/docs/installation/#requirements), so you will need Ruby in version 2.2.5 or higher. There are two types of dependencies necessary to get started:
 
 Ruby dependencies (Gems) are managed with bundler. Navigate to the root directory with the site's `Gemfile`, then do:
 
