@@ -10,7 +10,7 @@ layout: default
       <time class="post__date dt-published" itemprop="datePublished" datetime="{{ page.date | date_to_xmlschema }}">{{ page.date | date: "%B %-d, %Y" }}</time> 
 
       {% if page.category %}
-      &sdot; <span class="post__category p-category">{{ page.category | capitalize }}</span>
+        &sdot; <span class="post__category p-category">{{ page.category | capitalize }}</span>
       {% endif %}
 
       {% if page.demo %}
@@ -25,6 +25,8 @@ layout: default
   </div>
 
   <div class="post__footer container">
+    <a class="u-url" href="{{ page.url|prepend:site.url }}" hidden>{{ page.title }}</a>
+
     <p>
       <small>Published in [{{ page.category }}] &sdot; {{ page.date | date: "%d %b %Y" }}</small>
     </p>
@@ -44,7 +46,7 @@ layout: default
 
 <section class="blogsection" id="webmentions">
   <h3 class="blogsection__title" id="wm-title">Webmentions</h3>
-  {% webmentions page.url posts replies links %}
+  {% include webmentions.html %}
 </section>
 
 <section class="blogsection" id="related-posts">

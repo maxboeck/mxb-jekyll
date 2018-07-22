@@ -3,7 +3,11 @@
 
     <p class="footer__item">
       <strong>&copy; {{ 'now' | date: '%Y' }}</strong><br />
-      Max B&ouml;ck
+      {% if page.is_post %}
+        <a class="h-card p-author" rel="author" href="{{ site.url }}">Max B&ouml;ck</a>
+      {% else %}
+        <a class="h-card" rel="me" href="{{ site.url }}">Max B&ouml;ck</a>
+      {% endif %}
     </p>
 
     <p class="footer__item">
