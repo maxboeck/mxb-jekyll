@@ -53,6 +53,10 @@
         }
     }
 
+    &__reldata {
+        display: none;
+    }
+
     @include mq(md) {
         font-size: 1.375rem;
 

@@ -25,8 +25,14 @@ layout: default
   </div>
 
   <div class="post__footer container">
-    <a class="u-url" href="{{ page.url|prepend:site.url }}" hidden>{{ page.title }}</a>
-    <a class="h-card p-author" rel="author" href="{{ site.url }}" hidden>Max B&ouml;ck</a>
+
+    <div class="post__reldata" hidden>
+      <a class="u-url" href="{{ page.url|prepend:site.url }}">{{ page.title }}</a>
+      <p class="h-card p-author">
+        <a class="p-name u-url" rel="author" href="{{ site.url }}">Max B&ouml;ck</a>
+        <img class="u-photo" src="{{ "/assets/images/max_boeck.jpg"|prepend:site.url }}" />
+      </p>
+    </div>
 
     <p>
       <small>Published in [{{ page.category }}] &sdot; {{ page.date | date: "%d %b %Y" }}</small>
