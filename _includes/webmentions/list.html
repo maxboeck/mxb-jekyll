@@ -19,8 +19,8 @@
                     </div>
                     <div class="webmention__meta">
                         {% if webmention.author %}
-                            {% if webmention.author.url %}
-                                <a class="webmention__author h-card u-url" href="{{ webmention.author.url }}">
+                            {% if webmention.uri %}
+                                <a class="webmention__author h-card u-url" href="{{ webmention.uri }}" target="_blank" rel="noopener noreferrer">
                             {% else %}
                                 <span class="webmention__author h-card">
                             {% endif %}
@@ -49,13 +49,8 @@
                         {% endif %}
 
                         {% if webmention.source %}
-                            <span class="webmention__source {% if webmention.source == 'twitter' %}webmention__source--twitter{% endif %}">
-                                on 
-                                {% if webmention.uri %}
-                                    <a href="{{ webmention.uri }}">{{ webmention.source | capitalize }}</a>
-                                {% else %}
-                                    {{ webmention.source | capitalize }}
-                                {% endif %}
+                            <span class="webmention__source">
+                                on {{ webmention.source | capitalize }}
                             </span>
                         {% endif %}
                     </div>

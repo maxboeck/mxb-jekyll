@@ -40,9 +40,10 @@ webmentions:
     - http://www.mxb.at
   js:
     destination: _assets/js
-    uglify: true
+    uglify: false
     deploy: false
   templates:
+    count: _includes/webmentions/count.html
     webmentions: _includes/webmentions/list.html
   throttle_lookups:
     last_month: daily
