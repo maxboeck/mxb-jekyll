@@ -55,13 +55,11 @@ I recently read [this great article](https://infrequently.org/2018/09/the-develo
 
 Javascript enables us to do amazing things and it can really enhance the user experience, if done right. But it always has a cost. It's [the most expensive way](https://infrequently.org/2017/10/can-you-afford-it-real-world-web-performance-budgets/) to accomplish a task, and it's also the most fragile. It's easy to forget that fact when we develop things on a highspeed broadband connection, on our state-of-the-art devices.
 
-That's why websites built for a storm do not rely on Javscript. The benefit simply does not outweigh the cost.
+That's why websites built for a storm do not rely on Javascript. The benefit simply does not outweigh the cost.
 
 That NPR site is a very useful thing that serves its purpose, and it does so in the simplest, most efficient way possible. Personally, I'd love to see more distilled experiences like this on the web.
 
-"Well, this might work for a news site - but not every usecase is that simple." 
-
-...I hear you say. 
+... "Well, this might work for a news site - but not every usecase is that simple.", I hear you say.
 
 True. The web is a text-based medium, and it works best with that type of content. But the basic approach is still valid in any other scenario: 
 
