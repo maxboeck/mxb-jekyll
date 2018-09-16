@@ -27,7 +27,7 @@ I'd argue though that in some aspects, they are actually better than the origina
 * It's pure content, without any distractions
 * It's almost completely fail-safe
 * It's responsive by default and will work on any device
-* It passes AA accessibility standards 
+* It's accessible
 * It's search engine friendly
 * It's machine readable and translatable 
 * It has close to perfect performance scores:
