@@ -70,4 +70,6 @@ Figure out what the main thing is people want from your site and deliver it - us
 
 Make it withstand hurricanes.
 
+<p style="text-align:center" aria-hidden="true">&middot;&middot;&middot;</p>
+
 👉 _BTW: This post is not meant to criticize the main NPR website in any way, which is actually very well made. It's more of a general thought on how we deliver and prioritize content on the web._
