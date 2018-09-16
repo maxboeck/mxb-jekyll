@@ -20,7 +20,7 @@ That's a great thing. Here's how it looks:
 
 ## Less is More
 
-Text-only sites like these are usually treated as an <abbr title="Minimum Viable Prototype">MVP</abbr> of sorts. A slimmed-down version of the real site, specifically for emergencies. 
+Text-only sites like these are usually treated as a <abbr title="Minimum Viable Prototype">MVP</abbr> of sorts. A slimmed-down version of the real site, specifically for emergencies. 
 
 I'd argue though that in some aspects, they are actually better than the original. Think about it- that simple NPR site gets a lot of points right:
 
