@@ -20,7 +20,7 @@ That's a great thing. Here's how it looks:
 
 ## Less is More
 
-Text-only sites like these are usually treated as a <abbr title="Minimum Viable Prototype">MVP</abbr> of sorts. A slimmed-down version of the real site, specifically for emergencies. 
+Text-only sites like these are usually treated as a <abbr title="Minimum Viable Product">MVP</abbr> of sorts. A slimmed-down version of the real site, specifically for emergencies. 
 
 I'd argue though that in some aspects, they are actually better than the original. Think about it- that simple NPR site gets a lot of points right:
 
@@ -59,7 +59,7 @@ That's why websites built for a storm do not rely on Javscript. The benefit simp
 
 That NPR site is a very useful thing that serves its purpose, and it does so in the simplest, most efficient way possible. Personally, I'd love to see more distilled experiences like this on the web.
 
-> "Well, this might work for a news site - but not every usecase is that simple."
+"Well, this might work for a news site - but not every usecase is that simple." 
 
 ...I hear you say. 
 
