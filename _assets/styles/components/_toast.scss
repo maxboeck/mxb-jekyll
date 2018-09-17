@@ -18,6 +18,10 @@
     transition: transform 0.25s cubic-bezier(0.4, 0, 1, 1);
     pointer-events: none;
 
+    &--idle {
+        visibility: hidden;
+    }
+
     &__message {
         padding: 1rem 2rem;
         background-color: $gray-dark;

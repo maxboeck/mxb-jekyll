@@ -6,7 +6,8 @@ const SELECTORS = {
 }
 
 const CLASSES = {
-    active: 'toast--active'
+    active: 'toast--active',
+    idle: 'toast--idle'
 }
 
 export default class Toast {
@@ -54,6 +55,8 @@ export default class Toast {
 
     display() {
         this.element.setAttribute('aria-hidden', 'true')
+        this.element.classList.remove(CLASSES.idle)
+
         this.messageContainer.innerHTML = this.data.message
         this.element.classList.add(CLASSES.active)
         this.element.setAttribute('aria-hidden', 'false')
@@ -74,6 +77,7 @@ export default class Toast {
         // wait for the slideout animation to finish first
         setTimeout(() => {
             this.element.setAttribute('aria-hidden', 'true')
+            this.element.classList.add(CLASSES.idle)
             this.messageContainer.innerHTML = ''
 
             this.reset()
