@@ -45,7 +45,7 @@ This is the web as it was originally designed. Pure information, with zero overh
 
 <img src="requests-npr.png" alt="" />
 
-The "full" NPR site in comparison takes __~124 requests__ and weighs close to __5MB__ on average. Time to first paint is around 20 seconds on slow connections. It includes ads, analytics, tracking scripts and social media widgets.
+The "full" NPR site in comparison takes __~114 requests__ and weighs close to __3MB__ on average. Time to first paint is around 20 seconds on slow connections. It includes ads, analytics, tracking scripts and social media widgets.
 
 Meanwhile, the actual news content is roughly the same. The articles are identical - apart from some complementary images, they convey exactly the same information. 
 
