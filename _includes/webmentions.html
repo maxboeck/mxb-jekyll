@@ -4,6 +4,7 @@
         Show All ({% webmention_count page.url posts replies links %})
     </a>
 
+    {% comment %}
     <span class="webmentions__stats">
         {% include icon.html icon="repost" %}
         {% webmention_count page.url reposts %}
@@ -15,6 +16,7 @@
         {% webmention_count page.url likes %}
         <span class="sr-only">Likes</span>
     </span>
+    {% endcomment %}
 </div>
 
 <div class="webmentions__panel" id="wm-panel">
