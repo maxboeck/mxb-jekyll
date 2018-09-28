@@ -16,7 +16,8 @@
     "blazy": "^1.8.2",
     "lodash": "^4.17.10",
     "nanoajax": "^0.4.3",
-    "promise-polyfill": "^8.0.0"
+    "promise-polyfill": "^8.0.0",
+    "svg4everybody": "^2.1.9"
   },
   "devDependencies": {
     "babel-core": "^6.26.3",
