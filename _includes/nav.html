@@ -1,36 +1,36 @@
 <nav id="nav" class="nav" role="navigation" aria-label="site" tabindex="-1">
 
-  <button class="nav__togglebtn" id="menu-toggle" aria-expanded="false" aria-controls="menu">
-    <span class="sr-only">toggle menu</span>
-    <span class="menuicon">
-      <span class="menuicon__bar"></span>
-      <span class="menuicon__bar"></span>
-      <span class="menuicon__bar"></span>
-      <span class="menuicon__bar"></span>
-    </span>
-  </button>
+    <button class="nav__togglebtn" id="menu-toggle" aria-expanded="false" aria-controls="menu">
+        <span class="sr-only">toggle menu</span>
+        <span class="menuicon">
+            <span class="menuicon__bar"></span>
+            <span class="menuicon__bar"></span>
+            <span class="menuicon__bar"></span>
+            <span class="menuicon__bar"></span>
+        </span>
+    </button>
 
-  <div class="nav__content">
-    <ul class="nav__list" id="menu">
-    {% for item in include.nav %}
+    <div class="nav__content">
+        <ul class="nav__list" id="menu">
+            {% for item in include.nav %}
 
-      {% assign is_current = false %}
-      {% assign target = item.url %}
+            {% assign is_current = false %}
+            {% assign target = item.url %}
 
-      {% if page.url == item.url or page.url contains item.include_path %}
-        {% assign is_current = true %}
-      {% endif %}
-      {% if page.url == item.url %}
-        {% assign target = '#main' %}
-      {% endif %}
+            {% if page.url == item.url or page.url contains item.include_path %}
+            {% assign is_current = true %}
+            {% endif %}
+            {% if page.url == item.url %}
+            {% assign target = '#main' %}
+            {% endif %}
 
-      <li class="nav__item {% if is_current %}nav__item--active{% endif %}">
-        <a href="{{ target }}" class="nav__link" {% if is_current %}aria-current="page"{% endif %}>
-          <span class="nav__item__num" aria-hidden="true">0{{ forloop.index }}</span>{{ item.label }}
-        </a>
-      </li>
+            <li class="nav__item {% if is_current %}nav__item--active{% endif %}">
+                <a href="{{ target }}" class="nav__link" {% if is_current %}aria-current="page" {% endif %}>
+                    <span class="nav__item__num" aria-hidden="true">0{{ forloop.index }}</span>{{ item.label }}
+                </a>
+            </li>
 
-    {% endfor %}
-    </ul>
-  </div>
+            {% endfor %}
+        </ul>
+    </div>
 </nav>

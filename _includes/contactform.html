@@ -1,68 +1,40 @@
 <form action="/mailer/contact.php" method="POST" id="contactform" class="contactform form" role="form" novalidate="novalidate">
-  <input type="hidden" name="token" value="7c34a2916f665a3cb7e67300fc8fef42">
+    <input type="hidden" name="token" value="7c34a2916f665a3cb7e67300fc8fef42">
 
-  <fieldset>
-    <legend class="sr-only">Contact Form</legend>
+    <fieldset>
+        <legend class="sr-only">Contact Form</legend>
 
-    <div class="form__field">
-      <label for="name" class="form__label">What's your name?<span class="req" aria-hidden="true">*</span></label>
-      <input 
-        type="text" 
-        id="name" 
-        class="form__input" 
-        name="name" 
-        aria-required="true" 
-        aria-invalid="false" 
-        aria-describedby="name-error"
-      >
-      <div id="name-error" class="form__error" hidden></div>
-    </div>
+        <div class="form__field">
+            <label for="name" class="form__label">What's your name?<span class="req" aria-hidden="true">*</span></label>
+            <input type="text" id="name" class="form__input" name="name" aria-required="true" aria-invalid="false"
+                aria-describedby="name-error">
+            <div id="name-error" class="form__error" hidden></div>
+        </div>
 
-    <div class="form__field">
-      <label for="email" class="form__label">Your email address?<span class="req" aria-hidden="true">*</span></label>
-      <input 
-        type="email" 
-        id="email" 
-        class="form__input" 
-        name="email" 
-        aria-required="true" 
-        aria-invalid="false" 
-        aria-describedby="email-error"
-      >
-      <div id="email-error" class="form__error" hidden></div>
-    </div>
+        <div class="form__field">
+            <label for="email" class="form__label">Your email address?<span class="req" aria-hidden="true">*</span></label>
+            <input type="email" id="email" class="form__input" name="email" aria-required="true" aria-invalid="false"
+                aria-describedby="email-error">
+            <div id="email-error" class="form__error" hidden></div>
+        </div>
 
-    <div class="form__field">
-      <label for="message" class="form__label">Tell me about your project:<span class="req" aria-hidden="true">*</span></label>
-      <textarea 
-        name="message" 
-        id="message" 
-        class="form__input" 
-        cols="30" 
-        rows="10" 
-        aria-required="true" 
-        aria-invalid="false" 
-        aria-describedby="message-error"
-      ></textarea>
-      <div id="message-error" class="form__error" hidden></div>
-    </div>
+        <div class="form__field">
+            <label for="message" class="form__label">Tell me about your project:<span class="req" aria-hidden="true">*</span></label>
+            <textarea name="message" id="message" class="form__input" cols="30" rows="10" aria-required="true"
+                aria-invalid="false" aria-describedby="message-error"></textarea>
+            <div id="message-error" class="form__error" hidden></div>
+        </div>
 
-    <!-- spammer honeypot -->
-    <div class="sr-only" aria-hidden="true">
-      <input 
-        type="text" 
-        name="1m4b0t" 
-        tabindex="-1" 
-        value="" 
-        placeholder="If you're human, leave this field blank" 
-        autocomplete="false"
-      >
-    </div>
+        <!-- spammer honeypot -->
+        <div class="sr-only" aria-hidden="true">
+            <input type="text" name="1m4b0t" tabindex="-1" value="" placeholder="If you're human, leave this field blank"
+                autocomplete="false">
+        </div>
 
-    <div class="form__actions">
-      <button type="submit" class="btn btn--primary" id="contactform-submit">Send Message</button>
-      <div id="contactform-feedback" class="form__feedback" aria-live="assertive" role="alert"></div>
-    </div>
-    
-  </fieldset>
+        <div class="form__actions">
+            <button type="submit" class="btn btn--primary" id="contactform-submit">Send Message</button>
+            <div id="contactform-feedback" class="form__feedback" aria-live="assertive" role="alert"></div>
+        </div>
+
+    </fieldset>
 </form>

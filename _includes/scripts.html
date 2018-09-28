@@ -1,23 +1,23 @@
 {% if jekyll.environment == "production" %}
-  <!-- Production Bundle -->
-  <script src="{{ "/assets/js/bundle.min.js" | relative_url }}?{{ site.time | date: '%s%N' }}" defer></script>
+    <!-- Production Bundle -->
+    <script src="{{ "/assets/js/bundle.min.js" | relative_url }}?{{ site.time | date: '%s%N' }}" defer></script>
 {% else %}
-  <!-- Dev Bundle -->
-  <script src="{{ "/assets/js/bundle.js" | relative_url }}" defer></script>
+    <!-- Dev Bundle -->
+    <script src="{{ "/assets/js/bundle.js" | relative_url }}" defer></script>
 {% endif %}
 
 {% if page.is_post %}
-  <!-- Webmentions Async Loading-->
-  <script src="{{ "/assets/js/JekyllWebmentionIO.js" | relative_url }}" async></script>
-  <script src="//platform.twitter.com/widgets.js" async defer></script>
-  {% webmentions_js %}
+    <!-- Webmentions Async Loading-->
+    <script src="{{ "/assets/js/JekyllWebmentionIO.js" | relative_url }}" async></script>
+    <script src="//platform.twitter.com/widgets.js" async defer></script>
+{% webmentions_js %}
 {% endif %}
 
 {% if page.js %}
-  {% for script in page.js %}
-  <!-- Page Specific Scripts -->
-  <script src="{{ "/assets/js/" | append: script | append: '.js' | relative_url }}"></script>
-  {% endfor %}
+{% for script in page.js %}
+    <!-- Page Specific Scripts -->
+    <script src="{{ "/assets/js/" | append: script | append: '.js' | relative_url }}"></script>
+{% endfor %}
 {% endif %}
 
 <script src="{{ "/assets/js/svg4everybody.min.js" | relative_url }}"></script>

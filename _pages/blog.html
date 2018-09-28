@@ -7,14 +7,14 @@ image: "https://mxb.at/assets/images/blog.png"
 ---
 
 <div class="page__header">
-  <h1 class="page__title title">Blog</h1>
+    <h1 class="page__title title">Blog</h1>
 </div>
 <div class="page__content">
-  <ol class="postlist" aria-label="latest articles">
-  {% for post in site.posts %}
-    <li class="postlist__item">
-    {% include post-preview.html %}
-    </li>
-  {% endfor %}
-  </ol>
+    <ol class="postlist" aria-label="latest articles">
+        {% for post in site.posts %}
+        <li class="postlist__item">
+            {% include post-preview.html %}
+        </li>
+        {% endfor %}
+    </ol>
 </div>

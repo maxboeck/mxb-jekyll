@@ -1,26 +1,26 @@
 <article id="post-{{ post.slug }}" class="post post--preview h-entry {% if post.is_draft %}post--draft{% endif %}">
-  <a href="{{ post.url | relative_url }}" class="post__link" rel="bookmark" aria-labelledby="{{ post.slug }}-title">
+    <a href="{{ post.url | relative_url }}" class="post__link" rel="bookmark" aria-labelledby="{{ post.slug }}-title">
 
-    <h2 id="{{ post.slug }}-title" class="post__title p-name">{{ post.title }}</h2>
+        <h2 id="{{ post.slug }}-title" class="post__title p-name">{{ post.title }}</h2>
 
-    <div class="post__meta">
-      <time class="post__date dt-published" datetime="{{ post.date | date_to_xmlschema }}">
-        {{ post.date | date: "%B %-d, %Y" }}
-      </time> 
-      &sdot; 
-      <span class="post__category">
-        {{ post.category }}
-        {% if post.is_draft %}(Draft){% endif %}
-      </span>
-    </div>
+        <div class="post__meta">
+            <time class="post__date dt-published" datetime="{{ post.date | date_to_xmlschema }}">
+                {{ post.date | date: "%B %-d, %Y" }}
+            </time>
+            &sdot;
+            <span class="post__category">
+                {{ post.category }}
+                {% if post.is_draft %}(Draft){% endif %}
+            </span>
+        </div>
 
-    <p class="post__excerpt p-summary">
-      {% if post.description %}
-        {{ post.description }}
-      {% else %}
-        {{ post.content | strip_html | truncatewords: 30 }}
-      {% endif %}
-    </p>
+        <p class="post__excerpt p-summary">
+            {% if post.description %}
+            {{ post.description }}
+            {% else %}
+            {{ post.content | strip_html | truncatewords: 30 }}
+            {% endif %}
+        </p>
 
-  </a>
+    </a>
 </article>

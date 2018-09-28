@@ -1,27 +1,31 @@
 ---
 layout: default
 ---
-<article id="project-{{ page.slug }}" class="post h-entry fade-in" aria-labelledby="project-{{ page.slug }}-title" data-cached>
+<article
+    id="project-{{ page.slug }}"
+    class="post h-entry fade-in"
+    aria-labelledby="project-{{ page.slug }}-title"
+    data-cached
+>
+    <header class="project__header container">
+        <h1 id="project-{{ page.slug }}-title" class="project__title p-name title" lang="{{ page.title_lang | default: 'en' }}">{{
+            page.title }}</h1>
 
-  <header class="project__header container">
-    <h1 id="project-{{ page.slug }}-title" class="project__title p-name title" lang="{{ page.title_lang | default: 'en' }}">{{ page.title }}</h1>
+        {% if page.tagline %}
+        <p class="project__subtitle">{{ page.tagline }}</p>
+        {% endif %}
 
-    {% if page.tagline %}
-    <p class="project__subtitle">{{ page.tagline }}</p>
-    {% endif %}
+        {% if page.link %}
+        <a href="{{ page.link }}" class="btn btn--primary" target="_blank">Visit The Website</a>
+        {% endif %}
+    </header>
 
-    {% if page.link %}
-    <a href="{{ page.link }}" class="btn btn--primary" target="_blank">Visit The Website</a>
-    {% endif %}
-  </header>
-
-  <div class="project__content e-content content">
-    {{ content }}
-  </div>
-
+    <div class="project__content e-content content">
+        {{ content }}
+    </div>
 </article>
 
 <section class="otherprojects container">
-  <span class="otherprojects__title label">Other projects I've worked on</span>
-  {% include projectlist.html %}
+    <span class="otherprojects__title label">Other projects I've worked on</span>
+    {% include projectlist.html %}
 </section>

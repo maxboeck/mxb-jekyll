@@ -1,14 +1,14 @@
 {% if jekyll.environment == "production" %}
-  {% assign ext = '.min.css' %}
+    {% assign ext = '.min.css' %}
 {% else %}
-  {% assign ext = '.css' %}
+    {% assign ext = '.css' %}
 {% endif %}
 
 <link rel="stylesheet" href="{{ "/assets/css/main" | append: ext | relative_url }}?{{ site.time | date: '%s%N' }}">
 
 <!-- Custom Styles -->
 {% if page.css %}
-  {% for stylesheet in page.css %}
-  <link rel="stylesheet" href="{{ "/assets/css/" | append: stylesheet | append: ext | relative_url }}">
-  {% endfor %}
+    {% for stylesheet in page.css %}
+        <link rel="stylesheet" href="{{ "/assets/css/" | append: stylesheet | append: ext | relative_url }}">
+    {% endfor %}
 {% endif %}

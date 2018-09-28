@@ -1,32 +1,30 @@
 <!DOCTYPE html>
 <html class="no-js" lang="{{ site.lang | default: page.lang | default: 'en' }}">
-  <!--!
+<!--!
   Oh so you're an inspector?
   View the source here: https://github.com/maxboeck/mxb
-  -->
-  {% include head.html %}
+-->
+    {% include head.html %}
+    <body>
 
-  <body>
+        <!--[if lte IE 9]>
+        <div class="legacy-warning">
+        <div class="container">Seems like your browser is quite outdated. Why not <a href="http://browsehappy.com/">upgrade to a modern one</a> for free and improve your experience?</div>
+        </div>
+        <![endif]-->
 
-    <!--[if lte IE 9]>
-    <div class="legacy-warning">
-      <div class="container">Seems like your browser is quite outdated. Why not <a href="http://browsehappy.com/">upgrade to a modern one</a> for free and improve your experience?</div>
-    </div>
-    <![endif]-->
-    
-    <a href="#main" class="sr-skip-link" accesskey="2">skip to main content</a>
+        <a href="#main" class="sr-skip-link" accesskey="2">skip to main content</a>
 
-    <div class="hfeed site" role="document">
-      {% include header.html %}
-      <main class="main" role="main" id="main" tabindex="-1">
-        {{ content }}
-      </main>
-      {% include footer.html %}
-    </div>
-    {% include toast.html %}
+        <div class="hfeed site" role="document">
+            {% include header.html %}
+            <main class="main" role="main" id="main" tabindex="-1">
+                {{ content }}
+            </main>
+            {% include footer.html %}
+        </div>
+        {% include toast.html %}
 
-    {% include scripts.html %}
-    <!--! LAST BUILD: {{ site.time | date_to_rfc822 }} -->
-  </body>
-
+        {% include scripts.html %}
+        <!--! LAST BUILD: {{ site.time | date_to_rfc822 }} -->
+    </body>
 </html>
