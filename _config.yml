@@ -5,7 +5,7 @@ description: >
     Max Böck is a professional frontend developer based in Vienna, Austria.
 baseurl: ''
 url: https://mxb.at
-repo: https://github.com/maxboeck/mxb
+repo: https://github.com/maxboeck/mxb-jeykll
 email: hello@mxb.at
 permalink: /blog/:slug/
 
